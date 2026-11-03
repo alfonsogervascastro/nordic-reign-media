@@ -65,8 +65,9 @@ cards = [
 for i, item in enumerate(ITEMS):
     cards.append(Card(12.0 + i * 1.1, 19.6, 600 + i * 118, [B(item, 56, LIGHT)]))
 cards += [
-    Card(19.8, 23.2, 640, [T("Fenrir only agreed", 64), T("if a god put a hand", 64), T("in his mouth.", 64)]),
-    Card(21.2, 23.2, 1010, [B("Týr did. He lost it.", 58, GOLD)]),
+    Card(19.8, 23.2, 300, [T("Fenrir only agreed", 60), T("if a god put a hand", 60), T("in his mouth.", 60)]),
+    Card(21.4, 23.2, 1420, [B("Týr did. He lost it.", 58, GOLD)]),
+    Card(20.0, 23.2, 1520, [B("Art: John Bauer, Tyr and Fenrir, 1911", 30)]),
     Card(23.4, 26.6, 660, [B("The Edda says that's why", 56, LIGHT), B("cats walk in silence", 56, LIGHT),
                            B("and mountains have no roots.", 56, LIGHT)]),
     Card(26.8, 30.0, 700, [T("It held.", 80), T("Until Ragnarök.", 80, GOLD)]),
@@ -75,11 +76,14 @@ cards += [
     Card(23.4, 26.6, 1440, [B("Source: Prose Edda, Gylfaginning", 34)]),
 ]
 
+TYR_ART = nr.Painting("../images/bauer_tyr_fenrir_1911.jpg", 1020, 600, cy=1000, focus=(0.5, 0.5), crop=(40, 395, 733, 800))
+
 LABEL = nr.Label("THE NORSE SAGA", "PROLOGUE")
 
 def frame(img, t):
     LABEL.draw(img, t, DUR)
     eyes(img, t, 1000, window(t, 0.6, 7.6, 0.8))
+    TYR_ART.draw(img, t, 19.8, window(t, 19.8, 23.2, 0.5), dur=3.4)
     chain(img, t, 900, window(t, 7.8, 10.6))
     for c in cards:
         c.draw(img, t)

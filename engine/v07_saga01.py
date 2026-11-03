@@ -145,8 +145,7 @@ def scene(t):
     s5 = window(t, 23.2, 27.2, 0.6)
     if s5 > 0:
         l5 = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-        put(l5, MOON, 1.0)
-        wanderer(ImageDraw.Draw(l5))
+        ODIN_ART.draw(l5, t, 23.2, 1.0, dur=4.0)
         _fade_into(lay, l5, s5)
     # 6. Ymir's eyes close
     s6 = window(t, 27.2, 31.0, 0.5)
@@ -188,8 +187,11 @@ cards = [
     Card(24.0, 27.0, 440, [T("ODIN", 130, GOLD)]),
     Card(27.2, 31.0, 330, [T("His first act?", 74)]),
     Card(27.9, 31.0, 450, [T("Murder.", 96, GOLD)]),
+    Card(23.6, 27.0, 1530, [B("Art: Georg von Rosen, Odin the Wanderer, 1886", 30)]),
     Card(28.8, 31.0, 1450, [B("Episode 2: Wednesday  ·  " + nr.HANDLE, 42)]),
 ]
+
+ODIN_ART = nr.Painting("../images/rosen_odin_wanderer_1886.jpg", 760, 900, cy=1060, focus=(0.5, 0.25))
 
 LABEL = nr.Label("THE NORSE SAGA", "EP. 1")
 

@@ -135,6 +135,46 @@ class Label:
         d.line([(W / 2 - 40, self.y + 58), (W / 2 + 40, self.y + 58)], fill=GOLD + (int(170 * op),), width=2)
         img.alpha_composite(lay)
 
+class Painting:
+    """A public-domain painting graded to the brand palette, with feathered edges
+    and a slow Ken Burns push. Use: P = Painting(path, 960, 1100); P.draw(img, t, t0, op)."""
+    def __init__(self, path, w, h, cx=W / 2, cy=980, focus=(0.5, 0.4), zoom=0.10, feather=0.16, crop=None):
+        src = Image.open(path).convert("RGB")
+        if crop:
+            src = src.crop(crop)
+        sw, sh = src.size
+        tw, th = int(w * (1 + zoom)), int(h * (1 + zoom))
+        s = max(tw / sw, th / sh)
+        src = src.resize((int(sw * s) + 1, int(sh * s) + 1), Image.LANCZOS)
+        fx = int((src.width - tw) * focus[0]); fy = int((src.height - th) * focus[1])
+        src = src.crop((fx, fy, fx + tw, fy + th))
+        a = np.asarray(src, np.float32) / 255.0
+        lum = (0.3 * a[..., 0] + 0.59 * a[..., 1] + 0.11 * a[..., 2])[..., None]
+        lum = np.clip((lum - 0.06) / 0.88, 0, 1) ** 1.1
+        shadow = np.array([16, 22, 32], np.float32) / 255
+        light = np.array([232, 206, 160], np.float32) / 255
+        duo = shadow * (1 - lum) + light * lum
+        graded = duo * 0.72 + a * 0.28
+        yy, xx = np.mgrid[0:th, 0:tw].astype(np.float32)
+        ex = np.minimum(xx, tw - 1 - xx) / (tw * feather)
+        ey = np.minimum(yy, th - 1 - yy) / (th * feather)
+        mask = np.clip(np.minimum(ex, ey), 0, 1) ** 1.5
+        rgba = np.dstack([graded * 255, mask * 255])
+        self.img = Image.fromarray(np.clip(rgba, 0, 255).astype(np.uint8))
+        self.w, self.h, self.cx, self.cy, self.zoom = w, h, cx, cy, zoom
+    def draw(self, img, t, t0, op, dur=4.5):
+        if op <= 0:
+            return
+        k = ease((t - t0) / dur)
+        z = 1 + self.zoom * (1 - k)          # starts wide, pushes in
+        cw, ch = int(self.img.width / z), int(self.img.height / z)
+        x0 = (self.img.width - cw) // 2; y0 = (self.img.height - ch) // 2
+        frame = self.img.crop((x0, y0, x0 + cw, y0 + ch)).resize((self.w, self.h), Image.BILINEAR)
+        if op < 1:
+            a = np.asarray(frame, np.float32).copy(); a[..., 3] *= op
+            frame = Image.fromarray(a.astype(np.uint8))
+        img.alpha_composite(frame, (int(self.cx - self.w / 2), int(self.cy - self.h / 2)))
+
 # shorthand line builders
 def T(text, size=64, col=LIGHT): return (text, "title", size, col)
 def B(text, size=50, col=MIST): return (text, "body", size, col)
