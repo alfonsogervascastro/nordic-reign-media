@@ -281,48 +281,73 @@ def draw_rule(img, y, op, length=180):
     img.alpha_composite(layer)
 
 # ---------------- audio ----------------
-def make_audio(path, dur, bpm=66, seed=1, drum_from=0.6):
+def make_audio(path, dur, bpm=60, seed=1, drum_from=1.0):
+    """Calm cinematic bed: warm low pad (Dm - Bb - F - C), soft frame drum, faint low wind.
+    No hiss, no pure-sine hum."""
+    from scipy.signal import butter, lfilter
     sr = 44100
     n = int(dur * sr)
     rng = np.random.default_rng(seed)
     t = np.arange(n) / sr
-    # wind: brown-ish noise, slowly modulated
-    white = rng.standard_normal(n).astype(np.float32)
-    brown = np.cumsum(white)
-    brown -= np.convolve(brown, np.ones(2000) / 2000, mode="same")
-    brown /= (np.abs(brown).max() + 1e-6)
-    wind = brown * (0.25 + 0.12 * np.sin(2 * np.pi * 0.07 * t))
-    # drone: low fifths with slow swell
-    drone = (0.18 * np.sin(2 * np.pi * 55 * t) + 0.10 * np.sin(2 * np.pi * 82.4 * t)
-             + 0.05 * np.sin(2 * np.pi * 110 * t)) * (0.7 + 0.3 * np.sin(2 * np.pi * 0.05 * t))
-    # war drum: pitched-down sine + noise burst, pattern ONE . . one ONE . . .
-    drum = np.zeros(n, np.float32)
+
+    def lowpass(x, hz, order=2):
+        b, a = butter(order, hz / (sr / 2), "low")
+        return lfilter(b, a, x)
+
+    # pad: each chord voice = 3 slightly detuned soft saw-ish tones (few harmonics), low-passed
+    chords = [(73.42, 110.0, 146.83, 174.61),   # Dm
+              (58.27, 116.54, 146.83, 174.61),  # Bb
+              (87.31, 130.81, 174.61, 220.0),   # F
+              (65.41, 130.81, 164.81, 196.0)]   # C
+    seg = 7.5
+    pad = np.zeros(n, np.float64)
+    for ci in range(int(dur // seg) + 2):
+        notes = chords[ci % len(chords)]
+        s0 = ci * seg - 1.5
+        i0, i1 = max(0, int(s0 * sr)), min(n, int((s0 + seg + 3.0) * sr))
+        if i0 >= i1:
+            continue
+        tt = t[i0:i1] - s0
+        env = np.clip(tt / 2.5, 0, 1) * np.clip((seg + 3.0 - tt) / 2.5, 0, 1)
+        v = np.zeros(i1 - i0)
+        for k, f0 in enumerate(notes):
+            amp = [0.5, 0.32, 0.22, 0.14][k]
+            for det in (-0.25, 0.0, 0.25):
+                ph = rng.uniform(0, 6.28)
+                for h, ha in ((1, 1.0), (2, 0.35), (3, 0.15)):
+                    v += amp * ha * np.sin(2 * np.pi * (f0 + det) * h * tt + ph)
+        pad[i0:i1] += v * env
+    pad = lowpass(pad, 900)
+    pad /= (np.abs(pad).max() + 1e-6)
+
+    # wind: low-passed noise, slow swells, very quiet
+    wind = lowpass(rng.standard_normal(n), 400, 2)
+    wind /= (np.abs(wind).max() + 1e-6)
+    wind *= 0.5 + 0.5 * np.sin(2 * np.pi * 0.06 * t + 1.0)
+
+    # soft frame drum on beats 1 and 3, no click
+    drum = np.zeros(n)
     beat = 60.0 / bpm
-    hit_len = int(0.9 * sr)
-    ht = np.arange(hit_len) / sr
-    freq = 48 + 40 * np.exp(-ht * 18)
-    body = np.sin(2 * np.pi * np.cumsum(freq) / sr) * np.exp(-ht * 5.5)
-    click = rng.standard_normal(hit_len) * np.exp(-ht * 60) * 0.25
-    hit = (body + click).astype(np.float32)
-    pattern = [1.0, 0, 0.55, 0.8]  # per beat in a 4-beat bar
-    k = 0
-    tb = drum_from
-    while tb < dur - 0.5:
-        amp = pattern[k % 4]
+    hl = int(1.2 * sr)
+    ht = np.arange(hl) / sr
+    freq = 52 + 18 * np.exp(-ht * 12)
+    hit = np.sin(2 * np.pi * np.cumsum(freq) / sr) * np.exp(-ht * 4.0) * (1 - np.exp(-ht * 300))
+    tb, k = drum_from, 0
+    while tb < dur - 1.0:
+        amp = (1.0, 0.0, 0.6, 0.0)[k % 4]
         if amp:
-            s = int(tb * sr)
-            e = min(n, s + hit_len)
-            drum[s:e] += hit[: e - s] * amp
-        tb += beat
-        k += 1
-    mix = 0.55 * wind + drone + 0.75 * drum
-    fade = np.ones(n, np.float32)
-    fi, fo = int(1.0 * sr), int(1.5 * sr)
+            i = int(tb * sr); e = min(n, i + hl)
+            drum[i:e] += hit[: e - i] * amp
+        tb += beat; k += 1
+
+    mix = 0.55 * pad + 0.08 * wind + 0.45 * drum
+    fade = np.ones(n)
+    fi, fo = int(1.2 * sr), int(1.8 * sr)
     fade[:fi] = np.linspace(0, 1, fi)
     fade[-fo:] = np.linspace(1, 0, fo)
     mix = mix * fade
-    mix = mix / (np.abs(mix).max() + 1e-6) * 0.85
-    stereo = np.stack([mix, np.roll(mix, 220)], axis=1)
+    mix = mix / (np.abs(mix).max() + 1e-6) * 0.8
+    stereo = np.stack([mix, np.roll(mix, 300)], axis=1)
     pcm = (stereo * 32767).astype(np.int16)
     with wave.open(path, "wb") as wf:
         wf.setnchannels(2); wf.setsampwidth(2); wf.setframerate(sr)

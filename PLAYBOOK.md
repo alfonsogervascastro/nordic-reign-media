@@ -79,7 +79,7 @@ La imagen debe cambiar cada 3–4 segundos y siempre haber movimiento (empuje le
     - Móntala con `nr.Painting(path, w, h, cy=..., focus=..., crop=...)`: aplica el tratamiento de marca (duotono azul/oro), bordes difuminados y empuje lento. Ejemplos en `v07_saga01.py` (Odín de Rosen) y `v01_gleipnir.py` (Týr y Fenrir de Bauer).
     - Cita la obra en pantalla (B 30 px, y≈1530: "Art: <autor>, <obra>, <año>") y en el texto de la publicación.
     - Candidatas ya localizadas: `Nicolai_Abildgaard,_Ymer_dier_koen_Ødhumbla,_,_KMS3397,_Statens_Museum_for_Kunst.jpg` (Ymir y Auðumbla), `Ymir_gets_killed_by_Froelich.jpg` (Ep. 2). Las dos dieron 429 el 3 nov; reintentar.
-2. **Si no se pueden descargar, o para el resto de series: siluetas dibujadas por código** con `scenes.py` y los ejemplos de `v07_saga01.py` (acantilados, resplandores de fuego y hielo, ojos, animales y figuras suavizados con supersampling, Odín como caminante con sombrero y bastón). Dibuja las formas en capas separadas y combínalas con `alpha_composite`: `ImageDraw` sobre RGBA reemplaza píxeles, no los mezcla.
+2. **Ilustración por código: solo atmósfera, nunca figuras.** Alfonso ve poco logrados los personajes y animales dibujados por código y el salto de estilo con las pinturas. Por eso el código solo dibuja lo que queda bien: cielo, niebla, resplandores de fuego y hielo, acantilados y montañas en silueta, Yggdrasil, ojos brillando en la oscuridad, cadenas, runas talladas y partículas (`scenes.py`, `v07_saga01.py`). **Personas, dioses y animales solo aparecen en pinturas.** Si una escena necesita una figura y no hay pintura, se resuelve con atmósfera y texto. Dibuja las formas en capas separadas y combínalas con `alpha_composite`: `ImageDraw` sobre RGBA reemplaza píxeles, no los mezcla.
 3. No usar imágenes generadas con IA salvo que Alfonso las suba a `images/ai/`; en ese caso marcar `isAiGenerated` / `isAiGeneratedContent` en Metricool.
 4. Nunca fotos de personas reales ni de tatuajes ajenos.
 
@@ -104,7 +104,7 @@ La imagen debe cambiar cada 3–4 segundos y siempre haber movimiento (empuje le
 
 ## Pendientes
 
-- Viernes 13 nov: `2026-11/2026-11-13_myth-vs-history_horns.mp4` ya está programado en Metricool. No crear otro vídeo para ese día.
+- Viernes 13 nov: `2026-11/2026-11-13_myth-vs-history_horns_a2.mp4` ya está programado en Metricool. No crear otro vídeo para ese día.
 
 ## Cómo producir y programar
 
@@ -119,10 +119,10 @@ La imagen debe cambiar cada 3–4 segundos y siempre haber movimiento (empuje le
 
 | Fecha | Serie | Tema | Archivo |
 | --- | --- | --- | --- |
-| 2026-11-04 | The Norse Saga · Prólogo | Gleipnir y Fenrir | 2026-11/2026-11-04_saga-prologue_gleipnir_v3.mp4 |
-| 2026-11-05 | Words from the North | Días de la semana | 2026-11/2026-11-05_words_days.mp4 |
-| 2026-11-06 | Your name in runes | Llamada + ejemplo ASTRID | 2026-11/2026-11-06_name_astrid.mp4 |
-| 2026-11-07 | The Norse Saga · Ep. 1 | Ginnungagap → Odín | 2026-11/2026-11-07_saga-ep01_ginnungagap_v3.mp4 |
-| 2026-11-08 | Words from the North | window, sky, egg, berserk, they | 2026-11/2026-11-08_words_old-norse.mp4 |
-| 2026-11-09 | Rune 1/24 | Fehu | 2026-11/2026-11-09_rune01_fehu.mp4 |
-| 2026-11-13 | Myth vs History | Cascos con cuernos | 2026-11/2026-11-13_myth-vs-history_horns.mp4 |
+| 2026-11-04 | The Norse Saga · Prólogo | Gleipnir y Fenrir | 2026-11/2026-11-04_saga-prologue_gleipnir_a2.mp4 |
+| 2026-11-05 | Words from the North | Días de la semana | 2026-11/2026-11-05_words_days_a2.mp4 |
+| 2026-11-06 | Your name in runes | Llamada + ejemplo ASTRID | 2026-11/2026-11-06_name_astrid_a2.mp4 |
+| 2026-11-07 | The Norse Saga · Ep. 1 | Ginnungagap → Odín | 2026-11/2026-11-07_saga-ep01_ginnungagap_a2.mp4 |
+| 2026-11-08 | Words from the North | window, sky, egg, berserk, they | 2026-11/2026-11-08_words_old-norse_a2.mp4 |
+| 2026-11-09 | Rune 1/24 | Fehu | 2026-11/2026-11-09_rune01_fehu_a2.mp4 |
+| 2026-11-13 | Myth vs History | Cascos con cuernos | 2026-11/2026-11-13_myth-vs-history_horns_a2.mp4 |

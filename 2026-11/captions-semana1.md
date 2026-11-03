@@ -1,6 +1,6 @@
 # Nordic Reign — textos de publicación, semana 1 (4–9 nov 2026)
 
-## Miércoles 4 · The Norse Saga · Prólogo · 2026-11-04_saga-prologue_gleipnir_v3.mp4
+## Miércoles 4 · The Norse Saga · Prólogo · 2026-11-04_saga-prologue_gleipnir_a2.mp4
 **YouTube title:** The Norse Saga, Prologue: The Impossible Chain | #shorts
 
 **Caption:**
@@ -12,7 +12,7 @@ Source: Prose Edda, Gylfaginning (Snorri Sturluson, 13th century).
 
 #norsemythology #thenorsesaga #fenrir #vikings #norse #mythology #tyr #ragnarok #odin #loki
 
-## Jueves 5 · Words from the North · 2026-11-05_words_days.mp4
+## Jueves 5 · Words from the North · 2026-11-05_words_days_a2.mp4
 **YouTube title:** Your Week Is Named After Norse Gods | #shorts
 
 **Caption:**
@@ -22,7 +22,7 @@ Which day were you born?
 
 #norsemythology #odin #thor #vikings #etymology #norse #mythology #history #didyouknow
 
-## Viernes 6 · Your name in runes · 2026-11-06_name_astrid.mp4
+## Viernes 6 · Your name in runes · 2026-11-06_name_astrid_a2.mp4
 **YouTube title:** What Your Name Looks Like in Runes | Elder Futhark #shorts
 
 **Caption:**
@@ -32,7 +32,7 @@ Written in Elder Futhark, the oldest runic alphabet (c. 150–800 AD). This is a
 
 #runes #elderfuthark #norse #vikings #norsemythology #runic #nordic #yourname
 
-## Sábado 7 · The Norse Saga · Ep. 1 · 2026-11-07_saga-ep01_ginnungagap_v3.mp4
+## Sábado 7 · The Norse Saga · Ep. 1 · 2026-11-07_saga-ep01_ginnungagap_a2.mp4
 **YouTube title:** The Norse Saga Ep. 1: Fire, Ice and the First Giant | #shorts
 
 **Caption:**
@@ -44,7 +44,7 @@ Source: Prose Edda, Gylfaginning.
 
 #norsemythology #thenorsesaga #odin #ymir #creation #vikings #norse #mythology #proseedda
 
-## Domingo 8 · Words from the North · 2026-11-08_words_old-norse.mp4
+## Domingo 8 · Words from the North · 2026-11-08_words_old-norse_a2.mp4
 **YouTube title:** You Speak Old Norse Every Day | #shorts
 
 **Caption:**
@@ -54,7 +54,7 @@ Which one surprised you?
 
 #oldnorse #etymology #vikings #norse #english #language #history #didyouknow #norsemythology
 
-## Lunes 9 · Rune 1/24 · 2026-11-09_rune01_fehu.mp4
+## Lunes 9 · Rune 1/24 · 2026-11-09_rune01_fehu_a2.mp4
 **YouTube title:** Rune 1/24: Fehu, the Rune of Wealth | #shorts
 
 **Caption:**
@@ -64,7 +64,7 @@ Would you tattoo it? Next Monday: Uruz.
 
 #runes #fehu #elderfuthark #norse #vikings #runetattoo #norsemythology #runeoftheweek
 
-## Viernes 13 · Myth vs History · 2026-11-13_myth-vs-history_horns.mp4 (pendiente de programar)
+## Viernes 13 · Myth vs History · 2026-11-13_myth-vs-history_horns_a2.mp4 (pendiente de programar)
 **YouTube title:** Vikings Never Wore Horned Helmets. Here's Who Did | #shorts
 
 **Caption:**
