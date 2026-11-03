@@ -1,0 +1,306 @@
+"""Nordic Reign reel engine — shared look, runes, text cards, audio, rendering.
+
+Palette v2 (from the existing cover art): storm charcoal background, steel slabs,
+lightning text, mist secondary, rune gold as the single accent.
+"""
+import math, os, random, subprocess, wave
+import numpy as np
+from PIL import Image, ImageDraw, ImageFilter, ImageFont
+
+W, H, FPS = 1080, 1920, 30
+HERE = os.path.dirname(os.path.abspath(__file__))
+F_TITLE = os.path.join(HERE, "fonts/Cinzel.ttf")
+F_BODY = os.path.join(HERE, "fonts/EBGaramond.ttf")
+HANDLE = "@nordicreignofficial"
+
+BG = np.array([14, 17, 22], np.float32)       # carbón tormenta #0E1116
+BG2 = np.array([24, 28, 35], np.float32)
+STEEL = (43, 48, 56)                            # acero #2B3038
+LIGHT = (214, 226, 238)                         # relámpago #D6E2EE
+MIST = (142, 153, 166)                          # niebla #8E99A6
+GOLD = (224, 164, 74)                           # oro rúnico #E0A44A
+
+SAFE_TOP, SAFE_BOTTOM = 230, 1520               # keep text clear of app UI
+
+_font_cache = {}
+def font(kind, size):
+    key = (kind, size)
+    if key not in _font_cache:
+        path = F_TITLE if kind == "title" else F_BODY
+        f = ImageFont.truetype(path, size)
+        try:
+            f.set_variation_by_axes([700 if kind == "title" else 500])
+        except Exception:
+            pass
+        _font_cache[key] = f
+    return _font_cache[key]
+
+def ease(t):
+    t = max(0.0, min(1.0, t))
+    return t * t * (3 - 2 * t)
+
+def window(t, a, b, fade=0.4):
+    if t < a or t > b:
+        return 0.0
+    return ease((t - a) / fade) * ease((b - t) / fade)
+
+# ---------------- background ----------------
+class Background:
+    def __init__(self, seed=3):
+        rng = np.random.default_rng(seed)
+        g = np.linspace(0, 1, H, dtype=np.float32)[:, None, None]
+        self.base = (BG * (1 - g) + BG2 * g).repeat(W, axis=1)
+        yy, xx = np.mgrid[0:H, 0:W].astype(np.float32)
+        v = 1 - 0.5 * (((xx - W / 2) / (W * 0.75)) ** 2 + ((yy - H * 0.47) / (H * 0.7)) ** 2)
+        self.vign = np.clip(v, 0.4, 1)[..., None]
+        small = rng.random((48, 27)).astype(np.float32)
+        fog = Image.fromarray((small * 255).astype(np.uint8)).resize((W, H * 2), Image.BICUBIC)
+        self.fog = np.asarray(fog.filter(ImageFilter.GaussianBlur(44)), np.float32) / 255.0
+        random.seed(seed)
+        self.embers = [dict(x=random.uniform(0, W), y=random.uniform(0, H), v=random.uniform(35, 110),
+                            r=random.uniform(1.5, 3.8), ph=random.uniform(0, 6.28)) for _ in range(60)]
+
+    def render(self, t):
+        off = int((t * 16) % H)
+        f = self.fog[H - off: 2 * H - off] if off else self.fog[H:2 * H]
+        rgb = (self.base + f[..., None] * np.array([30, 34, 42], np.float32) * 1.3) * self.vign
+        img = Image.fromarray(np.clip(rgb, 0, 255).astype(np.uint8)).convert("RGBA")
+        layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        d = ImageDraw.Draw(layer)
+        for e in self.embers:
+            y = (e["y"] - e["v"] * t) % H
+            x = e["x"] + 16 * math.sin(t * 0.8 + e["ph"])
+            a = max(0, int(130 + 90 * math.sin(t * 3 + e["ph"])))
+            r = e["r"]
+            d.ellipse([x - r, y - r, x + r, y + r], fill=(240, 160, 80, a))
+        img.alpha_composite(layer)
+        return img
+
+# ---------------- text ----------------
+def _segments(line):
+    """A line is (text, kind, size, color) or a list of such segments."""
+    return line if isinstance(line, list) else [line]
+
+def line_size(d, line):
+    w = h = 0
+    for text, kind, size, col in _segments(line):
+        bb = d.textbbox((0, 0), text, font=font(kind, size))
+        w += bb[2] - bb[0]
+        h = max(h, size)
+    return w, h
+
+def draw_lines(img, lines, y, op, rise=0.0, gap=20):
+    if op <= 0:
+        return y
+    layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    d = ImageDraw.Draw(layer)
+    cy = y + rise
+    for line in lines:
+        lw, lh = line_size(d, line)
+        x = (W - lw) / 2
+        for text, kind, size, col in _segments(line):
+            f = font(kind, size)
+            d.text((x + 2, cy + 3), text, font=f, fill=(0, 0, 0, int(170 * op)))
+            d.text((x, cy), text, font=f, fill=tuple(col) + (int(255 * op),))
+            bb = d.textbbox((0, 0), text, font=f)
+            x += bb[2] - bb[0]
+        cy += lh + gap
+    img.alpha_composite(layer)
+    return cy
+
+class Card:
+    def __init__(self, a, b, y, lines, gap=20):
+        self.a, self.b, self.y, self.lines, self.gap = a, b, y, lines, gap
+    def draw(self, img, t):
+        op = window(t, self.a, self.b)
+        if op > 0:
+            rise = (1 - ease((t - self.a) / 0.55)) * 22
+            draw_lines(img, self.lines, self.y, op, rise, self.gap)
+
+# shorthand line builders
+def T(text, size=64, col=LIGHT): return (text, "title", size, col)
+def B(text, size=50, col=MIST): return (text, "body", size, col)
+
+# ---------------- runes ----------------
+RUNES = {
+    "fehu": [[(0.3, 0), (0.3, 1)], [(0.3, 0.35), (0.75, 0.05)], [(0.3, 0.6), (0.75, 0.3)]],
+    "uruz": [[(0.25, 1), (0.25, 0), (0.75, 0.3), (0.75, 1)]],
+    "thurisaz": [[(0.3, 0), (0.3, 1)], [(0.3, 0.25), (0.72, 0.5), (0.3, 0.75)]],
+    "ansuz": [[(0.3, 0), (0.3, 1)], [(0.3, 0.05), (0.75, 0.35)], [(0.3, 0.35), (0.75, 0.65)]],
+    "raidho": [[(0.28, 1), (0.28, 0), (0.72, 0.25), (0.28, 0.5), (0.72, 1)]],
+    "kaunan": [[(0.68, 0.15), (0.3, 0.45), (0.68, 0.75)]],
+    "gebo": [[(0.15, 0.1), (0.85, 0.9)], [(0.85, 0.1), (0.15, 0.9)]],
+    "wunjo": [[(0.3, 1), (0.3, 0), (0.72, 0.25), (0.3, 0.5)]],
+    "hagalaz": [[(0.25, 0), (0.25, 1)], [(0.75, 0), (0.75, 1)], [(0.25, 0.35), (0.75, 0.65)]],
+    "naudiz": [[(0.5, 0), (0.5, 1)], [(0.25, 0.35), (0.75, 0.65)]],
+    "isa": [[(0.5, 0), (0.5, 1)]],
+    "jera": [[(0.45, 0.15), (0.2, 0.4), (0.45, 0.65)], [(0.55, 0.35), (0.8, 0.6), (0.55, 0.85)]],
+    "perthro": [[(0.8, 0), (0.55, 0.2), (0.3, 0), (0.3, 1), (0.55, 0.8), (0.8, 1)]],
+    "eihwaz": [[(0.5, 0), (0.5, 1)], [(0.5, 0), (0.75, 0.15)], [(0.5, 1), (0.25, 0.85)]],
+    "sowilo": [[(0.7, 0), (0.3, 0.42), (0.7, 0.58), (0.3, 1)]],
+    "tiwaz": [[(0.5, 0), (0.5, 1)], [(0.18, 0.3), (0.5, 0), (0.82, 0.3)]],
+    "berkano": [[(0.3, 0), (0.3, 1)], [(0.3, 0), (0.72, 0.25), (0.3, 0.5), (0.72, 0.75), (0.3, 1)]],
+    "ehwaz": [[(0.2, 1), (0.2, 0), (0.5, 0.3), (0.8, 0), (0.8, 1)]],
+    "mannaz": [[(0.2, 1), (0.2, 0), (0.8, 0.5)], [(0.8, 1), (0.8, 0), (0.2, 0.5)]],
+    "laguz": [[(0.35, 1), (0.35, 0), (0.75, 0.3)]],
+    "ingwaz": [[(0.5, 0.2), (0.8, 0.5), (0.5, 0.8), (0.2, 0.5), (0.5, 0.2)]],
+    "othala": [[(0.2, 1), (0.75, 0.45), (0.5, 0.2), (0.25, 0.45), (0.8, 1)]],
+    "dagaz": [[(0.15, 0), (0.15, 1), (0.85, 0), (0.85, 1), (0.15, 0)]],
+}
+LETTER = {"a": "ansuz", "b": "berkano", "c": "kaunan", "d": "dagaz", "e": "ehwaz", "f": "fehu",
+          "g": "gebo", "h": "hagalaz", "i": "isa", "j": "jera", "k": "kaunan", "l": "laguz",
+          "m": "mannaz", "n": "naudiz", "o": "othala", "p": "perthro", "q": "kaunan", "r": "raidho",
+          "s": "sowilo", "t": "tiwaz", "u": "uruz", "v": "wunjo", "w": "wunjo", "y": "jera", "z": "sowilo"}
+
+def transliterate(name):
+    name = name.lower()
+    out, i = [], 0
+    while i < len(name):
+        two = name[i:i + 2]
+        if two == "th":
+            out.append(("TH", "thurisaz")); i += 2; continue
+        if two == "ng":
+            out.append(("NG", "ingwaz")); i += 2; continue
+        c = name[i]
+        if c == "x":
+            out += [("X", "kaunan"), ("", "sowilo")]
+        elif c in LETTER:
+            out.append((c.upper(), LETTER[c]))
+        i += 1
+    return out
+
+def _poly_len(pts):
+    return sum(math.dist(pts[i], pts[i + 1]) for i in range(len(pts) - 1))
+
+def draw_rune(img, rune, x, y, w, h, progress, width=None, glow=1.0, col=GOLD):
+    """Draw rune strokes into box (x, y, w, h); progress 0..1 carves strokes in order."""
+    if progress <= 0:
+        return
+    width = width or max(6, int(w * 0.1))
+    pad = width * 3
+    region = Image.new("RGBA", (int(w + 2 * pad), int(h + 2 * pad)), (0, 0, 0, 0))
+    d = ImageDraw.Draw(region)
+    strokes = [[(pad + px * w, pad + py * h) for px, py in s] for s in RUNES[rune]]
+    total = sum(_poly_len(s) for s in strokes)
+    remaining = progress * total
+    r = width / 2
+    for s in strokes:
+        for i in range(len(s) - 1):
+            if remaining <= 0:
+                break
+            a, b = s[i], s[i + 1]
+            seg = math.dist(a, b)
+            k = min(1.0, remaining / seg) if seg else 1.0
+            e = (a[0] + (b[0] - a[0]) * k, a[1] + (b[1] - a[1]) * k)
+            d.line([a, e], fill=col + (255,), width=width)
+            d.ellipse([a[0] - r, a[1] - r, a[0] + r, a[1] + r], fill=col + (255,))
+            d.ellipse([e[0] - r, e[1] - r, e[0] + r, e[1] + r], fill=col + (255,))
+            remaining -= seg
+    if glow > 0:
+        g = region.filter(ImageFilter.GaussianBlur(max(8, width)))
+        ga = np.asarray(g, np.float32).copy()
+        ga[..., 3] *= 1.5 * glow
+        img.alpha_composite(Image.fromarray(np.clip(ga, 0, 255).astype(np.uint8)), (int(x - pad), int(y - pad)))
+    core = np.asarray(region, np.float32).copy()
+    core[..., :3] = core[..., :3] * 0.6 + np.array([255, 228, 185], np.float32) * 0.4
+    img.alpha_composite(Image.fromarray(np.clip(core, 0, 255).astype(np.uint8)), (int(x - pad), int(y - pad)))
+
+def draw_slab(img, x, y, w, h, op):
+    if op <= 0:
+        return
+    layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    d = ImageDraw.Draw(layer)
+    d.rounded_rectangle([x, y, x + w, y + h], radius=int(min(w, h) * 0.12),
+                        fill=STEEL + (int(235 * op),), outline=(70, 77, 88, int(255 * op)), width=3)
+    img.alpha_composite(layer)
+
+def draw_rule(img, y, op, length=180):
+    if op <= 0:
+        return
+    layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    d = ImageDraw.Draw(layer)
+    d.line([(W / 2 - length / 2, y), (W / 2 + length / 2, y)], fill=GOLD + (int(200 * op),), width=3)
+    img.alpha_composite(layer)
+
+# ---------------- audio ----------------
+def make_audio(path, dur, bpm=66, seed=1, drum_from=0.6):
+    sr = 44100
+    n = int(dur * sr)
+    rng = np.random.default_rng(seed)
+    t = np.arange(n) / sr
+    # wind: brown-ish noise, slowly modulated
+    white = rng.standard_normal(n).astype(np.float32)
+    brown = np.cumsum(white)
+    brown -= np.convolve(brown, np.ones(2000) / 2000, mode="same")
+    brown /= (np.abs(brown).max() + 1e-6)
+    wind = brown * (0.25 + 0.12 * np.sin(2 * np.pi * 0.07 * t))
+    # drone: low fifths with slow swell
+    drone = (0.18 * np.sin(2 * np.pi * 55 * t) + 0.10 * np.sin(2 * np.pi * 82.4 * t)
+             + 0.05 * np.sin(2 * np.pi * 110 * t)) * (0.7 + 0.3 * np.sin(2 * np.pi * 0.05 * t))
+    # war drum: pitched-down sine + noise burst, pattern ONE . . one ONE . . .
+    drum = np.zeros(n, np.float32)
+    beat = 60.0 / bpm
+    hit_len = int(0.9 * sr)
+    ht = np.arange(hit_len) / sr
+    freq = 48 + 40 * np.exp(-ht * 18)
+    body = np.sin(2 * np.pi * np.cumsum(freq) / sr) * np.exp(-ht * 5.5)
+    click = rng.standard_normal(hit_len) * np.exp(-ht * 60) * 0.25
+    hit = (body + click).astype(np.float32)
+    pattern = [1.0, 0, 0.55, 0.8]  # per beat in a 4-beat bar
+    k = 0
+    tb = drum_from
+    while tb < dur - 0.5:
+        amp = pattern[k % 4]
+        if amp:
+            s = int(tb * sr)
+            e = min(n, s + hit_len)
+            drum[s:e] += hit[: e - s] * amp
+        tb += beat
+        k += 1
+    mix = 0.55 * wind + drone + 0.75 * drum
+    fade = np.ones(n, np.float32)
+    fi, fo = int(1.0 * sr), int(1.5 * sr)
+    fade[:fi] = np.linspace(0, 1, fi)
+    fade[-fo:] = np.linspace(1, 0, fo)
+    mix = mix * fade
+    mix = mix / (np.abs(mix).max() + 1e-6) * 0.85
+    stereo = np.stack([mix, np.roll(mix, 220)], axis=1)
+    pcm = (stereo * 32767).astype(np.int16)
+    with wave.open(path, "wb") as wf:
+        wf.setnchannels(2); wf.setsampwidth(2); wf.setframerate(sr)
+        wf.writeframes(pcm.tobytes())
+
+# ---------------- render ----------------
+def render(out, dur, draw_frame, seed=3, bpm=66):
+    """draw_frame(img, t) draws on top of the background. Writes out (mp4) atomically."""
+    bg = Background(seed)
+    n = int(round(dur * FPS))
+    base = os.path.splitext(out)[0]
+    tmp_v = base + ".video.tmp.mp4"
+    wav = base + ".wav"
+    make_audio(wav, dur, bpm=bpm, seed=seed)
+    p = subprocess.Popen(["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24",
+                          "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-", "-c:v", "libx264", "-preset", "veryfast",
+                          "-crf", "19", "-pix_fmt", "yuv420p", tmp_v], stdin=subprocess.PIPE)
+    for i in range(n):
+        t = i / FPS
+        img = bg.render(t)
+        draw_frame(img, t)
+        k = ease(t / 0.4) * ease((dur - t) / 0.4)
+        if k < 1:
+            img = Image.blend(Image.new("RGBA", (W, H), (0, 0, 0, 255)), img, k)
+        p.stdin.write(img.convert("RGB").tobytes())
+    p.stdin.close()
+    if p.wait() != 0:
+        raise RuntimeError("video encode failed")
+    tmp = base + ".tmp.mp4"
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", tmp_v, "-i", wav, "-map", "0:v", "-map", "1:a",
+                    "-c:v", "copy", "-c:a", "aac", "-b:a", "160k", "-shortest", "-movflags", "+faststart", tmp],
+                   check=True)
+    os.replace(tmp, out)
+    os.remove(tmp_v)
+
+def still(path, t, draw_frame, seed=3):
+    img = Background(seed).render(t)
+    draw_frame(img, t)
+    img.convert("RGB").save(path)
