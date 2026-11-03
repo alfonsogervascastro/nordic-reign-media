@@ -23,7 +23,10 @@ cards = [
     Card(17.0, 19.5, 1380, [B(nr.HANDLE, 40)]),
 ]
 
+LABEL = nr.Label("YOUR NAME IN RUNES")
+
 def frame(img, t):
+    LABEL.draw(img, t, DUR)
     nr.draw_slab(img, SLAB_X, SLAB_Y, SLAB_W, SLAB_H, window(t, 0.3, 19.5, 0.6))
     n = len(GLYPHS)
     x0 = W / 2 - (n - 1) * STEP / 2

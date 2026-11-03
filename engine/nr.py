@@ -117,6 +117,24 @@ class Card:
             rise = (1 - ease((t - self.a) / 0.55)) * 22
             draw_lines(img, self.lines, self.y, op, rise, self.gap)
 
+class Label:
+    """Fixed series label at the top: e.g. Label("THE NORSE SAGA", "EP. 1")."""
+    def __init__(self, series, part="", y=196):
+        self.series, self.part, self.y = series, part, y
+    def draw(self, img, t, dur):
+        op = window(t, 0.15, dur, 0.5)
+        if op <= 0:
+            return
+        line = [("title", self.series, GOLD)]
+        if self.part:
+            line.append(("title", "  ·  " + self.part, LIGHT))
+        segs = [(txt, kind, 34, col) for kind, txt, col in line]
+        y2 = draw_lines(img, [segs], self.y, op)
+        lay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        d = ImageDraw.Draw(lay)
+        d.line([(W / 2 - 40, self.y + 58), (W / 2 + 40, self.y + 58)], fill=GOLD + (int(170 * op),), width=2)
+        img.alpha_composite(lay)
+
 # shorthand line builders
 def T(text, size=64, col=LIGHT): return (text, "title", size, col)
 def B(text, size=50, col=MIST): return (text, "body", size, col)
@@ -271,14 +289,21 @@ def make_audio(path, dur, bpm=66, seed=1, drum_from=0.6):
         wf.writeframes(pcm.tobytes())
 
 # ---------------- render ----------------
-def render(out, dur, draw_frame, seed=3, bpm=66):
-    """draw_frame(img, t) draws on top of the background. Writes out (mp4) atomically."""
+def render(out, dur, draw_frame, seed=3, bpm=66, music=None, music_start=0.0):
+    """draw_frame(img, t) draws on top of the background. Writes out (mp4) atomically.
+    music: optional path to a licensed Nordic Reign track (e.g. ../audio/nine-days-below.mp3);
+    a dur-long excerpt from music_start (seconds) is used instead of the generated soundscape."""
     bg = Background(seed)
     n = int(round(dur * FPS))
     base = os.path.splitext(out)[0]
     tmp_v = base + ".video.tmp.mp4"
     wav = base + ".wav"
-    make_audio(wav, dur, bpm=bpm, seed=seed)
+    if music:
+        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", str(music_start), "-t", str(dur), "-i", music,
+                        "-af", f"afade=t=in:d=0.8,afade=t=out:st={dur - 1.5}:d=1.5", "-ar", "44100", "-ac", "2",
+                        wav], check=True)
+    else:
+        make_audio(wav, dur, bpm=bpm, seed=seed)
     p = subprocess.Popen(["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24",
                           "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-", "-c:v", "libx264", "-preset", "veryfast",
                           "-crf", "19", "-pix_fmt", "yuv420p", tmp_v], stdin=subprocess.PIPE)

@@ -53,7 +53,10 @@ cards = [
     Card(22.2, 24.0, 1000, [B(nr.HANDLE, 42)]),
 ]
 
+LABEL = nr.Label("MYTH vs HISTORY")
+
 def frame(img, t):
+    LABEL.draw(img, t, DUR)
     helmet(img, t)
     for c in cards:
         c.draw(img, t)

@@ -70,12 +70,15 @@ cards += [
     Card(23.4, 26.6, 660, [B("The Edda says that's why", 56, LIGHT), B("cats walk in silence", 56, LIGHT),
                            B("and mountains have no roots.", 56, LIGHT)]),
     Card(26.8, 30.0, 700, [T("It held.", 80), T("Until Ragnarök.", 80, GOLD)]),
-    Card(27.6, 30.0, 1000, [B("Follow for the next myth", 48)]),
-    Card(28.0, 30.0, 1075, [B(nr.HANDLE, 42)]),
+    Card(27.4, 30.0, 1000, [B("Now, back to the beginning.", 52, LIGHT)]),
+    Card(27.9, 30.0, 1085, [B("Episode 1: Saturday  ·  " + nr.HANDLE, 42)]),
     Card(23.4, 26.6, 1440, [B("Source: Prose Edda, Gylfaginning", 34)]),
 ]
 
+LABEL = nr.Label("THE NORSE SAGA", "PROLOGUE")
+
 def frame(img, t):
+    LABEL.draw(img, t, DUR)
     eyes(img, t, 1000, window(t, 0.6, 7.6, 0.8))
     chain(img, t, 900, window(t, 7.8, 10.6))
     for c in cards:

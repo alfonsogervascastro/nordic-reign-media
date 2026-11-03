@@ -25,7 +25,10 @@ cards += [
     Card(21.1, 23.0, 1000, [B(nr.HANDLE, 42)]),
 ]
 
+LABEL = nr.Label("WORDS FROM THE NORTH")
+
 def frame(img, t):
+    LABEL.draw(img, t, DUR)
     for i in range(len(WORDS)):
         a = 3.8 + i * 3.2
         nr.draw_rule(img, 600, window(t, a + 0.2, a + 3.0), 220)
