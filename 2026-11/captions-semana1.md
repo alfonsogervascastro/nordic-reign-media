@@ -1,6 +1,6 @@
 # Nordic Reign — textos de publicación, semana 1 (4–9 nov 2026)
 
-## Miércoles 4 · The Norse Saga · Prólogo · 2026-11-04_saga-prologue_gleipnir.mp4
+## Miércoles 4 · The Norse Saga · Prólogo · 2026-11-04_saga-prologue_gleipnir_v3.mp4
 **YouTube title:** The Norse Saga, Prologue: The Impossible Chain | #shorts
 
 **Caption:**
@@ -32,7 +32,7 @@ Written in Elder Futhark, the oldest runic alphabet (c. 150–800 AD). This is a
 
 #runes #elderfuthark #norse #vikings #norsemythology #runic #nordic #yourname
 
-## Sábado 7 · The Norse Saga · Ep. 1 · 2026-11-07_saga-ep01_ginnungagap_v2.mp4
+## Sábado 7 · The Norse Saga · Ep. 1 · 2026-11-07_saga-ep01_ginnungagap_v3.mp4
 **YouTube title:** The Norse Saga Ep. 1: Fire, Ice and the First Giant | #shorts
 
 **Caption:**
