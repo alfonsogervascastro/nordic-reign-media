@@ -69,6 +69,15 @@ Las 10 canciones actuales se hicieron con el plan gratuito de Suno: **no usarlas
 - Etiqueta de serie en y=196; contenido entre y=290 y y=1520. Un mensaje por pantalla, máx. ~8 palabras por línea.
 - Gancho en los primeros 2 segundos.
 
+## Imágenes (obligatorio: nada de vídeos solo con texto)
+
+La imagen debe cambiar cada 3–4 segundos y siempre haber movimiento (empuje lento de cámara, capas, partículas). El texto va arriba (y 290–560) o abajo (y 1440–1520) y la ilustración ocupa el centro.
+
+1. **Episodios de la saga: pinturas de dominio público** cuando se puedan descargar. Comprueba al empezar si `upload.wikimedia.org` responde (`curl -s -o /dev/null -w "%{http_code}" https://upload.wikimedia.org/`). Si responde, busca en Wikimedia Commons ilustraciones de los mitos de artistas fallecidos hace más de 70 años: Carl Emil Doepler, Johannes Gehrts, Lorenz Frølich, Mårten Eskil Winge, W. G. Collingwood, Emil Doepler, Ernst Hansen, Arthur Rackham (Ring, 1910–11). Guarda cada imagen en `images/` con su autor y año en `images/CREDITS.md`, aplícales el tratamiento de marca (desaturar ~60 %, tinte azul en sombras y oro en luces, viñeta) y móntalas con zoom/desplazamiento lento. Cita al autor en el texto de la publicación ("Art: Johannes Gehrts, 1901").
+2. **Si no se pueden descargar, o para el resto de series: siluetas dibujadas por código** con `scenes.py` y los ejemplos de `v07_saga01.py` (acantilados, resplandores de fuego y hielo, ojos, animales y figuras suavizados con supersampling, Odín como caminante con sombrero y bastón). Dibuja las formas en capas separadas y combínalas con `alpha_composite`: `ImageDraw` sobre RGBA reemplaza píxeles, no los mezcla.
+3. No usar imágenes generadas con IA salvo que Alfonso las suba a `images/ai/`; en ese caso marcar `isAiGenerated` / `isAiGeneratedContent` en Metricool.
+4. Nunca fotos de personas reales ni de tatuajes ajenos.
+
 ## Reglas de rigor
 
 - Separar siempre lo histórico (fuentes medievales, arqueología) de lo moderno (lecturas del siglo XX). Citar la fuente en pantalla o en el texto de la publicación.
