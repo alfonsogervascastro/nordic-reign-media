@@ -129,17 +129,13 @@ def scene(t):
     s3 = window(t, 15.0, 19.2, 0.6)
     if s3 > 0:
         l3 = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-        put(l3, PALE, 1.0)
-        ImageDraw.Draw(l3).rectangle([0, 1262, W, H], fill=(46, 58, 74, 255))
-        cow_scene(l3)
+        AUD_ART.draw(l3, t, 15.0, 1.0, dur=4.2)
         _fade_into(lay, l3, s3)
     # 4. Búri in the ice
     s4 = window(t, 19.0, 23.4, 0.6)
     if s4 > 0:
         l4 = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-        put(l4, PALE, 0.7)
-        ImageDraw.Draw(l4).rectangle([0, 1320, W, H], fill=(46, 58, 74, 255))
-        ice_block(l4, ease((t - 20.2) / 2.2))
+        BURI_ART.draw(l4, t, 19.0, 1.0, dur=4.4)
         _fade_into(lay, l4, s4)
     # 5. Odin the wanderer
     s5 = window(t, 23.2, 27.2, 0.6)
@@ -182,7 +178,8 @@ cards = [
     Card(15.2, 19.0, 330, [B("From the thaw came a cow,", 56, LIGHT), T("AUÐUMBLA", 84, GOLD),
                            B("Ymir drank her milk.", 52)]),
     Card(19.2, 23.2, 330, [B("She licked the salty ice", 56, LIGHT), B("for three days.", 56, LIGHT)]),
-    Card(20.6, 23.2, 1440, [B("Out came Búri,", 60, GOLD), B("the first of the gods.", 52)]),
+    Card(20.6, 23.2, 1340, [B("Out came Búri,", 60, GOLD), B("the first of the gods.", 52)]),
+    Card(15.4, 23.2, 1500, [B("Art: Nicolai Abildgaard, Ymir and Auðumbla, c. 1777", 30)]),
     Card(23.4, 27.0, 330, [B("Búri's grandson:", 58, LIGHT)]),
     Card(24.0, 27.0, 440, [T("ODIN", 130, GOLD)]),
     Card(27.2, 31.0, 330, [T("His first act?", 74)]),
@@ -191,6 +188,8 @@ cards = [
     Card(28.8, 31.0, 1450, [B("Episode 2: Wednesday  ·  " + nr.HANDLE, 42)]),
 ]
 
+AUD_ART = nr.Painting("../images/abildgaard_ymir_audhumla_1777.jpg", 1000, 560, cy=930, crop=(180, 140, 960, 560))
+BURI_ART = nr.Painting("../images/abildgaard_ymir_audhumla_1777.jpg", 820, 720, cy=950, crop=(0, 320, 400, 670), focus=(0.3, 0.4))
 ODIN_ART = nr.Painting("../images/rosen_odin_wanderer_1886.jpg", 760, 900, cy=1060, focus=(0.5, 0.25))
 
 LABEL = nr.Label("THE NORSE SAGA", "EP. 1")
