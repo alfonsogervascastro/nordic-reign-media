@@ -65,12 +65,33 @@ Las 10 canciones actuales se hicieron con el plan gratuito de Suno: **no usarlas
 
 Cada episodio de la saga tiene su diseño de tatuaje en **nudo vikingo** que cuenta la historia del episodio con un símbolo. Se generan con `tattoos/designs.py` (motor de entrelazado en `tattoos/knots.py`: cualquier curva se dibuja como banda con cruces alternos por encima/por debajo). Cada diseño produce: plantilla negra transparente de 3000 px, versión sobre blanco, vista previa oro sobre carbón y una tarjeta 1080×1350 con la historia.
 
-| Episodio | Diseño | Símbolo y historia | Estado |
+| Episodio | Diseño | Símbolo | Estado |
 | --- | --- | --- | --- |
-| Prólogo | Gleipnir (brazalete) | Trenza de tres cabos (la cinta de las seis cosas imposibles) que entra en un anillo con Tiwaz, la runa de Týr | ✔ |
-| 1 | Ginnungagap | Roseta entrelazada alrededor de un centro vacío (el vacío), Isa (hielo) arriba y Kenaz (antorcha) abajo | ✔ |
-| 2 | Ymir's World | Nudo de cuatro lazos dentro de un anillo: cielo, mar, tierra y montañas hechos del cuerpo de Ymir | ✔ |
-| 15 | Jörmungandr | Cuerpo trenzado alrededor de Midgard (motor) + cabeza de dragón vikingo (IA, Qwen-Image) | ✔ preparado por adelantado |
+| Prólogo | Gleipnir | Brazalete trenzado con Tiwaz | ✔ |
+| 1 | Ginnungagap | Roseta alrededor del vacío, Isa y Kenaz | ✔ |
+| 2 | Ymir's World | Nudo de cuatro lazos | ✔ |
+| 3 | Yggdrasil | Tronco trenzado con tres copas y tres raíces | ✔ (mejorable con IA) |
+| 4 | Ask & Embla | Dos troncos entrelazados | ✔ |
+| 5 | The First War | Dos anillos unidos atravesados por Gungnir | ✔ |
+| 6 | Nine Nights | Nudo de nueve lazos con Ansuz | ✔ |
+| 7 | Thought & Memory | Huginn y Muninn (IA) sobre un nudo | ✔ |
+| 8 | The Mead of Poetry | Cuerno con bandas entrelazadas | ✔ (mejorable con IA) |
+| 9 | Sleipnir | Nudo de ocho lazos con Ehwaz | ✔ (mejorable con IA) |
+| 10 | Born in the Dark | Trébol de tres lazos | ✔ |
+| 11 | The Binding of Fenrir | Gleipnir cerrado en anillo con Tiwaz | ✔ (mejorable con IA) |
+| 12 | Mjölnir | Silueta de colgante con nudo | ✔ |
+| 13 | The Bride in Thunder | Mjölnir entre dos anillos | ✔ |
+| 14 | Hall of Illusions | Nudo (3,5) | ✔ |
+| 15 | Jörmungandr | Cuerpo trenzado + cabeza de dragón (IA) | ✔ |
+| 16 | Iðunn's Apples | Cinco anillos entrelazados | ✔ |
+| 17 | Baldr | Anillo de luz atravesado por el dardo | ✔ |
+| 18 | Chains Beneath the Mountain | Arco de eslabones y gota de veneno | ✔ |
+| 19 | Fimbulvetr | Nudo de seis lazos con Hagalaz | ✔ |
+| 20 | Ragnarök | El anillo del lobo atrapa al sol (Sowilo) | ✔ (mejorable con IA) |
+| 21 | Nine Steps | Mjölnir dentro de la serpiente | ✔ |
+| 22 | The World Rises Again | Sol con Dagaz sobre mar trenzado | ✔ |
+
+Todos los diseños de la saga están hechos (`tattoos/designs.py`, `tattoos/designs_saga.py`, resultado en `tattoos/out/`). La tarea semanal **no crea diseños nuevos**: usa el del episodio que toque. Solo si se añade un episodio que no esté en la tabla, crea uno geométrico siguiendo los ejemplos.
 
 **Diseños con figura (cabezas de animales, cuervos, lobos):** la IA solo dibuja la cabeza o la figura y el motor hace el cuerpo entrelazado (ejemplo: `jormungandr()` y `tattoos/ai/README.md`). La generación con IA necesita el token de Hugging Face de Alfonso, que no se guarda en el repositorio, así que esos diseños se preparan por adelantado en sesiones con Alfonso; la tarea semanal solo los usa si ya existen. Si un episodio necesita figura y no hay diseño preparado, la tarea hace un diseño geométrico.
 

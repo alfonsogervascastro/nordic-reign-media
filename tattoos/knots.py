@@ -190,3 +190,30 @@ def recolor(img, ink=(224, 164, 74), paper=(14, 17, 22)):
     for k in range(3):
         out[..., k] = paper[k] * (1 - inkness) + ink[k] * inkness
     return Image.fromarray(np.clip(out, 0, 255).astype(np.uint8))
+
+# ---------------------------------------------------------------- more curves
+def chaikin(P, iters=4, closed=True):
+    P = np.asarray(P, float)
+    for _ in range(iters):
+        Q = np.vstack([P, P[:1]]) if closed else P
+        a = 0.75 * Q[:-1] + 0.25 * Q[1:]
+        b = 0.25 * Q[:-1] + 0.75 * Q[1:]
+        P = np.empty((len(a) * 2, 2)); P[0::2] = a; P[1::2] = b
+        if not closed:
+            P = np.vstack([Q[:1], P, Q[-1:]])
+    return P
+
+def ellipse(cx, cy, rx, ry, rot=0.0, n=1600):
+    t = np.linspace(0, 2 * np.pi, n, endpoint=False)
+    x, y = rx * np.cos(t), ry * np.sin(t)
+    c, s = np.cos(rot), np.sin(rot)
+    return np.stack([cx + c * x - s * y, cy + s * x + c * y], 1)
+
+def hammer_outline(cx, cy, s=1.0):
+    """Mjölnir pendant outline after Viking Age silver pendants: suspension loop on top, short shaft,
+    wide angular head flaring to two points (kept angular on purpose)."""
+    pts = [(-0.16, -0.98), (0.16, -0.98), (0.16, -0.62), (0.09, -0.55), (0.09, 0.05),
+           (0.55, 0.12), (0.86, 0.02), (0.80, 0.42), (0.92, 0.80), (0.45, 0.66), (0.0, 0.74),
+           (-0.45, 0.66), (-0.92, 0.80), (-0.80, 0.42), (-0.86, 0.02), (-0.55, 0.12),
+           (-0.09, 0.05), (-0.09, -0.55), (-0.16, -0.62)]
+    return chaikin(np.array(pts) * s + [cx, cy], 2)

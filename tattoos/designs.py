@@ -52,7 +52,10 @@ def card(gold, title, chapter, story):
         d.text(((Wc - (bb[2] - bb[0])) / 2, y), text, font=f, fill=col)
         return y + (bb[3] - bb[1])
     center(chapter.upper(), 90, nr.font("title", 30), nr.GOLD)
-    center(title, 140, nr.font("title", 64), nr.LIGHT)
+    size = 64
+    while size > 36 and d.textbbox((0, 0), title, font=nr.font("title", size))[2] > Wc - 100:
+        size -= 2
+    center(title, 140, nr.font("title", size), nr.LIGHT)
     y = 940
     for line in story:
         y = center(line, y, nr.font("body", 38), nr.MIST) + 18
