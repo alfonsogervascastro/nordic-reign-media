@@ -175,6 +175,33 @@ class Painting:
             frame = Image.fromarray(a.astype(np.uint8))
         img.alpha_composite(frame, (int(self.cx - self.w / 2), int(self.cy - self.h / 2)))
 
+class TattooEnd:
+    """Closing card for saga episodes: the episode's knotwork tattoo in gold, ~3 s.
+    Use: END = TattooEnd("../tattoos/out/ep02_ymir/ep02_ymir_gold.png", t0=DUR - 3.2)
+         in frame(): END.draw(img, t)   (draw it last, it dims everything behind it)"""
+    def __init__(self, gold_png, t0, size=820, cy=880):
+        im = Image.open(gold_png).convert("RGB")
+        a = np.asarray(im, np.float32)
+        bg = np.array([14, 17, 22], np.float32)
+        alpha = np.clip(np.abs(a - bg).max(axis=2) / 60.0, 0, 1)   # charcoal background -> transparent
+        rgba = np.dstack([a, alpha * 255]).astype(np.uint8)
+        self.img = Image.fromarray(rgba)
+        self.img.thumbnail((size, size), Image.LANCZOS)
+        self.t0, self.cy = t0, cy
+    def draw(self, img, t):
+        if t < self.t0:
+            return
+        k = ease((t - self.t0) / 0.6)
+        img.alpha_composite(Image.new("RGBA", img.size, (14, 17, 22, int(215 * k))))
+        z = 0.92 + 0.08 * ease((t - self.t0) / 2.5)
+        im = self.img.resize((int(self.img.width * z), int(self.img.height * z)), Image.LANCZOS)
+        if k < 1:
+            arr = np.asarray(im, np.float32).copy(); arr[..., 3] *= k
+            im = Image.fromarray(arr.astype(np.uint8))
+        img.alpha_composite(im, (int(W / 2 - im.width / 2), int(self.cy - im.height / 2)))
+        draw_lines(img, [T("THIS CHAPTER, AS A TATTOO", 40, GOLD)], 300, k)
+        draw_lines(img, [B("Save it for your next tattoo", 46, LIGHT), B(HANDLE, 38)], 1360, k)
+
 # shorthand line builders
 def T(text, size=64, col=LIGHT): return (text, "title", size, col)
 def B(text, size=50, col=MIST): return (text, "body", size, col)
