@@ -6,7 +6,7 @@ import nr, scenes
 from nr import Card, T, B, GOLD, LIGHT, MIST, W, H, ease, window
 
 DUR = 34.4
-YMIR = nr.Painting("../images/abildgaard_ymir_audhumla_1777.jpg", 900, 760, cy=980, crop=(360, 300, 700, 700), focus=(0.5, 0.3))
+YMIR = nr.Painting("../images/froelich_ymir_killed_1895.jpg", 1000, 500, cy=900, crop=(20, 280, 890, 700), focus=(0.5, 0.5), zoom=0.06, feather=0.12)
 END = nr.TattooEnd("../tattoos/out/ep02_ymir/ep02_ymir_gold.png", t0=31.2)
 HORIZON = 1300
 
@@ -111,7 +111,7 @@ def wall(img, t, op):
 
 cards = [
     Card(0.3, 4.0, 330, [B("Odin and his brothers, Vili and Vé,", 54, LIGHT), T("killed the giant Ymir.", 66, GOLD)]),
-    Card(0.6, 4.0, 1430, [B("Art: Nicolai Abildgaard, c. 1777", 30)]),
+    Card(0.6, 4.0, 1200, [B("Art: Lorenz Frølich, 1895", 30)]),
     Card(4.2, 8.4, 330, [B("So much blood poured from him", 56, LIGHT), B("that every frost giant drowned.", 56, LIGHT)]),
     Card(6.2, 8.4, 560, [T("All but one: Bergelmir.", 58, GOLD)]),
     Card(8.6, 12.6, 330, [T("Then they built", 70), T("the world from his body.", 70, GOLD)]),
