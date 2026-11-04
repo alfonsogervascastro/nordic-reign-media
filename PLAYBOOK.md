@@ -35,8 +35,8 @@ Fuente principal: Snorri Sturluson, Prose Edda (Gylfaginning, Skáldskaparmál) 
 | --- | --- | --- | --- |
 | Prólogo | Gleipnir: la cadena imposible y Fenrir | Born in the Dark | ✔ 2026-11-04 |
 | 1 | Ginnungagap, Ymir, Auðumbla, Búri → Odín | — | ✔ 2026-11-07 |
-| 2 | Odín, Vili y Vé matan a Ymir y hacen el mundo con su cuerpo | — | |
-| 3 | Yggdrasil y los nueve mundos | — | |
+| 2 | Odín, Vili y Vé matan a Ymir y hacen el mundo con su cuerpo | — | ✔ 2026-11-11 |
+| 3 | Yggdrasil y los nueve mundos | — | ✔ 2026-11-14 |
 | 4 | Ask y Embla, los primeros humanos | — | |
 | 5 | La guerra entre Æsir y Vanir | — | |
 | 6 | Odín, nueve noches colgado de Yggdrasil: el origen de las runas | Nine Days Below | |
@@ -97,6 +97,8 @@ Todos los diseños de la saga están hechos (`tattoos/designs.py`, `tattoos/desi
 
 Para cada episodio nuevo: crea su diseño en `designs.py` antes de producir el vídeo (función con la curva, runas si aplican, título, capítulo y 4 líneas de historia en inglés). Reglas: geometría limpia, sin figuras humanas ni animales dibujados por código, nada de Othala alada, Sowilo doble ni Wolfsangel. **El vídeo del episodio termina con 3 s del diseño**: el dibujo en oro aparece sobre el fondo con el texto "This chapter, as a tattoo" y "Save it for your next tattoo". Guarda los archivos del diseño en `tattoos/out/<slug>/`.
 
+**Cómo poner el cierre del tatuaje en el vídeo:** `END = nr.TattooEnd("../tattoos/out/<slug>/<slug>_gold.png", t0=DUR - 3.2)` y, al final de `frame()`, `END.draw(img, t)` (lo último, porque oscurece todo lo de detrás). Alarga `DUR` unos 3 s y termina las demás tarjetas antes de `t0`. Ejemplos: `v08_saga02.py`, `v10_saga03.py`.
+
 ## Métricas semanales (cada domingo, antes de producir)
 
 1. Con Metricool (`getAnalyticsAvailableMetrics` y `getAnalyticsDataByMetrics`, blogId 7741806) lee los últimos 7 días de Instagram, TikTok y YouTube: seguidores, visualizaciones por vídeo, guardados, compartidos, comentarios y, si existen, retención o tasa de salto.
@@ -130,7 +132,7 @@ La imagen debe cambiar cada 3–4 segundos y siempre haber movimiento (empuje le
     - Guarda la imagen en `images/` (nombre `autor_obra_año.jpg`) y añádela a `images/CREDITS.md`. Mira la imagen antes de usarla.
     - Móntala con `nr.Painting(path, w, h, cy=..., focus=..., crop=...)`: aplica el tratamiento de marca (duotono azul/oro), bordes difuminados y empuje lento. Ejemplos en `v07_saga01.py` (Odín de Rosen) y `v01_gleipnir.py` (Týr y Fenrir de Bauer).
     - Cita la obra en pantalla (B 30 px, y≈1530: "Art: <autor>, <obra>, <año>") y en el texto de la publicación.
-    - Ya en `images/`: Rosen (Odín caminante), Bauer (Týr y Fenrir), Abildgaard (Ymir y Auðumbla; se descargó como `Audhumla_by_Abildgaard.jpg` en miniatura de 960 px). Pendiente para el Ep. 2: `Ymir_gets_killed_by_Froelich.jpg` (Frølich, 1895), dio 429 el 3 y el 4 nov; reintentar con la miniatura de 960 px.
+    - Ya en `images/`: Rosen (Odín caminante), Bauer (Týr y Fenrir), Abildgaard (Ymir y Auðumbla), Frølich (Ymir asesinado, 1895; usada en Ep. 2), Bagge (Yggdrasil, 1847; usada en Ep. 3 entera y en tres detalles), uro de Hamilton Smith (1827; Uruz). Truco que funcionó el 4 nov: cuando la miniatura da 429 por "robot policy", el **original** (sin `/thumb/`) a veces sí baja; espera 8–10 s entre peticiones. Fallaron: `The_Ash_Yggdrasil_by_Friedrich_Wilhelm_Heine.jpg` y el manuscrito Codex Regius.
 2. **Ilustración por código: solo atmósfera, nunca figuras.** Alfonso ve poco logrados los personajes y animales dibujados por código y el salto de estilo con las pinturas. Por eso el código solo dibuja lo que queda bien: cielo, niebla, resplandores de fuego y hielo, acantilados y montañas en silueta, Yggdrasil, ojos brillando en la oscuridad, cadenas, runas talladas y partículas (`scenes.py`, `v07_saga01.py`). **Personas, dioses y animales solo aparecen en pinturas.** Si una escena necesita una figura y no hay pintura, se resuelve con atmósfera y texto. Dibuja las formas en capas separadas y combínalas con `alpha_composite`: `ImageDraw` sobre RGBA reemplaza píxeles, no los mezcla.
 3. No usar imágenes generadas con IA salvo que Alfonso las suba a `images/ai/`; en ese caso marcar `isAiGenerated` / `isAiGeneratedContent` en Metricool.
 4. Nunca fotos de personas reales ni de tatuajes ajenos.
@@ -156,7 +158,9 @@ La imagen debe cambiar cada 3–4 segundos y siempre haber movimiento (empuje le
 
 ## Pendientes
 
-- Viernes 13 nov: `2026-11/2026-11-13_myth-vs-history_horns_a2.mp4` ya está programado en Metricool. No crear otro vídeo para ese día.
+- **Antes de producir, mira `getScheduledPosts` de martes a lunes y produce solo los días que falten.** No dupliques días ya programados.
+- Semana del 10 al 16 nov: **ya programado** del miércoles 11 al lunes 16 (Ep. 2, Tolkien, cascos, Ep. 3, Hávamál 76, Uruz). **Solo falta el martes 10 (Your name in runes)**, con nombres de `names.txt` o de comentarios; si no hay ninguno, usa un nombre nórdico popular (p. ej. ERIK o FREYA).
+- Semana del 17 al 23 nov: Ep. 4 (Ask y Embla, miércoles 18) y Ep. 5 (Æsir y Vanir, sábado 21); runa 3/24 Thurisaz el lunes 23 (el vídeo de Uruz ya lo anuncia).
 
 ## Cómo producir y programar
 
@@ -177,4 +181,9 @@ La imagen debe cambiar cada 3–4 segundos y siempre haber movimiento (empuje le
 | 2026-11-07 | The Norse Saga · Ep. 1 | Ginnungagap → Odín | 2026-11/2026-11-07_saga-ep01_ginnungagap_a3.mp4 |
 | 2026-11-08 | Words from the North | window, sky, egg, berserk, they | 2026-11/2026-11-08_words_old-norse_a2.mp4 |
 | 2026-11-09 | Rune 1/24 | Fehu | 2026-11/2026-11-09_rune01_fehu_a2.mp4 |
+| 2026-11-11 | The Norse Saga · Ep. 2 | El mundo hecho de Ymir (+ tatuaje) | 2026-11/2026-11-11_saga_ep02_ymir.mp4 |
+| 2026-11-12 | Words from the North | Los enanos de Tolkien vienen de la Völuspá; Midgard | 2026-11/2026-11-12_words_tolkien-dwarves.mp4 |
 | 2026-11-13 | Myth vs History | Cascos con cuernos | 2026-11/2026-11-13_myth-vs-history_horns_a2.mp4 |
+| 2026-11-14 | The Norse Saga · Ep. 3 | Yggdrasil (+ tatuaje) | 2026-11/2026-11-14_saga_ep03_yggdrasil.mp4 |
+| 2026-11-15 | Hávamál | Estrofa 76 ("Deyr fé") | 2026-11/2026-11-15_havamal_76.mp4 |
+| 2026-11-16 | Rune 2/24 | Uruz | 2026-11/2026-11-16_rune02_uruz.mp4 |
