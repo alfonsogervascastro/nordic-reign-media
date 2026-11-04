@@ -9,7 +9,7 @@ La cuenta cuenta una historia, no curiosidades sueltas. La columna es **The Nors
 ## Cuentas
 
 - Marca Metricool: `nordicreignofficial`, blogId `7741806`, zona horaria `Europe/Madrid`.
-- Redes enlazadas: Instagram (Reel) y YouTube (Short). TikTok todavía no está enlazado.
+- Redes enlazadas: Instagram (Reel), YouTube (Short) y TikTok (cuenta "Nordic Reign", enlazada el 4 nov). Cada vídeo se publica en las tres.
 - Usuario en los vídeos: `@nordicreignofficial`.
 - Publicación: un vídeo al día a las 19:00 (Europe/Madrid).
 
@@ -61,6 +61,34 @@ Fuente principal: Snorri Sturluson, Prose Edda (Gylfaginning, Skáldskaparmál) 
 
 Las 10 canciones actuales se hicieron con el plan gratuito de Suno: **no usarlas** hasta que existan versiones remezcladas con plan de pago en `audio/` (nombre de archivo en minúsculas con guiones, p. ej. `audio/nine-days-below.mp3`). Si existe, pasarla a `nr.render(..., music="../audio/<archivo>.mp3", music_start=<segundo>)` y añadir al texto de publicación "Soundtrack: <canción> by Nordic Reign". Si no existe, usar el fondo generado.
 
+## Tatuajes (pack de diseños)
+
+Cada episodio de la saga tiene su diseño de tatuaje en **nudo vikingo** que cuenta la historia del episodio con un símbolo. Se generan con `tattoos/designs.py` (motor de entrelazado en `tattoos/knots.py`: cualquier curva se dibuja como banda con cruces alternos por encima/por debajo). Cada diseño produce: plantilla negra transparente de 3000 px, versión sobre blanco, vista previa oro sobre carbón y una tarjeta 1080×1350 con la historia.
+
+| Episodio | Diseño | Símbolo y historia | Estado |
+| --- | --- | --- | --- |
+| Prólogo | Gleipnir (brazalete) | Trenza de tres cabos (la cinta de las seis cosas imposibles) que entra en un anillo con Tiwaz, la runa de Týr | ✔ |
+| 1 | Ginnungagap | Roseta entrelazada alrededor de un centro vacío (el vacío), Isa (hielo) arriba y Kenaz (antorcha) abajo | ✔ |
+| 2 | Ymir's World | Nudo de cuatro lazos dentro de un anillo: cielo, mar, tierra y montañas hechos del cuerpo de Ymir | ✔ |
+
+Para cada episodio nuevo: crea su diseño en `designs.py` antes de producir el vídeo (función con la curva, runas si aplican, título, capítulo y 4 líneas de historia en inglés). Reglas: geometría limpia, sin figuras humanas ni animales dibujados por código, nada de Othala alada, Sowilo doble ni Wolfsangel. **El vídeo del episodio termina con 3 s del diseño**: el dibujo en oro aparece sobre el fondo con el texto "This chapter, as a tattoo" y "Save it for your next tattoo". Guarda los archivos del diseño en `tattoos/out/<slug>/`.
+
+## Métricas semanales (cada domingo, antes de producir)
+
+1. Con Metricool (`getAnalyticsAvailableMetrics` y `getAnalyticsDataByMetrics`, blogId 7741806) lee los últimos 7 días de Instagram, TikTok y YouTube: seguidores, visualizaciones por vídeo, guardados, compartidos, comentarios y, si existen, retención o tasa de salto.
+2. Compáralo con los escenarios (mes contado desde el 2 nov 2026):
+
+| Red | Escenario | Mes 1 | Mes 3 | Mes 6 | Mes 12 |
+| --- | --- | --- | --- | --- | --- |
+| Instagram (seguidores) | Pesimista / Más probable / Optimista | 100 / 300 / 1.500 | 300 / 1.200 / 6.000 | 600 / 3.000 / 15.000 | 1.200 / 6.000 / 40.000 |
+| TikTok (seguidores) | Pesimista / Más probable / Optimista | 50 / 300 / 2.000 | 200 / 1.500 / 10.000 | 500 / 4.000 / 25.000 | 1.000 / 8.000 / 60.000 |
+| YouTube (suscriptores) | Pesimista / Más probable / Optimista | 10 / 50 / 300 | 40 / 200 / 2.000 | 100 / 600 / 8.000 | 250 / 1.500 / 25.000 |
+| Mediana de visualizaciones por vídeo (IG / TikTok / YT), mes 3 | Más probable | 400 / 550 / 90 | | | |
+
+3. Escribe `metrics/AAAA-MM-DD.md` con una tabla por red, el escenario en el que está cada una y el vídeo y la serie que mejor y peor han funcionado.
+4. Ajusta la semana: si una serie lleva 3 semanas por debajo de la mitad de la mediana de la cuenta, sustitúyela esa semana por la serie que mejor funcione (nunca la saga). Anótalo en el informe.
+5. Incluye un resumen de 3 líneas en el mensaje final.
+
 ## Estilo
 
 - Vídeo vertical 1080×1920, 30 fps, 15–32 s, texto en pantalla en inglés, sin voz.
@@ -78,7 +106,7 @@ La imagen debe cambiar cada 3–4 segundos y siempre haber movimiento (empuje le
     - Guarda la imagen en `images/` (nombre `autor_obra_año.jpg`) y añádela a `images/CREDITS.md`. Mira la imagen antes de usarla.
     - Móntala con `nr.Painting(path, w, h, cy=..., focus=..., crop=...)`: aplica el tratamiento de marca (duotono azul/oro), bordes difuminados y empuje lento. Ejemplos en `v07_saga01.py` (Odín de Rosen) y `v01_gleipnir.py` (Týr y Fenrir de Bauer).
     - Cita la obra en pantalla (B 30 px, y≈1530: "Art: <autor>, <obra>, <año>") y en el texto de la publicación.
-    - Candidatas ya localizadas: `Nicolai_Abildgaard,_Ymer_dier_koen_Ødhumbla,_,_KMS3397,_Statens_Museum_for_Kunst.jpg` (Ymir y Auðumbla), `Ymir_gets_killed_by_Froelich.jpg` (Ep. 2). Las dos dieron 429 el 3 nov; reintentar.
+    - Ya en `images/`: Rosen (Odín caminante), Bauer (Týr y Fenrir), Abildgaard (Ymir y Auðumbla; se descargó como `Audhumla_by_Abildgaard.jpg` en miniatura de 960 px). Pendiente para el Ep. 2: `Ymir_gets_killed_by_Froelich.jpg` (Frølich, 1895), dio 429 el 3 y el 4 nov; reintentar con la miniatura de 960 px.
 2. **Ilustración por código: solo atmósfera, nunca figuras.** Alfonso ve poco logrados los personajes y animales dibujados por código y el salto de estilo con las pinturas. Por eso el código solo dibuja lo que queda bien: cielo, niebla, resplandores de fuego y hielo, acantilados y montañas en silueta, Yggdrasil, ojos brillando en la oscuridad, cadenas, runas talladas y partículas (`scenes.py`, `v07_saga01.py`). **Personas, dioses y animales solo aparecen en pinturas.** Si una escena necesita una figura y no hay pintura, se resuelve con atmósfera y texto. Dibuja las formas en capas separadas y combínalas con `alpha_composite`: `ImageDraw` sobre RGBA reemplaza píxeles, no los mezcla.
 3. No usar imágenes generadas con IA salvo que Alfonso las suba a `images/ai/`; en ese caso marcar `isAiGenerated` / `isAiGeneratedContent` en Metricool.
 4. Nunca fotos de personas reales ni de tatuajes ajenos.
@@ -112,7 +140,7 @@ La imagen debe cambiar cada 3–4 segundos y siempre haber movimiento (empuje le
 2. `python3 vXX.py stills` → mirar los fotogramas antes del render; luego `python3 vXX.py`.
 3. Copiar los `.mp4` a `AAAA-MM/` con el nombre `AAAA-MM-DD_<serie>_<tema>.mp4` y hacer push a `main`.
 4. URL pública: `https://raw.githubusercontent.com/alfonsogervascastro/nordic-reign-media/main/AAAA-MM/<archivo>.mp4`.
-5. Programar con Metricool `createScheduledPost`: providers instagram + youtube, `instagramData.type = REEL`, `youtubeData.type = short`, `madeForKids = false`, `category = EDUCATION`, título de YouTube terminado en `#shorts` (episodios: "The Norse Saga Ep. n: <título> | #shorts").
+5. Programar con Metricool `createScheduledPost`: providers instagram + youtube + tiktok, `instagramData.type = REEL`, `youtubeData.type = short`, `madeForKids = false`, `category = EDUCATION`, título de YouTube terminado en `#shorts` (episodios: "The Norse Saga Ep. n: <título> | #shorts"), y `tiktokData` con `title` (obligatorio; el mismo título sin `#shorts`), `privacyOption = PUBLIC_TO_EVERYONE`, `isAigc = false`.
 6. Comprobar con `getScheduledPosts` y actualizar el registro y la tabla de episodios.
 
 ## Registro de publicaciones
