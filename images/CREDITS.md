@@ -7,3 +7,4 @@
 | abildgaard_ymir_audhumla_1777.jpg | Ymer dier koen Ødhumbla (Ymir and Auðumbla) | Nicolai Abildgaard (1743–1809) | c. 1777 | Wikimedia Commons (Statens Museum for Kunst) |
 | froelich_ymir_killed_1895.jpg | Ymir is killed (illustration for *Den ældre Eddas Gudesange*) | Lorenz Frølich (1820–1908) | 1895 | Wikimedia Commons |
 | bagge_yggdrasil_1847.jpg | Yggdrasil, The Mundane Tree (from *Northern Antiquities*, English ed.) | Oluf Olufsen Bagge (1780–1836) | 1847 | Wikimedia Commons |
+| hamiltonsmith_aurochs_1827.jpg | Aurochs (after a 16th-century painting, the "Augsburg aurochs") | published by Charles Hamilton Smith (1776–1859) | 1827 | Wikimedia Commons |
