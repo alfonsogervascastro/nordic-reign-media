@@ -122,7 +122,7 @@ La imagen debe cambiar cada 3–4 segundos y siempre haber movimiento (empuje le
 | 2026-11-04 | The Norse Saga · Prólogo | Gleipnir y Fenrir | 2026-11/2026-11-04_saga-prologue_gleipnir_a2.mp4 |
 | 2026-11-05 | Words from the North | Días de la semana | 2026-11/2026-11-05_words_days_a2.mp4 |
 | 2026-11-06 | Your name in runes | Llamada + ejemplo ASTRID | 2026-11/2026-11-06_name_astrid_a2.mp4 |
-| 2026-11-07 | The Norse Saga · Ep. 1 | Ginnungagap → Odín | 2026-11/2026-11-07_saga-ep01_ginnungagap_a2.mp4 |
+| 2026-11-07 | The Norse Saga · Ep. 1 | Ginnungagap → Odín | 2026-11/2026-11-07_saga-ep01_ginnungagap_a3.mp4 |
 | 2026-11-08 | Words from the North | window, sky, egg, berserk, they | 2026-11/2026-11-08_words_old-norse_a2.mp4 |
 | 2026-11-09 | Rune 1/24 | Fehu | 2026-11/2026-11-09_rune01_fehu_a2.mp4 |
 | 2026-11-13 | Myth vs History | Cascos con cuernos | 2026-11/2026-11-13_myth-vs-history_horns_a2.mp4 |

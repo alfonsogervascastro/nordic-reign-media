@@ -32,7 +32,7 @@ Written in Elder Futhark, the oldest runic alphabet (c. 150–800 AD). This is a
 
 #runes #elderfuthark #norse #vikings #norsemythology #runic #nordic #yourname
 
-## Sábado 7 · The Norse Saga · Ep. 1 · 2026-11-07_saga-ep01_ginnungagap_a2.mp4
+## Sábado 7 · The Norse Saga · Ep. 1 · 2026-11-07_saga-ep01_ginnungagap_a3.mp4
 **YouTube title:** The Norse Saga Ep. 1: Fire, Ice and the First Giant | #shorts
 
 **Caption:**
@@ -40,7 +40,7 @@ The Norse Saga, episode 1. Before the world there was Ginnungagap, the yawning v
 
 Episode 2 on Wednesday: Odin's first act. Start from the prologue on our profile.
 
-Source: Prose Edda, Gylfaginning.
+Source: Prose Edda, Gylfaginning. Art: Nicolai Abildgaard, Ymir and Auðumbla (c. 1777); Georg von Rosen, Odin the Wanderer (1886).
 
 #norsemythology #thenorsesaga #odin #ymir #creation #vikings #norse #mythology #proseedda
 
