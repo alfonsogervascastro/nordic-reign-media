@@ -105,6 +105,37 @@ def ymir():
              ["His skull became the sky, his blood the sea,", "his flesh the land, his bones the mountains.",
               "Four loops, one body:", "the world was made from a giant."])
 
+def _ai_ink(path, keep=0.8):
+    """Load an AI-generated black-on-white drawing as an opaque ink layer (outside made transparent)."""
+    from scipy import ndimage
+    a = np.asarray(Image.open(path).convert("L"))
+    ink = a < 128
+    lab, _ = ndimage.label(~ink)
+    border = set(np.unique(np.concatenate([lab[0], lab[-1], lab[:, 0], lab[:, -1]]))) - {0}
+    outside = np.isin(lab, list(border))
+    rgb = np.where(ink[..., None], INK[0], 255).astype(np.uint8).repeat(3, 2)
+    im = Image.fromarray(np.dstack([rgb, (~outside).astype(np.uint8) * 255]))
+    im = im.crop(im.getbbox())
+    return im.crop((0, 0, im.width, int(im.height * keep)))
+
+def jormungandr():
+    """Ep. 15 — the World Serpent around Midgard. Braided knotwork body (engine) + Viking dragon head
+    (AI-assisted, Qwen-Image, see ai/README.md)."""
+    Wd, Hd = 3000, 3300
+    cy = Hd / 2 + 260
+    k = Knot(Wd, Hd)
+    k.add(torus_knot(2, 21, Wd / 2, cy, 960, 110, n=9000, rot=-np.pi / 2))
+    k.add(circle(Wd / 2, cy, 520, 2400))
+    img = k.render(band=120, line=54, gap=26)
+    head = _ai_ink(os.path.join(HERE, "ai", "serpent_head_1.png"))
+    hw = 1250
+    head = head.resize((hw, int(head.height * hw / head.width)), Image.LANCZOS)
+    top = cy - 960 - 110
+    img.alpha_composite(head, (int(Wd / 2 - hw * 0.58), int(top - head.height * 0.72)))
+    save_all("ep15_jormungandr", img, "JÖRMUNGANDR", "The Norse Saga · Episode 15",
+             ["Loki's child, thrown into the sea by Odin,", "grew until it lay around all of Midgard",
+              "and bit its own tail.", "At Ragnarök it rises to face Thor."])
+
 if __name__ == "__main__":
     which = sys.argv[1:] or ["gleipnir", "ginnungagap", "ymir"]
     for name in which:

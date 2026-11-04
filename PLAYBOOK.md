@@ -70,6 +70,9 @@ Cada episodio de la saga tiene su diseño de tatuaje en **nudo vikingo** que cue
 | Prólogo | Gleipnir (brazalete) | Trenza de tres cabos (la cinta de las seis cosas imposibles) que entra en un anillo con Tiwaz, la runa de Týr | ✔ |
 | 1 | Ginnungagap | Roseta entrelazada alrededor de un centro vacío (el vacío), Isa (hielo) arriba y Kenaz (antorcha) abajo | ✔ |
 | 2 | Ymir's World | Nudo de cuatro lazos dentro de un anillo: cielo, mar, tierra y montañas hechos del cuerpo de Ymir | ✔ |
+| 15 | Jörmungandr | Cuerpo trenzado alrededor de Midgard (motor) + cabeza de dragón vikingo (IA, Qwen-Image) | ✔ preparado por adelantado |
+
+**Diseños con figura (cabezas de animales, cuervos, lobos):** la IA solo dibuja la cabeza o la figura y el motor hace el cuerpo entrelazado (ejemplo: `jormungandr()` y `tattoos/ai/README.md`). La generación con IA necesita el token de Hugging Face de Alfonso, que no se guarda en el repositorio, así que esos diseños se preparan por adelantado en sesiones con Alfonso; la tarea semanal solo los usa si ya existen. Si un episodio necesita figura y no hay diseño preparado, la tarea hace un diseño geométrico.
 
 Para cada episodio nuevo: crea su diseño en `designs.py` antes de producir el vídeo (función con la curva, runas si aplican, título, capítulo y 4 líneas de historia en inglés). Reglas: geometría limpia, sin figuras humanas ni animales dibujados por código, nada de Othala alada, Sowilo doble ni Wolfsangel. **El vídeo del episodio termina con 3 s del diseño**: el dibujo en oro aparece sobre el fondo con el texto "This chapter, as a tattoo" y "Save it for your next tattoo". Guarda los archivos del diseño en `tattoos/out/<slug>/`.
 
