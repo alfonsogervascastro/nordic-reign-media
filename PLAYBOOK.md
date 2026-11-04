@@ -99,6 +99,10 @@ Para cada episodio nuevo: crea su diseño en `designs.py` antes de producir el v
 
 **Cómo poner el cierre del tatuaje en el vídeo:** `END = nr.TattooEnd("../tattoos/out/<slug>/<slug>_gold.png", t0=DUR - 3.2)` y, al final de `frame()`, `END.draw(img, t)` (lo último, porque oscurece todo lo de detrás). Alarga `DUR` unos 3 s y termina las demás tarjetas antes de `t0`. Ejemplos: `v08_saga02.py`, `v10_saga03.py`.
 
+**`tattoos/out/` y `tattoos/pack/` no están en el repositorio a propósito** (el repo es público y los diseños son el producto de pago). En una sesión nueva, antes de renderizar un episodio, genera su diseño: `cd tattoos && python3 designs_saga.py ep04` (episodios 3–22 salvo el 15) o `python3 designs.py ymir` (prólogo `gleipnir`, 1 `ginnungagap`, 2 `ymir`, 15 `jormungandr`). Nunca subas al repo los PNG de los diseños ni el PDF del pack.
+
+**Pack de venta:** `python3 tattoos/make_pack.py` genera `tattoos/pack/NordicReign_NorseSaga_TattooPack.pdf` (portada, licencia de uso personal, índice y dos páginas por diseño: historia y plantilla) y `NordicReign_NorseSaga_Stencils.zip` (plantillas de 3000 px con fondo transparente). Si se mejora un diseño con IA, vuelve a generar el pack.
+
 ## Métricas semanales (cada domingo, antes de producir)
 
 1. Con Metricool (`getAnalyticsAvailableMetrics` y `getAnalyticsDataByMetrics`, blogId 7741806) lee los últimos 7 días de Instagram, TikTok y YouTube: seguidores, visualizaciones por vídeo, guardados, compartidos, comentarios y, si existen, retención o tasa de salto.
