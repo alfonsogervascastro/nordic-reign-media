@@ -33,7 +33,7 @@ def wells(img, t, op):
     img.alpha_composite(lay)
 
 cards = [
-    Card(0.3, 4.6, 330, [T("One tree", 76), T("holds all nine worlds.", 76, GOLD)]),
+    Card(-0.8, 4.6, 330, [T("One tree", 76), T("holds all nine worlds.", 76, GOLD)]),
     Card(0.8, 4.6, 1490, [B("Art: Oluf O. Bagge, 1847", 30)]),
     Card(4.8, 8.8, 330, [B("Yggdrasil, the greatest of all trees.", 54, LIGHT), B("Its branches spread over every world", 50), B("and reach above the sky.", 50)]),
     Card(9.0, 12.6, 330, [T("Three roots.", 72), T("Three wells.", 72, GOLD)]),
@@ -53,7 +53,7 @@ LABEL = nr.Label("THE NORSE SAGA", "EP. 3")
 
 def frame(img, t):
     LABEL.draw(img, t, DUR)
-    FULL.draw(img, t, 0.3, window(t, 0.3, 9.0, 0.6), dur=8.6)
+    FULL.draw(img, t, 0.0, window(t, -1.0, 9.0, 0.6), dur=9.0)
     wells(img, t, window(t, 9.0, 18.6, 0.6))
     ROOTS.draw(img, t, 9.0, window(t, 9.0, 12.8, 0.5) * 0.9, dur=3.8)
     CROWN.draw(img, t, 18.6, window(t, 18.6, 27.0, 0.6), dur=8.4)

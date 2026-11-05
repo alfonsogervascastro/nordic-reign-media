@@ -3,7 +3,7 @@ import sys
 import narrate, v08_saga02 as ep
 
 SEGMENTS = [
-    (0.0, 4.2, "Odin and his brothers, Vili and Vay, killed the giant Eemeer."),
+    (0.0, 4.2, "Our world is made from a dead giant. Odin and his brothers killed him. His name was Eemeer."),
     (4.2, 8.6, "So much blood poured from him that every frost giant drowned. All but one. Bergelmeer."),
     (8.6, 12.8, "Then they built the world from his body."),
     (12.8, 15.0, "His blood became the sea,"),

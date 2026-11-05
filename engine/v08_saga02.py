@@ -110,8 +110,9 @@ def wall(img, t, op):
     img.alpha_composite(lay)
 
 cards = [
-    Card(0.3, 4.0, 330, [B("Odin and his brothers, Vili and Vé,", 54, LIGHT), T("killed the giant Ymir.", 66, GOLD)]),
-    Card(0.6, 4.0, 1200, [B("Art: Lorenz Frølich, 1895", 30)]),
+    Card(-0.8, 4.0, 330, [T("Our world is made", 70), T("from a dead giant.", 70, GOLD)]),
+    Card(1.4, 4.0, 1290, [B("Odin and his brothers, Vili and Vé,", 44, LIGHT), B("killed Ymir, the first giant.", 44, LIGHT)]),
+    Card(0.6, 4.0, 1460, [B("Art: Lorenz Frølich, 1895", 30)]),
     Card(4.2, 8.4, 330, [B("So much blood poured from him", 56, LIGHT), B("that every frost giant drowned.", 56, LIGHT)]),
     Card(6.2, 8.4, 560, [T("All but one: Bergelmir.", 58, GOLD)]),
     Card(8.6, 12.6, 330, [T("Then they built", 70), T("the world from his body.", 70, GOLD)]),
@@ -130,7 +131,7 @@ LABEL = nr.Label("THE NORSE SAGA", "EP. 2")
 
 def frame(img, t):
     LABEL.draw(img, t, DUR)
-    YMIR.draw(img, t, 0.3, window(t, 0.3, 4.4, 0.5), dur=4.0)
+    YMIR.draw(img, t, 0.0, window(t, -1.0, 4.4, 0.5), dur=4.4)
     flood(img, t, window(t, 4.2, 8.6, 0.6))
     shaping(img, t, window(t, 8.6, 12.8, 0.6))
     clouds(img, t, window(t, 19.4, 27.4, 0.8))
