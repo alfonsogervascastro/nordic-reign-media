@@ -138,11 +138,21 @@ Narrador con **Kokoro-82M** (licencia Apache-2.0, uso comercial permitido), en l
 - El vídeo se alarga (Ep. 2: 34 → 44 s; Ep. 3: 38 → 57 s). Escribe frases cortas: menos de 60 s por episodio.
 - `engine/voice.py` (Chatterbox en Hugging Face) queda como alternativa: suena más natural pero gasta la cuota gratuita de ZeroGPU (≈8 frases al día) y necesita el token, así que no sirve para la tarea automática.
 
-## Gancho y duración (5 nov)
+## Estructura de un vídeo (checklist obligatorio, 5 nov)
 
-- **El primer fotograma ya enseña el gancho**: imagen y frase principal visibles desde t=0 (primera tarjeta con `a=0.0`, cuadro con opacidad 1 desde el inicio). El feed decide en el primer segundo y el render ya no hace fundido desde negro.
-- Duración objetivo: 25–40 s; nunca más de 60 s con voz. Frases cortas.
-- La pregunta final debe invitar a comentar algo concreto (un nombre, una elección entre dos opciones).
+Qué premian las plataformas: Instagram ordena los Reels por tiempo visto/finalización, «me gusta» por alcance y **envíos por DM por alcance** (la señal más fuerte para llegar a quien no te sigue). YouTube Shorts mira cuántos eligen verlo frente a cuántos deslizan y cuánto del vídeo se ve. En las dos, lo que decide es el primer segundo y que la recompensa llegue pronto.
+
+Plantilla (30–45 s; nunca más de 60 s con voz):
+1. **0–1 s · Gancho.** Imagen fuerte y una frase de ≤7 palabras **visibles desde el fotograma 0** (`Card(-0.8, ...)` y el cuadro con `window(t, -1.0, ...)`). La frase es una afirmación sorprendente o una pregunta, nunca un resumen. Bien: "Our world is made from a dead giant", "Tolkien didn't invent his dwarves' names". Mal: "Odin and his brothers killed Ymir" (es contexto, no gancho). La voz empieza en t≈0,35 s.
+2. **1–4 s · Por qué importa.** Una línea de contexto.
+3. **Cuerpo · 3–5 pasos de 3–5 s.** Cada paso cambia la imagen o añade algo que se mueve. Nunca más de 4 s con la misma imagen quieta. Máximo ~12 palabras en pantalla a la vez.
+4. **A mitad · Segundo gancho.** Un giro ("All but one…", "But the poems disagree…") para frenar la caída del medio.
+5. **Final · Recompensa + llamada.** La recompensa nunca después del 80 % del vídeo. Termina con una pregunta concreta para comentar (elegir entre opciones o escribir un nombre) o un motivo para enviarlo ("Send this to…"). En la saga, enlace al siguiente episodio y 3 s del tatuaje (motivo para guardar).
+6. **Texto de la publicación:** primera línea = el gancho; máximo 5 hashtags; una frase para enviar o guardar cuando tenga sentido.
+
+Antes de programar, revisa: ¿el fotograma 0 tiene imagen + gancho? ¿hay algún tramo >4 s sin cambio visual? ¿dura menos de 45 s (60 s con voz)? ¿la pregunta final se contesta con una palabra?
+
+Cómo medir (desde 10–14 vídeos publicados, no antes): % que elige verlo (YouTube), visionado medio en % y envíos + guardados por alcance (Instagram). Las visualizaciones solas no dicen nada.
 
 ## Imágenes (obligatorio: nada de vídeos solo con texto)
 
@@ -203,9 +213,9 @@ La imagen debe cambiar cada 3–4 segundos y siempre haber movimiento (empuje le
 | 2026-11-07 | The Norse Saga · Ep. 1 | Ginnungagap → Odín | 2026-11/2026-11-07_saga-ep01_ginnungagap_voz.mp4 (con voz) |
 | 2026-11-08 | Words from the North | window, sky, egg, berserk, they | 2026-11/2026-11-08_words_old-norse_a2.mp4 |
 | 2026-11-09 | Rune 1/24 | Fehu | 2026-11/2026-11-09_rune01_fehu_a2.mp4 |
-| 2026-11-11 | The Norse Saga · Ep. 2 | El mundo hecho de Ymir (+ tatuaje, con voz) | 2026-11/2026-11-11_saga_ep02_ymir_voz.mp4 |
+| 2026-11-11 | The Norse Saga · Ep. 2 | El mundo hecho de Ymir (+ tatuaje, con voz) | 2026-11/2026-11-11_saga_ep02_ymir_voz2.mp4 |
 | 2026-11-12 | Words from the North | Los enanos de Tolkien vienen de la Völuspá; Midgard | 2026-11/2026-11-12_words_tolkien-dwarves.mp4 |
 | 2026-11-13 | Myth vs History | Cascos con cuernos | 2026-11/2026-11-13_myth-vs-history_horns_a2.mp4 |
-| 2026-11-14 | The Norse Saga · Ep. 3 | Yggdrasil (+ tatuaje, con voz) | 2026-11/2026-11-14_saga_ep03_yggdrasil_voz.mp4 |
+| 2026-11-14 | The Norse Saga · Ep. 3 | Yggdrasil (+ tatuaje, con voz) | 2026-11/2026-11-14_saga_ep03_yggdrasil_voz2.mp4 |
 | 2026-11-15 | Hávamál | Estrofa 76 ("Deyr fé", con voz) | 2026-11/2026-11-15_havamal_76_voz.mp4 |
 | 2026-11-16 | Rune 2/24 | Uruz | 2026-11/2026-11-16_rune02_uruz.mp4 |

@@ -4,10 +4,10 @@ Martes 10 (Your name in runes): lo produce la tarea del domingo 8.
 
 | Día | Serie | Archivo | Título YT / TikTok | Metricool id |
 | --- | --- | --- | --- | --- |
-| Mié 11 | Saga Ep. 2 (con voz) | 2026-11-11_saga_ep02_ymir_voz.mp4 | The Norse Saga Ep. 2: The World Made From a Giant | 417754864 |
-| Jue 12 | Words from the North | 2026-11-12_words_tolkien-dwarves.mp4 | Tolkien Took His Dwarves From a Norse Poem | 417755123 |
+| Mié 11 | Saga Ep. 2 (con voz) | 2026-11-11_saga_ep02_ymir_voz2.mp4 | The Norse Saga Ep. 2: The World Made From a Giant | 417780153 |
+| Jue 12 | Words from the North | 2026-11-12_words_tolkien-dwarves.mp4 | Tolkien Took His Dwarves From a Norse Poem | 417780406 |
 | Vie 13 | Myth vs History | 2026-11-13_myth-vs-history_horns_a2.mp4 | Vikings Never Wore Horned Helmets. Here's Who Did | 417755329 |
-| Sáb 14 | Saga Ep. 3 (con voz) | 2026-11-14_saga_ep03_yggdrasil_voz.mp4 | The Norse Saga Ep. 3: Yggdrasil, the Tree of Nine Worlds | 417754991 |
+| Sáb 14 | Saga Ep. 3 (con voz) | 2026-11-14_saga_ep03_yggdrasil_voz2.mp4 | The Norse Saga Ep. 3: Yggdrasil, the Tree of Nine Worlds | 417780281 |
 | Dom 15 | Hávamál (con voz) | 2026-11-15_havamal_76_voz.mp4 | Odin's Advice: The One Thing That Never Dies | 417754744 |
 | Lun 16 | Rune 2/24 | 2026-11-16_rune02_uruz.mp4 | Rune 2/24: Uruz, the Rune Nobody Agrees On | 417755237 |
 
@@ -21,3 +21,4 @@ Fuentes comprobadas:
 - Uruz: poemas rúnicos anglosajón (uro), noruego (escoria) e islandés (llovizna).
 
 Actualizado el 5 nov: voz 6 en sagas y Hávamál, máximo 5 hashtags y portada fijada (videoCoverMilliseconds). La semana 1 pendiente también se recortó a 5 hashtags y el Ep. 1 se cambió por su versión con voz.
+Actualizado el 5 nov (tarde): Ep. 2 con gancho nuevo («Our world is made from a dead giant»), Ep. 2 y 3 con gancho visible desde el fotograma 0, Ep. 3 recortado a 44 s, y «Send this to the Tolkien fan in your life» en el de Tolkien.
