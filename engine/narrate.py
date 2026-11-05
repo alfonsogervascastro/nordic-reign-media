@@ -39,7 +39,7 @@ def speak(text, voice=None):
 def plan(segments, dur, lead=0.35, tail=0.45, voice=None):
     """segments: [(t0, t1, text)] on the original timeline, in order, non-overlapping.
     Returns (new_dur, warp(t_new)->t_orig, voice_track)."""
-    clips = [speak(txt, voice) for _, _, txt in segments]
+    clips = [speak(txt, voice) if txt else np.zeros(0, np.float32) for _, _, txt in segments]
     knots_o, knots_n = [0.0], [0.0]
     starts = []
     shift = 0.0
