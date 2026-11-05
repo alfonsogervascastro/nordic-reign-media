@@ -138,6 +138,12 @@ Narrador con **Kokoro-82M** (licencia Apache-2.0, uso comercial permitido), en l
 - El vídeo se alarga (Ep. 2: 34 → 44 s; Ep. 3: 38 → 57 s). Escribe frases cortas: menos de 60 s por episodio.
 - `engine/voice.py` (Chatterbox en Hugging Face) queda como alternativa: suena más natural pero gasta la cuota gratuita de ZeroGPU (≈8 frases al día) y necesita el token, así que no sirve para la tarea automática.
 
+## Gancho y duración (5 nov)
+
+- **El primer fotograma ya enseña el gancho**: imagen y frase principal visibles desde t=0 (primera tarjeta con `a=0.0`, cuadro con opacidad 1 desde el inicio). El feed decide en el primer segundo y el render ya no hace fundido desde negro.
+- Duración objetivo: 25–40 s; nunca más de 60 s con voz. Frases cortas.
+- La pregunta final debe invitar a comentar algo concreto (un nombre, una elección entre dos opciones).
+
 ## Imágenes (obligatorio: nada de vídeos solo con texto)
 
 La imagen debe cambiar cada 3–4 segundos y siempre haber movimiento (empuje lento de cámara, capas, partículas). El texto va arriba (y 290–560) o abajo (y 1440–1520) y la ilustración ocupa el centro.

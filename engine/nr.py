@@ -403,7 +403,7 @@ def render(out, dur, draw_frame, seed=3, bpm=66, music=None, music_start=0.0):
         t = i / FPS
         img = bg.render(t)
         draw_frame(img, t)
-        k = ease(t / 0.4) * ease((dur - t) / 0.4)
+        k = ease((dur - t) / 0.4)  # no fade-in: the first frame must already show the hook
         if k < 1:
             img = Image.blend(Image.new("RGBA", (W, H), (0, 0, 0, 255)), img, k)
         p.stdin.write(img.convert("RGB").tobytes())
