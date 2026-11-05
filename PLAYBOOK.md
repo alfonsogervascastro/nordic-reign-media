@@ -133,7 +133,7 @@ Narrador con **Kokoro-82M** (licencia Apache-2.0, uso comercial permitido), en l
 - Instalación en una sesión nueva: `pip install --break-system-packages kokoro-onnx` y descargar `kokoro-v1.0.onnx` y `voices-v1.0.bin` de las releases de GitHub `thewh1teagle/kokoro-onnx` (`model-files-v1.0`) en `engine/kokoro/`. El CDN de Hugging Face está bloqueado; GitHub releases funciona.
 - Uso: ver `engine/narrate.py` y el ejemplo `v08v_saga02_voice.py` (segmentos `(t0, t1, texto)` sobre la línea de tiempo original; el vídeo se estira donde la frase lo necesita, la música baja bajo la voz y el audio se normaliza a −14 LUFS).
 - Los nombres difíciles se escriben como suenan en el texto hablado (Ymir → "Eemeer", Vé → "Vay", Bergelmir → "Bergelmeer").
-- **Dónde va la voz:** en todos los episodios de The Norse Saga (desde el Ep. 2). El resto de series, sin voz salvo que Alfonso diga lo contrario (recomendado también para Hávamál). Para cada episodio: haz primero el script normal (`vNN_sagaXX.py`), luego su versión con voz (`vNNv_sagaXX_voice.py`, mismos segmentos que las tarjetas) y programa **solo la versión con voz** (`..._voz.mp4`).
+- **Dónde va la voz:** en todos los episodios de The Norse Saga (desde el Ep. 1) y en Hávamál (el texto en nórdico antiguo va sin voz: segmento con texto vacío `""`). El resto de series, sin voz salvo que Alfonso diga lo contrario. Para cada episodio: haz primero el script normal (`vNN_sagaXX.py`), luego su versión con voz (`vNNv_sagaXX_voice.py`, mismos segmentos que las tarjetas) y programa **solo la versión con voz** (`..._voz.mp4`).
 - Con voz, marca en Metricool `instagramData.isAiGenerated = true`, `youtubeData.isAiGeneratedContent = true` y `tiktokData.isAigc = true` (la voz es sintética).
 - El vídeo se alarga (Ep. 2: 34 → 44 s; Ep. 3: 38 → 57 s). Escribe frases cortas: menos de 60 s por episodio.
 - `engine/voice.py` (Chatterbox en Hugging Face) queda como alternativa: suena más natural pero gasta la cuota gratuita de ZeroGPU (≈8 frases al día) y necesita el token, así que no sirve para la tarea automática.
@@ -184,7 +184,8 @@ La imagen debe cambiar cada 3–4 segundos y siempre haber movimiento (empuje le
 3. Copiar los `.mp4` a `AAAA-MM/` con el nombre `AAAA-MM-DD_<serie>_<tema>.mp4` y hacer push a `main`.
 4. URL pública: `https://raw.githubusercontent.com/alfonsogervascastro/nordic-reign-media/main/AAAA-MM/<archivo>.mp4`.
 5. Programar con Metricool `createScheduledPost`: providers instagram + youtube + tiktok, `instagramData.type = REEL`, `youtubeData.type = short`, `madeForKids = false`, `category = EDUCATION`, título de YouTube terminado en `#shorts` (episodios: "The Norse Saga Ep. n: <título> | #shorts"), y `tiktokData` con `title` (obligatorio; el mismo título sin `#shorts`), `privacyOption = PUBLIC_TO_EVERYONE`, `isAigc = false`.
-6. Comprobar con `getScheduledPosts` y actualizar el registro y la tabla de episodios.
+6. **Máximo 5 hashtags** por publicación (límite de Instagram desde finales de 2025). Portada: `videoCoverMilliseconds` en un fotograma con título + imagen (≈2500 en sagas, Hávamál y palabras; en runas, cuando la runa ya está dibujada).
+7. Comprobar con `getScheduledPosts` y actualizar el registro y la tabla de episodios.
 
 ## Registro de publicaciones
 
@@ -193,12 +194,12 @@ La imagen debe cambiar cada 3–4 segundos y siempre haber movimiento (empuje le
 | 2026-11-04 | The Norse Saga · Prólogo | Gleipnir y Fenrir | 2026-11/2026-11-04_saga-prologue_gleipnir_a2.mp4 |
 | 2026-11-05 | Words from the North | Días de la semana | 2026-11/2026-11-05_words_days_a2.mp4 |
 | 2026-11-06 | Your name in runes | Llamada + ejemplo ASTRID | 2026-11/2026-11-06_name_astrid_a2.mp4 |
-| 2026-11-07 | The Norse Saga · Ep. 1 | Ginnungagap → Odín | 2026-11/2026-11-07_saga-ep01_ginnungagap_a3.mp4 |
+| 2026-11-07 | The Norse Saga · Ep. 1 | Ginnungagap → Odín | 2026-11/2026-11-07_saga-ep01_ginnungagap_voz.mp4 (con voz) |
 | 2026-11-08 | Words from the North | window, sky, egg, berserk, they | 2026-11/2026-11-08_words_old-norse_a2.mp4 |
 | 2026-11-09 | Rune 1/24 | Fehu | 2026-11/2026-11-09_rune01_fehu_a2.mp4 |
 | 2026-11-11 | The Norse Saga · Ep. 2 | El mundo hecho de Ymir (+ tatuaje, con voz) | 2026-11/2026-11-11_saga_ep02_ymir_voz.mp4 |
 | 2026-11-12 | Words from the North | Los enanos de Tolkien vienen de la Völuspá; Midgard | 2026-11/2026-11-12_words_tolkien-dwarves.mp4 |
 | 2026-11-13 | Myth vs History | Cascos con cuernos | 2026-11/2026-11-13_myth-vs-history_horns_a2.mp4 |
 | 2026-11-14 | The Norse Saga · Ep. 3 | Yggdrasil (+ tatuaje, con voz) | 2026-11/2026-11-14_saga_ep03_yggdrasil_voz.mp4 |
-| 2026-11-15 | Hávamál | Estrofa 76 ("Deyr fé") | 2026-11/2026-11-15_havamal_76.mp4 |
+| 2026-11-15 | Hávamál | Estrofa 76 ("Deyr fé", con voz) | 2026-11/2026-11-15_havamal_76_voz.mp4 |
 | 2026-11-16 | Rune 2/24 | Uruz | 2026-11/2026-11-16_rune02_uruz.mp4 |
