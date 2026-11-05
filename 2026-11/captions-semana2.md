@@ -4,10 +4,10 @@ Martes 10 (Your name in runes): lo produce la tarea del domingo 8.
 
 | Día | Serie | Archivo | Título YT / TikTok | Metricool id |
 | --- | --- | --- | --- | --- |
-| Mié 11 | Saga Ep. 2 | 2026-11-11_saga_ep02_ymir.mp4 | The Norse Saga Ep. 2: The World Made From a Giant | 416398726 |
+| Mié 11 | Saga Ep. 2 (con voz) | 2026-11-11_saga_ep02_ymir_voz.mp4 | The Norse Saga Ep. 2: The World Made From a Giant | 417739975 |
 | Jue 12 | Words from the North | 2026-11-12_words_tolkien-dwarves.mp4 | Tolkien Took His Dwarves From a Norse Poem | 416398824 |
 | Vie 13 | Myth vs History | 2026-11-13_myth-vs-history_horns_a2.mp4 | Vikings Never Wore Horned Helmets. Here's Who Did | 416143815 |
-| Sáb 14 | Saga Ep. 3 | 2026-11-14_saga_ep03_yggdrasil.mp4 | The Norse Saga Ep. 3: Yggdrasil, the Tree of Nine Worlds | 416398937 |
+| Sáb 14 | Saga Ep. 3 (con voz) | 2026-11-14_saga_ep03_yggdrasil_voz.mp4 | The Norse Saga Ep. 3: Yggdrasil, the Tree of Nine Worlds | 417740091 |
 | Dom 15 | Hávamál | 2026-11-15_havamal_76.mp4 | Odin's Advice: The One Thing That Never Dies | 416399039 |
 | Lun 16 | Rune 2/24 | 2026-11-16_rune02_uruz.mp4 | Rune 2/24: Uruz, the Rune Nobody Agrees On | 416399102 |
 

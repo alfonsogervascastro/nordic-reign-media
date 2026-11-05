@@ -127,13 +127,15 @@ Para cada episodio nuevo: crea su diseño en `designs.py` antes de producir el v
 - Etiqueta de serie en y=196; contenido entre y=290 y y=1520. Un mensaje por pantalla, máx. ~8 palabras por línea.
 - Gancho en los primeros 2 segundos.
 
-## Voz en off (en prueba, 5 nov)
+## Voz en off (decidido 5 nov: voz 6)
 
-Narrador con **Kokoro-82M** (licencia Apache-2.0, uso comercial permitido), en local con CPU: sin token ni cuota, así que la tarea del domingo también puede usarlo. Siempre la misma voz (`narrate.VOICE`, por defecto `bm_george`) y la misma velocidad para que suene igual en todos los vídeos. Es una voz sintética de la librería, no la imitación de nadie.
+Narrador con **Kokoro-82M** (licencia Apache-2.0, uso comercial permitido), en local con CPU: sin token ni cuota, así que la tarea del domingo también puede usarlo. Siempre la misma voz: **`am_michael` (la «voz 6», elegida por Alfonso)**, fijada en `narrate.VOICE` y la misma velocidad para que suene igual en todos los vídeos. Es una voz sintética de la librería, no la imitación de nadie.
 - Instalación en una sesión nueva: `pip install --break-system-packages kokoro-onnx` y descargar `kokoro-v1.0.onnx` y `voices-v1.0.bin` de las releases de GitHub `thewh1teagle/kokoro-onnx` (`model-files-v1.0`) en `engine/kokoro/`. El CDN de Hugging Face está bloqueado; GitHub releases funciona.
 - Uso: ver `engine/narrate.py` y el ejemplo `v08v_saga02_voice.py` (segmentos `(t0, t1, texto)` sobre la línea de tiempo original; el vídeo se estira donde la frase lo necesita, la música baja bajo la voz y el audio se normaliza a −14 LUFS).
 - Los nombres difíciles se escriben como suenan en el texto hablado (Ymir → "Eemeer", Vé → "Vay", Bergelmir → "Bergelmeer").
-- **Todavía no se usa en lo programado:** Alfonso tiene que elegir la voz (muestras 1–6) y decidir si los vídeos llevan voz. Hasta entonces, sin voz.
+- **Dónde va la voz:** en todos los episodios de The Norse Saga (desde el Ep. 2). El resto de series, sin voz salvo que Alfonso diga lo contrario (recomendado también para Hávamál). Para cada episodio: haz primero el script normal (`vNN_sagaXX.py`), luego su versión con voz (`vNNv_sagaXX_voice.py`, mismos segmentos que las tarjetas) y programa **solo la versión con voz** (`..._voz.mp4`).
+- Con voz, marca en Metricool `instagramData.isAiGenerated = true`, `youtubeData.isAiGeneratedContent = true` y `tiktokData.isAigc = true` (la voz es sintética).
+- El vídeo se alarga (Ep. 2: 34 → 44 s; Ep. 3: 38 → 57 s). Escribe frases cortas: menos de 60 s por episodio.
 - `engine/voice.py` (Chatterbox en Hugging Face) queda como alternativa: suena más natural pero gasta la cuota gratuita de ZeroGPU (≈8 frases al día) y necesita el token, así que no sirve para la tarea automática.
 
 ## Imágenes (obligatorio: nada de vídeos solo con texto)
@@ -194,9 +196,9 @@ La imagen debe cambiar cada 3–4 segundos y siempre haber movimiento (empuje le
 | 2026-11-07 | The Norse Saga · Ep. 1 | Ginnungagap → Odín | 2026-11/2026-11-07_saga-ep01_ginnungagap_a3.mp4 |
 | 2026-11-08 | Words from the North | window, sky, egg, berserk, they | 2026-11/2026-11-08_words_old-norse_a2.mp4 |
 | 2026-11-09 | Rune 1/24 | Fehu | 2026-11/2026-11-09_rune01_fehu_a2.mp4 |
-| 2026-11-11 | The Norse Saga · Ep. 2 | El mundo hecho de Ymir (+ tatuaje) | 2026-11/2026-11-11_saga_ep02_ymir.mp4 |
+| 2026-11-11 | The Norse Saga · Ep. 2 | El mundo hecho de Ymir (+ tatuaje, con voz) | 2026-11/2026-11-11_saga_ep02_ymir_voz.mp4 |
 | 2026-11-12 | Words from the North | Los enanos de Tolkien vienen de la Völuspá; Midgard | 2026-11/2026-11-12_words_tolkien-dwarves.mp4 |
 | 2026-11-13 | Myth vs History | Cascos con cuernos | 2026-11/2026-11-13_myth-vs-history_horns_a2.mp4 |
-| 2026-11-14 | The Norse Saga · Ep. 3 | Yggdrasil (+ tatuaje) | 2026-11/2026-11-14_saga_ep03_yggdrasil.mp4 |
+| 2026-11-14 | The Norse Saga · Ep. 3 | Yggdrasil (+ tatuaje, con voz) | 2026-11/2026-11-14_saga_ep03_yggdrasil_voz.mp4 |
 | 2026-11-15 | Hávamál | Estrofa 76 ("Deyr fé") | 2026-11/2026-11-15_havamal_76.mp4 |
 | 2026-11-16 | Rune 2/24 | Uruz | 2026-11/2026-11-16_rune02_uruz.mp4 |
