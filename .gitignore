@@ -3,3 +3,5 @@ stills/
 __pycache__/
 *.wav
 tattoos/pack/
+engine/kokoro/
+engine/voice/

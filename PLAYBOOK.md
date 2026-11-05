@@ -127,6 +127,15 @@ Para cada episodio nuevo: crea su diseño en `designs.py` antes de producir el v
 - Etiqueta de serie en y=196; contenido entre y=290 y y=1520. Un mensaje por pantalla, máx. ~8 palabras por línea.
 - Gancho en los primeros 2 segundos.
 
+## Voz en off (en prueba, 5 nov)
+
+Narrador con **Kokoro-82M** (licencia Apache-2.0, uso comercial permitido), en local con CPU: sin token ni cuota, así que la tarea del domingo también puede usarlo. Siempre la misma voz (`narrate.VOICE`, por defecto `bm_george`) y la misma velocidad para que suene igual en todos los vídeos. Es una voz sintética de la librería, no la imitación de nadie.
+- Instalación en una sesión nueva: `pip install --break-system-packages kokoro-onnx` y descargar `kokoro-v1.0.onnx` y `voices-v1.0.bin` de las releases de GitHub `thewh1teagle/kokoro-onnx` (`model-files-v1.0`) en `engine/kokoro/`. El CDN de Hugging Face está bloqueado; GitHub releases funciona.
+- Uso: ver `engine/narrate.py` y el ejemplo `v08v_saga02_voice.py` (segmentos `(t0, t1, texto)` sobre la línea de tiempo original; el vídeo se estira donde la frase lo necesita, la música baja bajo la voz y el audio se normaliza a −14 LUFS).
+- Los nombres difíciles se escriben como suenan en el texto hablado (Ymir → "Eemeer", Vé → "Vay", Bergelmir → "Bergelmeer").
+- **Todavía no se usa en lo programado:** Alfonso tiene que elegir la voz (muestras 1–6) y decidir si los vídeos llevan voz. Hasta entonces, sin voz.
+- `engine/voice.py` (Chatterbox en Hugging Face) queda como alternativa: suena más natural pero gasta la cuota gratuita de ZeroGPU (≈8 frases al día) y necesita el token, así que no sirve para la tarea automática.
+
 ## Imágenes (obligatorio: nada de vídeos solo con texto)
 
 La imagen debe cambiar cada 3–4 segundos y siempre haber movimiento (empuje lento de cámara, capas, partículas). El texto va arriba (y 290–560) o abajo (y 1440–1520) y la ilustración ocupa el centro.
