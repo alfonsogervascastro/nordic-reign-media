@@ -20,9 +20,8 @@ import scipy.io.wavfile as wavfile
 import nr
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-VOICE = os.environ.get("NR_VOICE", "bm_george")
+VOICE = os.environ.get("NR_VOICE", "am_michael")  # voice 6, chosen by Alfonso on 5 Nov 2026
 SPEED = 0.95
-LANG = "en-gb"
 SR = 24000
 _k = None
 
@@ -32,7 +31,8 @@ def speak(text, voice=None):
         from kokoro_onnx import Kokoro
         d = os.path.join(HERE, "kokoro")
         _k = Kokoro(os.path.join(d, "kokoro-v1.0.onnx"), os.path.join(d, "voices-v1.0.bin"))
-    s, sr = _k.create(text, voice=voice or VOICE, speed=SPEED, lang=LANG)
+    v = voice or VOICE
+    s, sr = _k.create(text, voice=v, speed=SPEED, lang="en-gb" if v.startswith("b") else "en-us")
     assert sr == SR
     return np.asarray(s, np.float32)
 
