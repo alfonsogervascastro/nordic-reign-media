@@ -4,7 +4,8 @@ import nr
 from nr import Card, T, B, GOLD, LIGHT, MIST, W, ease, window
 
 DUR = 19.5
-NAME = "Astrid"
+import os
+NAME = os.environ.get("NR_NAME", "Astrid")
 GLYPHS = nr.transliterate(NAME)
 
 SLAB_X, SLAB_Y, SLAB_W, SLAB_H = 70, 560, W - 140, 520
@@ -14,7 +15,7 @@ START = 0.9
 EACH = 0.75
 
 cards = [
-    Card(0.2, 3.8, 300, [T("What your name", 72), T("looks like in runes", 72)]),
+    Card(-0.8, 3.8, 300, [T("What your name", 72), T("looks like in runes", 72)]),
     Card(4.0, 19.5, 300, [[B("This is ", 58, LIGHT), T(NAME.upper(), 62, GOLD)]]),
     Card(4.5, 19.5, 400, [B("in the oldest runic alphabet", 46)]),
     Card(11.0, 15.8, 1180, [B("Elder Futhark, used c. 150–800 AD.", 44), B("Runes spell sounds, not letters.", 44)]),
@@ -27,7 +28,7 @@ LABEL = nr.Label("YOUR NAME IN RUNES")
 
 def frame(img, t):
     LABEL.draw(img, t, DUR)
-    nr.draw_slab(img, SLAB_X, SLAB_Y, SLAB_W, SLAB_H, window(t, 0.3, 19.5, 0.6))
+    nr.draw_slab(img, SLAB_X, SLAB_Y, SLAB_W, SLAB_H, window(t, -1.0, 19.5, 0.6))
     n = len(GLYPHS)
     x0 = W / 2 - (n - 1) * STEP / 2
     for i, (letter, rune) in enumerate(GLYPHS):
@@ -50,4 +51,4 @@ if __name__ == "__main__":
         for s in [2.6, 7.0, 13.0, 18.5]:
             nr.still(f"stills/v03_{s}.png", s, frame, seed=8)
     else:
-        nr.render("out/v03_name.mp4", DUR, frame, seed=8, bpm=60)
+        nr.render(f"out/v03_name_{NAME.lower()}.mp4", DUR, frame, seed=8, bpm=60)

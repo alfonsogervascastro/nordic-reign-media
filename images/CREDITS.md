@@ -8,3 +8,5 @@
 | froelich_ymir_killed_1895.jpg | Ymir is killed (illustration for *Den ældre Eddas Gudesange*) | Lorenz Frølich (1820–1908) | 1895 | Wikimedia Commons |
 | bagge_yggdrasil_1847.jpg | Yggdrasil, The Mundane Tree (from *Northern Antiquities*, English ed.) | Oluf Olufsen Bagge (1780–1836) | 1847 | Wikimedia Commons |
 | hamiltonsmith_aurochs_1827.jpg | Aurochs (after a 16th-century painting, the "Augsburg aurochs") | published by Charles Hamilton Smith (1776–1859) | 1827 | Wikimedia Commons |
+| froelich_ask_embla_1895.jpg | Odin, Lóðurr and Hœnir create Ask and Embla | Lorenz Frølich (1820–1908) | 1895 | Wikimedia Commons |
+| froelich_aesir_vanir_war_1895.jpg | Odin throws his spear over the Vanir (Æsir–Vanir war) | Lorenz Frølich (1820–1908) | 1895 | Wikimedia Commons |
