@@ -37,8 +37,8 @@ Fuente principal: Snorri Sturluson, Prose Edda (Gylfaginning, Skáldskaparmál) 
 | 1 | Ginnungagap, Ymir, Auðumbla, Búri → Odín | — | ✔ 2026-11-07 |
 | 2 | Odín, Vili y Vé matan a Ymir y hacen el mundo con su cuerpo | — | ✔ 2026-11-11 |
 | 3 | Yggdrasil y los nueve mundos | — | ✔ 2026-11-14 |
-| 4 | Ask y Embla, los primeros humanos | — | |
-| 5 | La guerra entre Æsir y Vanir | — | |
+| 4 | Ask y Embla, los primeros humanos | — | ✔ 2026-11-18 |
+| 5 | La guerra entre Æsir y Vanir | — | ✔ 2026-11-21 |
 | 6 | Odín, nueve noches colgado de Yggdrasil: el origen de las runas | Nine Days Below | |
 | 7 | Odín entrega su ojo en el pozo de Mímir | Odin's Sacrifice | |
 | 8 | Kvasir y el hidromiel de la poesía | — | |
@@ -189,9 +189,10 @@ La imagen debe cambiar cada 3–4 segundos y siempre haber movimiento (empuje le
 
 ## Pendientes
 
-- **Antes de producir, mira `getScheduledPosts` de martes a lunes y produce solo los días que falten.** No dupliques días ya programados.
-- Semana del 10 al 16 nov: **ya programado** del miércoles 11 al lunes 16 (Ep. 2, Tolkien, cascos, Ep. 3, Hávamál 76, Uruz). **Solo falta el martes 10 (Your name in runes)**, con nombres de `names.txt` o de comentarios; si no hay ninguno, usa un nombre nórdico popular (p. ej. ERIK o FREYA).
-- Semana del 17 al 23 nov: Ep. 4 (Ask y Embla, miércoles 18) y Ep. 5 (Æsir y Vanir, sábado 21); runa 3/24 Thurisaz el lunes 23 (el vídeo de Uruz ya lo anuncia).
+- **Programado hasta el lunes 23 nov (incluido el martes 10).** Domingo 8 nov: solo informe de métricas (`metrics/2026-11-08.md`), no producir nada. Domingo 15 nov: solo métricas. Domingo 22 nov: producir la semana del 24 al 30 (martes 24 nombre; miércoles 25 Ep. 6 «Nine Nights», con voz; jueves 26 palabras; viernes 27 Myth vs History; sábado 28 Ep. 7 «Huginn y Muninn», con voz; domingo 29 Hávamál con voz; lunes 30 runa 4/24 Ansuz, ya anunciada).
+- **Antes de producir, mira `getScheduledPosts` y produce solo los días que falten.**
+- Temas ya usados (no repetir): días de la semana, palabras nórdicas en inglés, enanos de Tolkien, Týr = «dios», cascos con cuernos, vikingos y el baño (laugardagr), Hávamál 76 y 55, nombres ASTRID, ERIK y SIGRID.
+- Imagen pendiente de descargar: `Arbo-Valkyrien_1864.jpg` (Peter Nicolai Arbo, valquiria; Wikimedia dio 429 el 6 nov). Úsala para un vídeo de palabras sobre «valkyrja» = «la que elige a los caídos».
 
 ## Cómo producir y programar
 
@@ -218,4 +219,12 @@ La imagen debe cambiar cada 3–4 segundos y siempre haber movimiento (empuje le
 | 2026-11-13 | Myth vs History | Cascos con cuernos | 2026-11/2026-11-13_myth-vs-history_horns_a2.mp4 |
 | 2026-11-14 | The Norse Saga · Ep. 3 | Yggdrasil (+ tatuaje, con voz) | 2026-11/2026-11-14_saga_ep03_yggdrasil_voz2.mp4 |
 | 2026-11-15 | Hávamál | Estrofa 76 ("Deyr fé", con voz) | 2026-11/2026-11-15_havamal_76_voz.mp4 |
+| 2026-11-10 | Your name in runes | ERIK | 2026-11/2026-11-10_name_erik.mp4 |
 | 2026-11-16 | Rune 2/24 | Uruz | 2026-11/2026-11-16_rune02_uruz.mp4 |
+| 2026-11-17 | Your name in runes | SIGRID | 2026-11/2026-11-17_name_sigrid.mp4 |
+| 2026-11-18 | The Norse Saga · Ep. 4 | Ask y Embla (+ tatuaje, con voz) | 2026-11/2026-11-18_saga_ep04_ask-embla_voz.mp4 |
+| 2026-11-19 | Words from the North | Týr = «dios», mismo origen que deus y Zeus; Tuesday | 2026-11/2026-11-19_words_tyr.mp4 |
+| 2026-11-20 | Myth vs History | ¿Vikingos sucios? laugardagr, peines, Ibn Fadlan | 2026-11/2026-11-20_myth-vs-history_bath.mp4 |
+| 2026-11-21 | The Norse Saga · Ep. 5 | Guerra Æsir–Vanir (+ tatuaje, con voz) | 2026-11/2026-11-21_saga_ep05_aesir-vanir_voz.mp4 |
+| 2026-11-22 | Hávamál | Estrofa 55 («no seas demasiado sabio», con voz) | 2026-11/2026-11-22_havamal_55_voz.mp4 |
+| 2026-11-23 | Rune 3/24 | Thurisaz (þ, «Ye Olde») | 2026-11/2026-11-23_rune03_thurisaz.mp4 |
