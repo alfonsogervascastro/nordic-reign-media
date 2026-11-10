@@ -19,7 +19,7 @@ Léelo entero antes de trabajar. La fuente de verdad del día a día es `PLAYBOO
 - Programado en IG + YouTube + TikTok a las 19:00 hasta el lunes 23 nov (el 10 nov solo IG + TikTok por el límite de Metricool).
 - The Norse Saga publicada/programada hasta el Ep. 5 (con voz y cierre de tatuaje). Siguiente: Ep. 6 «Nine Nights» (miér. 25).
 - Pack de tatuajes: 23 diseños + PDF de 49 páginas + ZIP de plantillas. Falta decidir dónde venderlo (Etsy/Gumroad/Ko-fi) y precio.
-- Música: canciones regeneradas con Suno de pago y distribuidas con DistroKid (Spotify, YouTube, Instagram…).
+- Música: canciones regeneradas con Suno de pago y distribuidas con DistroKid (Spotify, YouTube, Instagram…). En el repo solo fragmentos de 75 s (`audio/`; repo público). Originales, MP3, instrumentales y letras (`letras.md`) en `C:\Nordic Reign\` del ordenador de Alfonso. Suno Pro: quedan pocas descargas hasta el 8 dic.
 
 ## Métricas (4–9 nov, 6 vídeos)
 - TikTok ≈2.040 vistas, YouTube ≈914, Instagram ≈341.
@@ -33,7 +33,7 @@ Léelo entero antes de trabajar. La fuente de verdad del día a día es `PLAYBOO
 
 ## Pendiente de Alfonso
 1. Confirmar que Metricool Starter está activo (si no, el Ep. 2 del 11 nov no sale).
-2. Pasar los WAV de las canciones → convertir a MP3 en `audio/` y usarlos de fondo. Comprobar en DistroKid si «YouTube Content ID» está activo y, si lo está, añadir su canal a la lista blanca. ¿Instagram conectado a una página de Facebook? (necesario para poner su canción oficial en los Reels vía Metricool).
+2. ✔ Canciones (10 nov): fragmentos de 75 s en `audio/` (ver «Música» del PLAYBOOK); instrumentales de los Ep. 6, 7 y 9 sacadas de Suno; el resto, tras el 8 dic. Sigue pendiente: comprobar en DistroKid si «YouTube Content ID» está activo y, si lo está, añadir su canal a la lista blanca. ¿Instagram conectado a una página de Facebook? (necesario para poner su canción oficial en los Reels vía Metricool).
 3. Decir si se hace la propuesta de mejoras (abajo).
 4. Pasar más cuentas de referencia.
 

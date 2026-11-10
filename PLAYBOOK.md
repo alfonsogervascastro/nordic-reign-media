@@ -59,7 +59,24 @@ Fuente principal: Snorri Sturluson, Prose Edda (Gylfaginning, Skáldskaparmál) 
 
 ## Música
 
-Las 10 canciones actuales se hicieron con el plan gratuito de Suno: **no usarlas** hasta que existan versiones remezcladas con plan de pago en `audio/` (nombre de archivo en minúsculas con guiones, p. ej. `audio/nine-days-below.mp3`). Si existe, pasarla a `nr.render(..., music="../audio/<archivo>.mp3", music_start=<segundo>)` y añadir al texto de publicación "Soundtrack: <canción> by Nordic Reign". Si no existe, usar el fondo generado.
+Las 10 canciones están regeneradas con Suno de pago y distribuidas con DistroKid (10 nov 2026). **El repositorio es público, así que en `audio/` solo hay fragmentos de 75 s** (el tramo con más energía de cada canción, con fundido de entrada y salida, 192 kbps). Nunca subas canciones enteras ni WAV: los originales están en el ordenador de Alfonso (`C:\Nordic Reign\` y `mp3/`), y las letras en `C:\Nordic Reign\letras.md`.
+
+Uso: `nr.render(..., music="../audio/<archivo>.mp3", music_start=<segundo dentro del fragmento, 0–20>)` y añadir al texto de publicación "Soundtrack: <canción> by Nordic Reign".
+
+| Archivo | Episodios | Fragmento (tramo de la canción) | Versión |
+| --- | --- | --- | --- |
+| `nine-days-below.mp3` | 6 | 1:43–2:58 | Instrumental (sin voz cantada) |
+| `odins-sacrifice.mp3` | 7 | 0:00–1:15 | Instrumental |
+| `inside-the-lie.mp3` | 9 (y opcional 17, Baldr: la letra habla de la manipulación de Loki) | 0:13–1:28 | Instrumental |
+| `born-in-the-dark.mp3` | 10, 11 | 1:44–2:59 | Con voz cantada |
+| `forge-of-svartalfheim.mp3` | 12 | 0:00–1:15 | Con voz cantada |
+| `the-bride-in-thunder.mp3` | 13 | 0:08–1:23 | Con voz cantada |
+| `hall-of-illusions.mp3` | 14 | 0:13–1:28 | Con voz cantada |
+| `thunder-of-the-gods.mp3` | 15 | 0:02–1:17 | Con voz cantada |
+| `chains-beneath-the-mountain.mp3` | 18 | 0:46–2:01 | Con voz cantada |
+| `before-the-end-begins.mp3` | 19, 20 | 0:00–1:15 | Instrumental de origen (la canción no tiene letra) |
+
+**Con narración solo valen las instrumentales**: la voz cantada choca con la del narrador. Las que aún tienen voz cantada son para episodios de diciembre; sus instrumentales se sacarán en Suno (Edit → Get stems → *Split from mix* → descargar *Everything but Lead Vocal* en MP3) cuando se renueven las descargas del plan Pro (8 dic; quedan pocas hasta entonces). Si toca un episodio cuya canción aún tiene voz cantada, usa el fondo generado y avisa a Alfonso.
 
 ## Tatuajes (pack de diseños)
 
