@@ -22,6 +22,12 @@ Léelo entero antes de trabajar. La fuente de verdad del día a día es `PLAYBOO
 - Música: canciones regeneradas con Suno de pago y distribuidas con DistroKid (Spotify, YouTube, Instagram…). En el repo solo fragmentos de 75 s (`audio/`; repo público). Originales, MP3, instrumentales y letras (`letras.md`) en `C:\Nordic Reign\` del ordenador de Alfonso. Suno Pro: quedan pocas descargas hasta el 8 dic.
 - Promoción musical (10 nov): Spotify for Artists reclamado (artista `https://open.spotify.com/artist/1l2zYowyNGlt8cwvcjT7vN`). Página con todas las plataformas: `https://distrokid.com/hyperfollow/nordicreign/before-the-end-begins-2` (en enlaces del canal de YouTube; Alfonso la pone en IG desde el móvil; TikTok no permite enlace hasta 1.000 seguidores). Letras de las 9 canciones subidas en DistroKid (plan gratis: Apple, YouTube, Google, Amazon, Deezer, Shazam; Spotify/IG necesitarían Lyric Blaster, 18,99 €/año). Errata de la pista 7 corregida a «Hall of Illusions» (pendiente de aprobación de DistroKid). Content ID / Social Media Pack de DistroKid: no contratado. Cuenta de artista de TikTok: solicitada por Alfonso. Canal oficial de artista de YouTube: falta un vídeo normal (no Short) subido por él → lyric video.
 
+## Revisión del 10 nov (noche)
+- La tarea del domingo 8 FALLÓ por límite de uso de la cuenta (el informe de métricas se hizo a mano). Prompt de la tarea `trig_017Znei3Nj9dwixTMzMs9WhE` actualizado el 10 nov: lee ESTADO + PLAYBOOK, respeta los domingos «solo métricas», produce vídeo diario + 2 carruseles + reel de audio oficial + noticias mensuales, y verifica «un vídeo a las 19:00 más extras a las 13:00».
+- Comprobaciones de respaldo programadas en esta conversación: 15 nov 13:30 (métricas) y 22 nov 14:00 (producción 24–30 nov). Recordatorios: 13 nov 19:30 (Canal Oficial de Artista) y 9 dic (instrumentales).
+- Clon limpio probado: carousel.py, designs.py y v19 funcionan siguiendo el PLAYBOOK. Textos de tatuaje para carruseles de los Ep. 2–7 listos; carruseles Ep. 6 y 7 ya generados.
+- Lyric video de Odin's Sacrifice: `engine/lyric_odins_sacrifice.py`; MP4 y textos en `C:\Nordic Reign\videos\` para que Alfonso lo suba (programado el 27 nov, antes del Ep. 7).
+
 ## Métricas (4–9 nov, 6 vídeos)
 - TikTok ≈2.040 vistas, YouTube ≈914, Instagram ≈341.
 - Lo que mejor funciona: palabras/etimología en TikTok y YouTube (916 y 636); en Instagram, la saga con voz y pintura (Ep. 1: 137 vistas, 6 likes, 3 guardados). Solo texto se hunde en Instagram.

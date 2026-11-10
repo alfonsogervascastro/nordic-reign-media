@@ -55,7 +55,7 @@ for i, words in enumerate(RAW):
 for i, L in enumerate(LINES):
     nxt = LINES[i + 1]["starts"][0] if i + 1 < len(LINES) else 999
     L["a"] = L["starts"][0] - 0.7
-    L["b"] = min(nxt - 0.35, L["ends"][-1] + 3.0)
+    L["b"] = min(nxt - 0.35, L["ends"][-1] + 3.0, 190.6)  # clear before the outro card (191 s)
 
 # --- art --------------------------------------------------------------------
 IMG = "../images/"
