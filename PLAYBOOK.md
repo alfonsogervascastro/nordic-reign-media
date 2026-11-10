@@ -11,7 +11,12 @@ La cuenta cuenta una historia, no curiosidades sueltas. La columna es **The Nors
 - Marca Metricool: `nordicreignofficial`, blogId `7741806`, zona horaria `Europe/Madrid`.
 - Redes enlazadas: Instagram (Reel), YouTube (Short) y TikTok (cuenta "Nordic Reign", enlazada el 4 nov). Cada vídeo se publica en las tres.
 - Usuario en los vídeos: `@nordicreignofficial`.
-- Publicación: un vídeo al día a las 19:00 (Europe/Madrid).
+- Publicación: un vídeo al día (Europe/Madrid). **Horas por plataforma (prueba desde el 16 nov):**
+  - **YouTube Shorts: 16:00**, en una publicación aparte solo con YouTube (mismo vídeo, texto y `youtubeData`).
+  - **Instagram + TikTok: 18:00**, en otra publicación con esas dos redes.
+  - **Carruseles y extras: 12:00 entre semana, 10:00 en fin de semana.** Si un extra lleva YouTube, va en la misma publicación.
+  - Por qué: `getBestTimeToPostByNetwork` (10 nov) da en TikTok el pico de tarde a las 18 h (un 30 % más que las 19 h, todos los días) y en mediodía a las 12 h (las 13 h caen en un bajón); en fin de semana el pico es a las 10 h. En YouTube, el pico es a las 16 h todos los días (las 19 h tienen un 40 % menos). En Instagram aún no hay datos. Parecen datos generales de la plataforma, no de nuestro público, así que se mide.
+  - Línea base: 11–15 nov a las 19:00 con las tres redes juntas. Cada domingo, en el informe de métricas, comparar visualizaciones a 48 h por plataforma antes y después del cambio, y volver a pedir `getBestTimeToPostByNetwork` de las tres redes para la semana que se va a producir. Si Instagram empieza a dar datos y su mejor hora se separa 2 h o más de la de TikTok, publicar Instagram aparte también. Tras 3 semanas (domingo 6 dic), fijar las horas que ganen y anotarlas aquí.
 
 ## Series y semana tipo (de martes a lunes)
 
@@ -25,7 +30,7 @@ La cuenta cuenta una historia, no curiosidades sueltas. La columna es **The Nors
 | Domingo | `HÁVAMÁL` | Una estrofa del Hávamál (Bellows, 1923) o un kenning |
 | Lunes | `RUNE` · `n / 24` | Siguiente runa del Futhark |
 
-**Carruseles (desde el 13 nov, 2 por semana, Instagram + TikTok, 13:00, sin YouTube):**
+**Carruseles (desde el 13 nov, 2 por semana, Instagram + TikTok, 12:00 entre semana / 10:00 en fin de semana, sin YouTube):**
 - **Miércoles · Myth vs History**: 5 mitos o datos de una lista con su fuente (`python3 carousel.py myths` como ejemplo; añade una función nueva por tema). Temas usados: «5 things Vikings never did», «Were Vikings tattooed?» (`python3 carousel.py tattooed`). Textos de tatuaje ya preparados en `TATTOO` para los Ep. 2–7, y los carruseles de los Ep. 6 y 7 ya generados en `2026-11/carousels/` (solo hay que programarlos).
 - **Viernes · El tatuaje del capítulo**: el del episodio publicado esa semana (`python3 carousel.py tattoo <slug>`; añade su entrada en `TATTOO` con gancho y cita de la fuente, solo Bellows 1923 o Prose Edda). Genera antes el diseño (ver Tatuajes). La plantilla va en baja resolución y con marca de agua: el tamaño completo es el producto de pago.
 - Imágenes en `AAAA-MM/carousels/`, URL pública raw de GitHub. En Metricool: `instagramData.type = POST`, `tiktokData.autoAddMusic = true` y `title`. Máx. 5 hashtags.
@@ -217,9 +222,9 @@ La imagen debe cambiar cada 3–4 segundos y siempre haber movimiento (empuje le
 
 ## Pendientes
 
-- **Programado hasta el lunes 23 nov (incluido el martes 10).** Domingo 8 nov: solo informe de métricas (`metrics/2026-11-08.md`), no producir nada. Domingo 15 nov: solo métricas. Domingo 22 nov: producir la semana del 24 al 30 (martes 24 nombre; miércoles 25 Ep. 6 «Nine Nights», con voz; jueves 26 palabras; viernes 27 REAL VIKINGS (primera; ver banco de temas); sábado 28 Ep. 7 «Huginn y Muninn», con voz; domingo 29 Hávamál con voz; lunes 30 runa 4/24 Ansuz, ya anunciada). Además, los 2 carruseles de esa semana: miércoles 25 Myth vs History (13:00) y viernes 27 el tatuaje del Ep. 6 «Nine Nights» (13:00). Ep. 6 con la instrumental de Nine Days Below y Ep. 7 con la de Odin's Sacrifice. Las series sin voz, con canción.
+- **Programado hasta el lunes 23 nov (incluido el martes 10).** Domingo 8 nov: solo informe de métricas (`metrics/2026-11-08.md`), no producir nada. Domingo 15 nov: solo métricas. Domingo 22 nov: producir la semana del 24 al 30 (martes 24 nombre; miércoles 25 Ep. 6 «Nine Nights», con voz; jueves 26 palabras; viernes 27 REAL VIKINGS (primera; ver banco de temas); sábado 28 Ep. 7 «Huginn y Muninn», con voz; domingo 29 Hávamál con voz; lunes 30 runa 4/24 Ansuz, ya anunciada). Además, los 2 carruseles de esa semana: miércoles 25 Myth vs History (12:00) y viernes 27 el tatuaje del Ep. 6 «Nine Nights» (12:00); vídeos con las horas por plataforma (16:00 YouTube, 18:00 IG + TikTok). Ep. 6 con la instrumental de Nine Days Below y Ep. 7 con la de Odin's Sacrifice. Las series sin voz, con canción.
 - **Metricool Starter:** Alfonso lo contrata el 10 nov. Si `createScheduledPost` da error de límite, el plan aún no está activo: avísale. Con Starter activo, añadir como competidores (desde la web de Metricool, Analytics → Competidores) runar.hall y thevikingchronicles.
-- **Resumen mensual de noticias vikingas (aprobado 10 nov):** la tarea del domingo 29 nov produce un carrusel extra para el **martes 1 dic, 13:00** (IG + TikTok): 4–5 novedades del mes (arqueología, hallazgos, estudios) con fuente y fecha en cada diapositiva, buscadas con WebSearch; solo fuentes fiables (museos, universidades, revistas científicas, prensa seria). Repetir el primer martes de cada mes.
+- **Resumen mensual de noticias vikingas (aprobado 10 nov):** la tarea del domingo 29 nov produce un carrusel extra para el **martes 1 dic, 12:00** (IG + TikTok): 4–5 novedades del mes (arqueología, hallazgos, estudios) con fuente y fecha en cada diapositiva, buscadas con WebSearch; solo fuentes fiables (museos, universidades, revistas científicas, prensa seria). Repetir el primer martes de cada mes.
 - **Reel semanal con audio oficial de Instagram:** la cuenta es de Empresa y sus canciones SÍ salen en la app, pero no en la API de Metricool. Una vez por semana (el vídeo sin voz que mejor encaje), prográmalo solo para Instagram con `autoPublish = false` y una versión del MP4 sin música (`*_nomusic.mp4`): Metricool avisa a Alfonso en el móvil y él lo publica eligiendo la canción en la app. TikTok y YouTube de ese día, con el audio incrustado como siempre.
 - **Antes de producir, mira `getScheduledPosts` y produce solo los días que falten.**
 - Temas ya usados (no repetir): días de la semana, palabras nórdicas en inglés, enanos de Tolkien, Týr = «dios», cascos con cuernos, vikingos y el baño (laugardagr), Hávamál 76 y 55, nombres ASTRID, ERIK y SIGRID.
@@ -259,10 +264,10 @@ La imagen debe cambiar cada 3–4 segundos y siempre haber movimiento (empuje le
 | 2026-11-21 | The Norse Saga · Ep. 5 | Guerra Æsir–Vanir (+ tatuaje, con voz) | 2026-11/2026-11-21_saga_ep05_aesir-vanir_voz.mp4 |
 | 2026-11-22 | Hávamál | Estrofa 55 («no seas demasiado sabio», con voz) | 2026-11/2026-11-22_havamal_55_voz.mp4 |
 | 2026-11-23 | Rune 3/24 | Thurisaz (þ, «Ye Olde») | 2026-11/2026-11-23_rune03_thurisaz.mp4 |
-| 2026-11-13 13:00 | Carrusel · tatuaje | Ymir's World (Ep. 2) | 2026-11/carousels/tattoo_ep02_ymir_1-5.jpg |
-| 2026-11-15 13:00 | Extra | Pause to find your rune (24 runas) | 2026-11/2026-11-15_extra_find-your-rune.mp4 |
-| 2026-11-18 13:00 | Carrusel · Myth vs History | 5 things Vikings never did | 2026-11/carousels/myths_vikings-never_1-7.jpg |
-| 2026-11-21 13:00 | Carrusel · Myth vs History (hacia el pack) | Were Vikings tattooed? (Ibn Fadlan 922; posible, no probado) | 2026-11/carousels/tattoos_were-vikings-tattooed_1-7.jpg |
+| 2026-11-13 12:00 | Carrusel · tatuaje | Ymir's World (Ep. 2) | 2026-11/carousels/tattoo_ep02_ymir_1-5.jpg |
+| 2026-11-15 10:00 | Extra | Pause to find your rune (24 runas) | 2026-11/2026-11-15_extra_find-your-rune.mp4 |
+| 2026-11-18 12:00 | Carrusel · Myth vs History | 5 things Vikings never did | 2026-11/carousels/myths_vikings-never_1-7.jpg |
+| 2026-11-21 10:00 | Carrusel · Myth vs History (hacia el pack) | Were Vikings tattooed? (Ibn Fadlan 922; posible, no probado) | 2026-11/carousels/tattoos_were-vikings-tattooed_1-7.jpg |
 
 Desde el 10 nov, los vídeos sin voz del 12 al 23 nov se sustituyeron por versiones con canción (`*_m.mp4`): 12 Forge of Svartalfheim, 13 Thunder of the Gods, 16 Hall of Illusions, 17 The Bride in Thunder, 19 Born in the Dark, 20 Inside the Lie, 23 Before the End Begins.
 
