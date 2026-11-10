@@ -18,7 +18,7 @@ Léelo entero antes de trabajar. La fuente de verdad del día a día es `PLAYBOO
 ## Estado
 - Programado en IG + YouTube + TikTok a las 19:00 hasta el lunes 23 nov (el 10 nov solo IG + TikTok por el límite de Metricool).
 - The Norse Saga publicada/programada hasta el Ep. 5 (con voz y cierre de tatuaje). Siguiente: Ep. 6 «Nine Nights» (miér. 25).
-- Pack de tatuajes: 23 diseños + PDF de 49 páginas + ZIP de plantillas. Falta decidir dónde venderlo (Etsy/Gumroad/Ko-fi) y precio.
+- Pack de tatuajes: 23 diseños + PDF de 49 páginas + ZIP de plantillas, generados el 10 nov y copiados a `C:\Nordic Reign\pack\`. Recomendación: Etsy a 12 € (lanzamiento 9 €); ficha, etiquetas y escenarios en `C:\Nordic Reign\pack-tatuajes-venta.md`. Alfonso abre la tienda (Claude no puede crear cuentas) y consulta con gestor el alta/IVA.
 - Música: canciones regeneradas con Suno de pago y distribuidas con DistroKid (Spotify, YouTube, Instagram…). En el repo solo fragmentos de 75 s (`audio/`; repo público). Originales, MP3, instrumentales y letras (`letras.md`) en `C:\Nordic Reign\` del ordenador de Alfonso. Suno Pro: quedan pocas descargas hasta el 8 dic.
 - Promoción musical (10 nov): Spotify for Artists reclamado (artista `https://open.spotify.com/artist/1l2zYowyNGlt8cwvcjT7vN`). Página con todas las plataformas: `https://distrokid.com/hyperfollow/nordicreign/before-the-end-begins-2` (en enlaces del canal de YouTube; Alfonso la pone en IG desde el móvil; TikTok no permite enlace hasta 1.000 seguidores). Letras de las 9 canciones subidas en DistroKid (plan gratis: Apple, YouTube, Google, Amazon, Deezer, Shazam; Spotify/IG necesitarían Lyric Blaster, 18,99 €/año). Errata de la pista 7 corregida a «Hall of Illusions» (pendiente de aprobación de DistroKid). Content ID / Social Media Pack de DistroKid: no contratado. Cuenta de artista de TikTok: solicitada por Alfonso. Canal oficial de artista de YouTube: falta un vídeo normal (no Short) subido por él → lyric video.
 
@@ -32,13 +32,18 @@ Léelo entero antes de trabajar. La fuente de verdad del día a día es `PLAYBOO
 - Voz en la saga y en Hávamál, marcadas como IA en las tres redes.
 - Figuras solo en pinturas de dominio público; el código solo dibuja ambiente. Alfonso responde los comentarios.
 
+- 10 nov (tarde): vídeos sin voz del 12–23 nov con canción (`*_m.mp4`); extras programados: carrusel tatuaje Ep. 2 (13 nov 13:00), reel «Pause to find your rune» (15 nov 13:00), carrusel «5 things Vikings never did» (18 nov 13:00). Carruseles añadidos como serie fija en el PLAYBOOK. Lyric video de Nine Days Below hecho (`engine/lyric_nine_days_below.py`; MP4 en `C:\Nordic Reign\videos\` con título y descripción en `youtube-nine-days-below.txt`). Bio y cabecera de Spotify en `C:\Nordic Reign\spotify\`, pendientes de su OK. Recordatorio programado el 9 dic para sacar las 6 instrumentales restantes.
+
 ## Pendiente de Alfonso
-1. Confirmar que Metricool Starter está activo (si no, el Ep. 2 del 11 nov no sale).
-2. ✔ Canciones (10 nov): fragmentos de 75 s en `audio/` (ver «Música» del PLAYBOOK); instrumentales de los Ep. 6, 7 y 9 sacadas de Suno; el resto, tras el 8 dic. Sigue pendiente: comprobar en DistroKid si «YouTube Content ID» está activo y, si lo está, añadir su canal a la lista blanca. ¿Instagram conectado a una página de Facebook? (necesario para poner su canción oficial en los Reels vía Metricool).
-3. Decir si se hace la propuesta de mejoras (abajo).
+1. Activar Metricool Starter (el 10 nov seguía en gratis; código de prueba XAVIER30 o DANICARRERO = 30 días gratis). Sin él, las publicaciones extra y parte de las diarias pueden no salir. Luego: competidores runar.hall y thevikingchronicles.
+1b. Subir a YouTube el lyric video de Nine Days Below (archivo y textos en `C:\Nordic Reign\videos\`); después Claude pide el Canal Oficial de Artista en DistroKid.
+1c. Aprobar bio y cabecera de Spotify (Claude las sube a Spotify for Artists).
+1d. Instagram: enlace HyperFollow en la bio y música del perfil (Nine Days Below), desde el móvil.
+2. ✔ Canciones (10 nov): fragmentos de 75 s en `audio/`; instrumentales Ep. 6, 7 y 9; Content ID no contratado (no hace falta lista blanca). Queda: ¿Instagram conectado a una página de Facebook? (para poner su canción oficial en los Reels vía Metricool).
+3. ✔ Propuesta de mejoras aprobada el 10 nov («tira con todo»): reel de runas y carruseles hechos; falta el resumen mensual de noticias (1 dic) y lo de «más adelante».
 4. Pasar más cuentas de referencia.
 
-## Propuesta pendiente de aprobar (tras analizar runar.hall y thevikingchronicles)
+## Propuesta (aprobada el 10 nov) (tras analizar runar.hall y thevikingchronicles)
 - Reel de prueba «Pause and find your rune» (24 runas pasando rápido, nombre y significado literal; Perthro = «meaning unknown»), publicación extra.
 - 2 carruseles por semana en Instagram y TikTok (Myth vs History y el tatuaje del capítulo con su historia).
 - Resumen mensual de noticias vikingas, el primero el 1 de dic.
