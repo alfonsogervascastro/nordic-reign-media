@@ -26,7 +26,7 @@ La cuenta cuenta una historia, no curiosidades sueltas. La columna es **The Nors
 | Lunes | `RUNE` · `n / 24` | Siguiente runa del Futhark |
 
 **Carruseles (desde el 13 nov, 2 por semana, Instagram + TikTok, 13:00, sin YouTube):**
-- **Miércoles · Myth vs History**: 5 mitos o datos de una lista con su fuente (`python3 carousel.py myths` como ejemplo; añade una función nueva por tema). Temas usados: «5 things Vikings never did».
+- **Miércoles · Myth vs History**: 5 mitos o datos de una lista con su fuente (`python3 carousel.py myths` como ejemplo; añade una función nueva por tema). Temas usados: «5 things Vikings never did». Textos de tatuaje ya preparados en `TATTOO` para los Ep. 2–7, y los carruseles de los Ep. 6 y 7 ya generados en `2026-11/carousels/` (solo hay que programarlos).
 - **Viernes · El tatuaje del capítulo**: el del episodio publicado esa semana (`python3 carousel.py tattoo <slug>`; añade su entrada en `TATTOO` con gancho y cita de la fuente, solo Bellows 1923 o Prose Edda). Genera antes el diseño (ver Tatuajes). La plantilla va en baja resolución y con marca de agua: el tamaño completo es el producto de pago.
 - Imágenes en `AAAA-MM/carousels/`, URL pública raw de GitHub. En Metricool: `instagramData.type = POST`, `tiktokData.autoAddMusic = true` y `title`. Máx. 5 hashtags.
 
