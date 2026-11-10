@@ -28,6 +28,12 @@ Léelo entero antes de trabajar. La fuente de verdad del día a día es `PLAYBOO
 - Clon limpio probado: carousel.py, designs.py y v19 funcionan siguiendo el PLAYBOOK. Textos de tatuaje para carruseles de los Ep. 2–7 listos; carruseles Ep. 6 y 7 ya generados.
 - Lyric video de Odin's Sacrifice: `engine/lyric_odins_sacrifice.py`; MP4 y textos en `C:\Nordic Reign\videos\` para que Alfonso lo suba (programado el 27 nov, antes del Ep. 7).
 
+## 10 nov (cierre)
+- Competidores en Metricool. Instagram: The Viking Chronicles, Runar, Viking History, Viking Spirits, SAGASTAD, Wardruna, Amon Amarth. YouTube (máx. 10): Jackson Crawford, Arith Härger, Nordic Mythology Podcast, North Mythology. Metricool no permite competidores de TikTok.
+- Lyric videos listos en `C:\Nordic Reign\videos\` (MP4 + textos para YouTube): Odin's Sacrifice (programar para el 27 nov) e Inside the Lie (para el 4 dic). Scripts: `engine/lyric_*.py`; los tiempos por palabra salen de Suno (`aligned_lyrics`, con la sesión de Alfonso en Chrome).
+- Fotos de la ficha de Etsy (10, 3000×2250, con marca de agua) en `C:\Nordic Reign\pack\etsy\`; script `tattoos/etsy_images.py`.
+- Orden oficial del álbum anotado en el PLAYBOOK («Música»); `letras.md` reordenado según el álbum.
+
 ## Métricas (4–9 nov, 6 vídeos)
 - TikTok ≈2.040 vistas, YouTube ≈914, Instagram ≈341.
 - Lo que mejor funciona: palabras/etimología en TikTok y YouTube (916 y 636); en Instagram, la saga con voz y pintura (Ep. 1: 137 vistas, 6 likes, 3 guardados). Solo texto se hunde en Instagram.
