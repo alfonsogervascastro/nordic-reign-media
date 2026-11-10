@@ -20,6 +20,7 @@ Léelo entero antes de trabajar. La fuente de verdad del día a día es `PLAYBOO
 - The Norse Saga publicada/programada hasta el Ep. 5 (con voz y cierre de tatuaje). Siguiente: Ep. 6 «Nine Nights» (miér. 25).
 - Pack de tatuajes: 23 diseños + PDF de 49 páginas + ZIP de plantillas. Falta decidir dónde venderlo (Etsy/Gumroad/Ko-fi) y precio.
 - Música: canciones regeneradas con Suno de pago y distribuidas con DistroKid (Spotify, YouTube, Instagram…). En el repo solo fragmentos de 75 s (`audio/`; repo público). Originales, MP3, instrumentales y letras (`letras.md`) en `C:\Nordic Reign\` del ordenador de Alfonso. Suno Pro: quedan pocas descargas hasta el 8 dic.
+- Promoción musical (10 nov): Spotify for Artists reclamado (artista `https://open.spotify.com/artist/1l2zYowyNGlt8cwvcjT7vN`). Página con todas las plataformas: `https://distrokid.com/hyperfollow/nordicreign/before-the-end-begins-2` (en enlaces del canal de YouTube; Alfonso la pone en IG desde el móvil; TikTok no permite enlace hasta 1.000 seguidores). Letras de las 9 canciones subidas en DistroKid (plan gratis: Apple, YouTube, Google, Amazon, Deezer, Shazam; Spotify/IG necesitarían Lyric Blaster, 18,99 €/año). Errata de la pista 7 corregida a «Hall of Illusions» (pendiente de aprobación de DistroKid). Content ID / Social Media Pack de DistroKid: no contratado. Cuenta de artista de TikTok: solicitada por Alfonso. Canal oficial de artista de YouTube: falta un vídeo normal (no Short) subido por él → lyric video.
 
 ## Métricas (4–9 nov, 6 vídeos)
 - TikTok ≈2.040 vistas, YouTube ≈914, Instagram ≈341.
