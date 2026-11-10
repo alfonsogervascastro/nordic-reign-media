@@ -36,9 +36,10 @@ Léelo entero antes de trabajar. La fuente de verdad del día a día es `PLAYBOO
 
 ## Pendiente de Alfonso
 1. ✔ Metricool Starter activo (10 nov, prueba de 30 días con código; luego 24,20 €/mes con IVA). Página de Facebook «Nordic Reign» creada (id 61596413761887) y conectada; Instagram conectado a Metricool vía Facebook. Competidores añadidos: The Viking Chronicles (144K) y Runar (78K). Audio oficial de IG vía Metricool: las canciones de Nordic Reign NO aparecen en el catálogo de la API (probado 10 nov; «Nordic Reign» devolvió otra canción → nunca buscar por artista sin comprobar `displayArtist`). Se sigue con el audio incrustado.
-1b. Subir a YouTube el lyric video de Nine Days Below (archivo y textos en `C:\Nordic Reign\videos\`); después Claude pide el Canal Oficial de Artista en DistroKid.
-1c. Aprobar bio y cabecera de Spotify (Claude las sube a Spotify for Artists).
-1d. Instagram: enlace HyperFollow en la bio y música del perfil (Nine Days Below), desde el móvil.
+1b. ✔ Lyric video de Nine Days Below subido por Alfonso: https://youtu.be/MYLzjeOEj0k. El formulario del Canal Oficial de Artista en DistroKid aún no aparecía el 10 nov (falta que DistroKid detecte el lanzamiento en YouTube); recordatorio programado el 13 nov 19:30 para volver a intentarlo.
+1c. ✔ Spotify for Artists (10 nov): bio, cabecera (tarda hasta 72 h) y enlaces a Instagram, Facebook y TikTok publicados.
+1d. ✔ Instagram: enlace HyperFollow en la bio y Nine Days Below como música del perfil (hecho por Alfonso). Sus canciones salen en la app con la cuenta de Empresa.
+1e. Pendiente (cuando Alfonso quiera): tienda de Etsy y gestor; TikTok artist account (en revisión).
 2. ✔ Canciones (10 nov): fragmentos de 75 s en `audio/`; instrumentales Ep. 6, 7 y 9; Content ID no contratado (no hace falta lista blanca). Queda: ¿Instagram conectado a una página de Facebook? (para poner su canción oficial en los Reels vía Metricool).
 3. ✔ Propuesta de mejoras aprobada el 10 nov («tira con todo»): reel de runas y carruseles hechos; falta el resumen mensual de noticias (1 dic) y lo de «más adelante».
 4. Pasar más cuentas de referencia.
