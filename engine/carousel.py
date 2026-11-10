@@ -140,8 +140,54 @@ def myths():
                   720, 1.0, gap=14)
     footer(img, total, total); save(img, "myths_vikings-never_7.jpg")
 
+# ---------------------------------------------------------------- were Vikings tattooed?
+def tattooed():
+    total = 7
+    designs = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../tattoos/out")
+    img = base(31); label(img, "MYTH VS HISTORY")
+    nr.draw_lines(img, [T("Were Vikings", 90, LIGHT), T("tattooed?", 90, GOLD)], 400, 1.0, gap=14)
+    nr.draw_lines(img, [B("There is exactly one eyewitness.", 50, LIGHT)], 680, 1.0)
+    swipe(img); footer(img, 1, total); save(img, "tattoos_were-vikings-tattooed_1.jpg")
+    slides = [
+        ("THE EYEWITNESS", "Ibn Fadlan, 922",
+         ["An Arab envoy from Baghdad met", "the Rus, traders from the north,", "on the river Volga."],
+         "Ibn Fadlan, Risala (922)"),
+        ("WHAT HE WROTE", "From toes to neck",
+         ["Each man, he says, was marked from", "the tips of his toes to his neck", "with dark green trees and figures."],
+         "Ibn Fadlan, Risala (paraphrased)"),
+        ("THE CATCH", "Tattoos or paint?",
+         ["His Arabic word could mean tattoos,", "or designs drawn on the skin.", "Scholars still disagree."],
+         "Translations and commentary on the Risala"),
+        ("THE BODIES", "No skin survives",
+         ["Viking Age bodies were burned or decayed.", "Not one tattooed Viking has ever", "been found. Not one untattooed either."],
+         "Viking Age burial archaeology"),
+    ]
+    for k, (lab, title, body, src) in enumerate(slides, start=2):
+        img = base(31 + k); label(img, lab)
+        nr.draw_lines(img, [T(title, 72, GOLD)], 330, 1.0)
+        nr.draw_lines(img, [B(x, 50, LIGHT) for x in body], 520, 1.0, gap=16)
+        nr.draw_lines(img, [B("Source: " + src, 32)], 900, 1.0)
+        footer(img, k, total); save(img, f"tattoos_were-vikings-tattooed_{k}.jpg")
+    img = base(37); label(img, "THE VERDICT")
+    nr.draw_lines(img, [T("Possible.", 80, LIGHT), T("Not proven.", 80, GOLD)], 330, 1.0, gap=12)
+    nr.draw_lines(img, [B("Vegvísir, Valknut and rune tattoos", 48, LIGHT), B("are modern designs inspired by the past.", 48, LIGHT)],
+                  600, 1.0, gap=14)
+    footer(img, 6, total); save(img, "tattoos_were-vikings-tattooed_6.jpg")
+    img = base(39); label(img, "THE NORSE SAGA")
+    picks = ["ep06_nine_nights", "ep07_ravens", "ep02_ymir"]
+    for i, sl in enumerate(picks):
+        g = gold_png(f"{designs}/{sl}/{sl}_gold.png", 300)
+        img.alpha_composite(g, (int(W / 2 - 480 + i * 330 - g.width / 2 + 150), 230))
+    nr.draw_lines(img, [T("Ours are modern too.", 64, LIGHT)], 600, 1.0)
+    nr.draw_lines(img, [B("Every chapter of The Norse Saga", 48, LIGHT), B("ends with its own knotwork design.", 48, LIGHT)],
+                  700, 1.0, gap=14)
+    nr.draw_lines(img, [T("Would you get one?", 60, GOLD), B("Yes, no, or already have one?", 44)], 900, 1.0, gap=16)
+    footer(img, 7, total); save(img, "tattoos_were-vikings-tattooed_7.jpg")
+
 if __name__ == "__main__":
     if sys.argv[1] == "tattoo":
         tattoo(sys.argv[2])
+    elif sys.argv[1] == "tattooed":
+        tattooed()
     else:
         myths()

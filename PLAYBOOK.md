@@ -20,13 +20,13 @@ La cuenta cuenta una historia, no curiosidades sueltas. La columna es **The Nors
 | Martes | `YOUR NAME IN RUNES` | Nombres de `names.txt` (si está vacío, 5–6 nombres populares variados) |
 | Miércoles | `THE NORSE SAGA` · `EP. n` | Siguiente episodio de la lista |
 | Jueves | `WORDS FROM THE NORTH` | Palabras/etimología, a ser posible del episodio de la semana |
-| Viernes | `MYTH vs HISTORY` | Qué dicen las fuentes o la arqueología, a ser posible sobre el episodio |
+| Viernes | `MYTH vs HISTORY` / `REAL VIKINGS` (alternos) | Semanas alternas (desde el 10 nov, competidores): **REAL VIKINGS** = la historia de una persona o tumba concreta con su fuente arqueológica o escrita (empieza el viernes 27 nov); **MYTH vs HISTORY** = qué dicen las fuentes o la arqueología sobre un mito (vuelve el 4 dic). |
 | Sábado | `THE NORSE SAGA` · `EP. n` | Siguiente episodio |
 | Domingo | `HÁVAMÁL` | Una estrofa del Hávamál (Bellows, 1923) o un kenning |
 | Lunes | `RUNE` · `n / 24` | Siguiente runa del Futhark |
 
 **Carruseles (desde el 13 nov, 2 por semana, Instagram + TikTok, 13:00, sin YouTube):**
-- **Miércoles · Myth vs History**: 5 mitos o datos de una lista con su fuente (`python3 carousel.py myths` como ejemplo; añade una función nueva por tema). Temas usados: «5 things Vikings never did». Textos de tatuaje ya preparados en `TATTOO` para los Ep. 2–7, y los carruseles de los Ep. 6 y 7 ya generados en `2026-11/carousels/` (solo hay que programarlos).
+- **Miércoles · Myth vs History**: 5 mitos o datos de una lista con su fuente (`python3 carousel.py myths` como ejemplo; añade una función nueva por tema). Temas usados: «5 things Vikings never did», «Were Vikings tattooed?» (`python3 carousel.py tattooed`). Textos de tatuaje ya preparados en `TATTOO` para los Ep. 2–7, y los carruseles de los Ep. 6 y 7 ya generados en `2026-11/carousels/` (solo hay que programarlos).
 - **Viernes · El tatuaje del capítulo**: el del episodio publicado esa semana (`python3 carousel.py tattoo <slug>`; añade su entrada en `TATTOO` con gancho y cita de la fuente, solo Bellows 1923 o Prose Edda). Genera antes el diseño (ver Tatuajes). La plantilla va en baja resolución y con marca de agua: el tamaño completo es el producto de pago.
 - Imágenes en `AAAA-MM/carousels/`, URL pública raw de GitHub. En Metricool: `instagramData.type = POST`, `tiktokData.autoAddMusic = true` y `title`. Máx. 5 hashtags.
 
@@ -173,7 +173,7 @@ Plantilla (30–45 s; nunca más de 60 s con voz):
 2. **1–4 s · Por qué importa.** Una línea de contexto.
 3. **Cuerpo · 3–5 pasos de 3–5 s.** Cada paso cambia la imagen o añade algo que se mueve. Nunca más de 4 s con la misma imagen quieta. Máximo ~12 palabras en pantalla a la vez.
 4. **A mitad · Segundo gancho.** Un giro ("All but one…", "But the poems disagree…") para frenar la caída del medio.
-5. **Final · Recompensa + llamada.** La recompensa nunca después del 80 % del vídeo. Termina con una pregunta concreta para comentar (elegir entre opciones o escribir un nombre) o un motivo para enviarlo ("Send this to…"). En la saga, enlace al siguiente episodio y 3 s del tatuaje (motivo para guardar).
+5. **Final · Recompensa + llamada.** La recompensa nunca después del 80 % del vídeo. Termina con una pregunta **de opinión o de identidad**, no de dato (desde el 10 nov: en los competidores, «¿vivirías en la época vikinga?» saca 144 comentarios; las de examen, casi ninguno). Bien: "Would you have taken Odin's deal?", "Which god would you follow?", "Clean or filthy? Vote.", "Would you trade an eye for wisdom?". Mal: "Ox, slag or rain?" (pregunta de examen) o "Did you know this?". Se contesta con una palabra o una elección. También vale un motivo para enviarlo ("Send this to…"). Lo mismo para el texto de la publicación y la última diapositiva de los carruseles. En la saga, enlace al siguiente episodio y 3 s del tatuaje (motivo para guardar).
 6. **Texto de la publicación:** primera línea = el gancho; máximo 5 hashtags; una frase para enviar o guardar cuando tenga sentido.
 
 Antes de programar, revisa: ¿el fotograma 0 tiene imagen + gancho? ¿hay algún tramo >4 s sin cambio visual? ¿dura menos de 45 s (60 s con voz)? ¿la pregunta final se contesta con una palabra?
@@ -207,6 +207,8 @@ La imagen debe cambiar cada 3–4 segundos y siempre haber movimiento (empuje le
 
 **Words from the North:** Midgard → Middle-earth · Bluetooth (Harald Bluetooth, iniciales en Younger Futhark) · *husband* (húsbóndi) · *law* (lagu) · *ugly* (uggligr) · *ransack* · *skull*, *skin*, *knife* · *Hel* y *hell* (cognados, no préstamo).
 
+**Real Vikings (personas y tumbas reales, siempre con fuente y separando lo probado de lo supuesto):** la guerrera de Birka (tumba Bj 581; ADN publicado en 2017, interpretación debatida) · las dos mujeres del barco de Oseberg (834) · Harald Bluetooth y las piedras de Jelling · el hombre de Gokstad · la fosa de Ridgeway Hill (Dorset, unos 50 escandinavos ejecutados) · Guðríðr Þorbjarnardóttir, la viajera de Vinland · el funeral del jefe rus que describe Ibn Fadlan (922) · la piedra de Glavendrup (Ragnhildr) · los guerreros de los barcos de Salme (Estonia, c. 750).
+
 **Myth vs History:** cascos con cuernos (✔ programado 13 nov) · los vikingos se lavaban (laugardagur, "día de baño") · no bebían en cráneos (error de Ole Worm, 1636) · "vikingo" era una actividad, no un pueblo · L'Anse aux Meadows · el nombre "Valknut" es moderno · el Vegvísir es del siglo XIX.
 
 **Hávamál/kennings:** estrofas 76–77 ("Cattle die, kinsmen die…") · el huésped · la moderación al beber · "corcel del mar" = barco · "mar de heridas" = sangre · "hidromiel de Odín" = poesía · "cráneo de Ymir" = cielo.
@@ -215,7 +217,7 @@ La imagen debe cambiar cada 3–4 segundos y siempre haber movimiento (empuje le
 
 ## Pendientes
 
-- **Programado hasta el lunes 23 nov (incluido el martes 10).** Domingo 8 nov: solo informe de métricas (`metrics/2026-11-08.md`), no producir nada. Domingo 15 nov: solo métricas. Domingo 22 nov: producir la semana del 24 al 30 (martes 24 nombre; miércoles 25 Ep. 6 «Nine Nights», con voz; jueves 26 palabras; viernes 27 Myth vs History; sábado 28 Ep. 7 «Huginn y Muninn», con voz; domingo 29 Hávamál con voz; lunes 30 runa 4/24 Ansuz, ya anunciada). Además, los 2 carruseles de esa semana: miércoles 25 Myth vs History (13:00) y viernes 27 el tatuaje del Ep. 6 «Nine Nights» (13:00). Ep. 6 con la instrumental de Nine Days Below y Ep. 7 con la de Odin's Sacrifice. Las series sin voz, con canción.
+- **Programado hasta el lunes 23 nov (incluido el martes 10).** Domingo 8 nov: solo informe de métricas (`metrics/2026-11-08.md`), no producir nada. Domingo 15 nov: solo métricas. Domingo 22 nov: producir la semana del 24 al 30 (martes 24 nombre; miércoles 25 Ep. 6 «Nine Nights», con voz; jueves 26 palabras; viernes 27 REAL VIKINGS (primera; ver banco de temas); sábado 28 Ep. 7 «Huginn y Muninn», con voz; domingo 29 Hávamál con voz; lunes 30 runa 4/24 Ansuz, ya anunciada). Además, los 2 carruseles de esa semana: miércoles 25 Myth vs History (13:00) y viernes 27 el tatuaje del Ep. 6 «Nine Nights» (13:00). Ep. 6 con la instrumental de Nine Days Below y Ep. 7 con la de Odin's Sacrifice. Las series sin voz, con canción.
 - **Metricool Starter:** Alfonso lo contrata el 10 nov. Si `createScheduledPost` da error de límite, el plan aún no está activo: avísale. Con Starter activo, añadir como competidores (desde la web de Metricool, Analytics → Competidores) runar.hall y thevikingchronicles.
 - **Resumen mensual de noticias vikingas (aprobado 10 nov):** la tarea del domingo 29 nov produce un carrusel extra para el **martes 1 dic, 13:00** (IG + TikTok): 4–5 novedades del mes (arqueología, hallazgos, estudios) con fuente y fecha en cada diapositiva, buscadas con WebSearch; solo fuentes fiables (museos, universidades, revistas científicas, prensa seria). Repetir el primer martes de cada mes.
 - **Reel semanal con audio oficial de Instagram:** la cuenta es de Empresa y sus canciones SÍ salen en la app, pero no en la API de Metricool. Una vez por semana (el vídeo sin voz que mejor encaje), prográmalo solo para Instagram con `autoPublish = false` y una versión del MP4 sin música (`*_nomusic.mp4`): Metricool avisa a Alfonso en el móvil y él lo publica eligiendo la canción en la app. TikTok y YouTube de ese día, con el audio incrustado como siempre.
@@ -260,6 +262,7 @@ La imagen debe cambiar cada 3–4 segundos y siempre haber movimiento (empuje le
 | 2026-11-13 13:00 | Carrusel · tatuaje | Ymir's World (Ep. 2) | 2026-11/carousels/tattoo_ep02_ymir_1-5.jpg |
 | 2026-11-15 13:00 | Extra | Pause to find your rune (24 runas) | 2026-11/2026-11-15_extra_find-your-rune.mp4 |
 | 2026-11-18 13:00 | Carrusel · Myth vs History | 5 things Vikings never did | 2026-11/carousels/myths_vikings-never_1-7.jpg |
+| 2026-11-21 13:00 | Carrusel · Myth vs History (hacia el pack) | Were Vikings tattooed? (Ibn Fadlan 922; posible, no probado) | 2026-11/carousels/tattoos_were-vikings-tattooed_1-7.jpg |
 
 Desde el 10 nov, los vídeos sin voz del 12 al 23 nov se sustituyeron por versiones con canción (`*_m.mp4`): 12 Forge of Svartalfheim, 13 Thunder of the Gods, 16 Hall of Illusions, 17 The Bride in Thunder, 19 Born in the Dark, 20 Inside the Lie, 23 Before the End Begins.
 
