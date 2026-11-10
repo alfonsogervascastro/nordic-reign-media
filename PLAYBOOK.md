@@ -68,6 +68,8 @@ Fuente principal: Snorri Sturluson, Prose Edda (Gylfaginning, Skáldskaparmál) 
 
 Las 10 canciones están regeneradas con Suno de pago y distribuidas con DistroKid (10 nov 2026). **El repositorio es público, así que en `audio/` solo hay fragmentos de 75 s** (el tramo con más energía de cada canción, con fundido de entrada y salida, 192 kbps). Nunca subas canciones enteras ni WAV: los originales están en el ordenador de Alfonso (`C:\Nordic Reign\` y `mp3/`), y las letras en `C:\Nordic Reign\letras.md`.
 
+**Orden del álbum *Before the End Begins* (8 nov 2026, DistroKid/Spotify):** 1 Odin's Sacrifice · 2 Thunder of the Gods · 3 Inside The Lie · 4 Nine Days Below · 5 Forge of Svartalfheim · 6 Born in the Dark · 7 Hall of Illusions (en tiendas aún «Hall of Ilusions» hasta que DistroKid apruebe la corrección) · 8 The Bride in Thunder · 9 Chains Beneath the Mountain · 10 Before the End Begins (instrumental). Úsalo cuando se cite el álbum o se haga una lista de canciones; los episodios de la saga siguen la tabla de abajo, no el orden del álbum.
+
 Uso: `nr.render(..., music="../audio/<archivo>.mp3", music_start=<segundo dentro del fragmento, 0–20>)` y añadir al texto de publicación "Soundtrack: <canción> by Nordic Reign".
 
 | Archivo | Episodios | Fragmento (tramo de la canción) | Versión |
