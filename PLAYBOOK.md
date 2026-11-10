@@ -25,6 +25,13 @@ La cuenta cuenta una historia, no curiosidades sueltas. La columna es **The Nors
 | Domingo | `HÁVAMÁL` | Una estrofa del Hávamál (Bellows, 1923) o un kenning |
 | Lunes | `RUNE` · `n / 24` | Siguiente runa del Futhark |
 
+**Carruseles (desde el 13 nov, 2 por semana, Instagram + TikTok, 13:00, sin YouTube):**
+- **Miércoles · Myth vs History**: 5 mitos o datos de una lista con su fuente (`python3 carousel.py myths` como ejemplo; añade una función nueva por tema). Temas usados: «5 things Vikings never did».
+- **Viernes · El tatuaje del capítulo**: el del episodio publicado esa semana (`python3 carousel.py tattoo <slug>`; añade su entrada en `TATTOO` con gancho y cita de la fuente, solo Bellows 1923 o Prose Edda). Genera antes el diseño (ver Tatuajes). La plantilla va en baja resolución y con marca de agua: el tamaño completo es el producto de pago.
+- Imágenes en `AAAA-MM/carousels/`, URL pública raw de GitHub. En Metricool: `instagramData.type = POST`, `tiktokData.autoAddMusic = true` y `title`. Máx. 5 hashtags.
+
+**Música en las series sin voz** (nombres, palabras, mito vs. historia, runas): llevan una canción de `audio/` de fondo (aquí la voz cantada sí vale) y en el texto "Soundtrack: <canción> by Nordic Reign." antes de los hashtags. Elige la que encaje con el tema (enanos → Forge of Svartalfheim; Týr/Fenrir → Born in the Dark) y no repitas canción en días seguidos. Normaliza el audio a −14 LUFS.
+
 Cada vídeo lleva su etiqueta de serie arriba durante todo el vídeo. Cada episodio de la saga termina con "Episode n+1: <día>  ·  @nordicreignofficial", y su texto de publicación dice "The Norse Saga, episode n. Start from the prologue on our profile."
 
 ## Episodios de The Norse Saga
@@ -206,7 +213,8 @@ La imagen debe cambiar cada 3–4 segundos y siempre haber movimiento (empuje le
 
 ## Pendientes
 
-- **Programado hasta el lunes 23 nov (incluido el martes 10).** Domingo 8 nov: solo informe de métricas (`metrics/2026-11-08.md`), no producir nada. Domingo 15 nov: solo métricas. Domingo 22 nov: producir la semana del 24 al 30 (martes 24 nombre; miércoles 25 Ep. 6 «Nine Nights», con voz; jueves 26 palabras; viernes 27 Myth vs History; sábado 28 Ep. 7 «Huginn y Muninn», con voz; domingo 29 Hávamál con voz; lunes 30 runa 4/24 Ansuz, ya anunciada).
+- **Programado hasta el lunes 23 nov (incluido el martes 10).** Domingo 8 nov: solo informe de métricas (`metrics/2026-11-08.md`), no producir nada. Domingo 15 nov: solo métricas. Domingo 22 nov: producir la semana del 24 al 30 (martes 24 nombre; miércoles 25 Ep. 6 «Nine Nights», con voz; jueves 26 palabras; viernes 27 Myth vs History; sábado 28 Ep. 7 «Huginn y Muninn», con voz; domingo 29 Hávamál con voz; lunes 30 runa 4/24 Ansuz, ya anunciada). Además, los 2 carruseles de esa semana: miércoles 25 Myth vs History (13:00) y viernes 27 el tatuaje del Ep. 6 «Nine Nights» (13:00). Ep. 6 con la instrumental de Nine Days Below y Ep. 7 con la de Odin's Sacrifice. Las series sin voz, con canción.
+- **Metricool Starter:** Alfonso lo contrata el 10 nov. Si `createScheduledPost` da error de límite, el plan aún no está activo: avísale. Con Starter activo, añadir como competidores (desde la web de Metricool, Analytics → Competidores) runar.hall y thevikingchronicles.
 - **Antes de producir, mira `getScheduledPosts` y produce solo los días que falten.**
 - Temas ya usados (no repetir): días de la semana, palabras nórdicas en inglés, enanos de Tolkien, Týr = «dios», cascos con cuernos, vikingos y el baño (laugardagr), Hávamál 76 y 55, nombres ASTRID, ERIK y SIGRID.
 - Imagen pendiente de descargar: `Arbo-Valkyrien_1864.jpg` (Peter Nicolai Arbo, valquiria; Wikimedia dio 429 el 6 nov). Úsala para un vídeo de palabras sobre «valkyrja» = «la que elige a los caídos».
@@ -245,3 +253,10 @@ La imagen debe cambiar cada 3–4 segundos y siempre haber movimiento (empuje le
 | 2026-11-21 | The Norse Saga · Ep. 5 | Guerra Æsir–Vanir (+ tatuaje, con voz) | 2026-11/2026-11-21_saga_ep05_aesir-vanir_voz.mp4 |
 | 2026-11-22 | Hávamál | Estrofa 55 («no seas demasiado sabio», con voz) | 2026-11/2026-11-22_havamal_55_voz.mp4 |
 | 2026-11-23 | Rune 3/24 | Thurisaz (þ, «Ye Olde») | 2026-11/2026-11-23_rune03_thurisaz.mp4 |
+| 2026-11-13 13:00 | Carrusel · tatuaje | Ymir's World (Ep. 2) | 2026-11/carousels/tattoo_ep02_ymir_1-5.jpg |
+| 2026-11-15 13:00 | Extra | Pause to find your rune (24 runas) | 2026-11/2026-11-15_extra_find-your-rune.mp4 |
+| 2026-11-18 13:00 | Carrusel · Myth vs History | 5 things Vikings never did | 2026-11/carousels/myths_vikings-never_1-7.jpg |
+
+Desde el 10 nov, los vídeos sin voz del 12 al 23 nov se sustituyeron por versiones con canción (`*_m.mp4`): 12 Forge of Svartalfheim, 13 Thunder of the Gods, 16 Hall of Illusions, 17 The Bride in Thunder, 19 Born in the Dark, 20 Inside the Lie, 23 Before the End Begins.
+
+**Lyric videos (YouTube, formato largo):** `engine/lyric_nine_days_below.py` (16:9, letra sincronizada con los tiempos por palabra de Suno, `aligned_lyrics`). El MP4 lleva la canción entera: **nunca al repo**; está en `C:\Nordic Reign\videos\` y lo sube Alfonso a mano. Tras subir el primero, pedir el Canal Oficial de Artista en DistroKid (`distrokid.com/YouTubeOfficialArtistChannels/`).
