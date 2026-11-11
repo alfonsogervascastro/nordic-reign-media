@@ -13,7 +13,7 @@ import nr
 nr.W, nr.H = 1080, 1350
 W, H = nr.W, nr.H
 T, B, GOLD, LIGHT, MIST = nr.T, nr.B, nr.GOLD, nr.LIGHT, nr.MIST
-OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../2026-11/carousels")
+OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", os.environ.get("NR_MONTH", "2026-11"), "carousels")  # NR_MONTH=2026-12 python3 carousel.py ...
 
 def base(seed=4):
     return nr.Background(seed).render(2.0)
@@ -219,6 +219,41 @@ def vinland():
     nr.draw_lines(img, [B("Yes or no, in the comments.", 48, LIGHT)], 720, 1.0)
     footer(img, total, total); save(img, "vinland_vikings-in-america_7.jpg")
 
+# ---------------------------------------------------------------- Viking graffiti
+def graffiti():
+    total = 7
+    img = base(51); label(img, "MYTH VS HISTORY")
+    nr.draw_lines(img, [T("Vikings left", 90, LIGHT), T("graffiti.", 96, GOLD)], 400, 1.0, gap=14)
+    nr.draw_lines(img, [B("From Istanbul to Greenland.", 50, LIGHT), B("Some of it you can still visit.", 46)], 680, 1.0, gap=14)
+    swipe(img); footer(img, 1, total); save(img, "graffiti_viking-graffiti_1.jpg")
+    slides = [
+        ("ISTANBUL", "Hagia Sophia",
+         ["Runes scratched into a marble", "balustrade in the upper gallery.", "One name is still readable: Halfdan."],
+         "Runic graffiti, Hagia Sophia (9th c.?)"),
+        ("ATHENS TO VENICE", "The Piraeus Lion",
+         ["A marble lion from Athens' harbour,", "carved with runes by Norse soldiers.", "Since 1687 it guards Venice's Arsenal."],
+         "Piraeus Lion, Venetian Arsenal"),
+        ("ORKNEY", "Maeshowe",
+         ["A Stone Age tomb broken into by Norsemen", "in the 12th century: 30 runic inscriptions,", "boasts, names and a love note."],
+         "Maeshowe runic inscriptions, Orkney"),
+        ("GREENLAND", "Kingittorsuaq",
+         ["Three men carved their names", "on a stone far north of the colonies,", "around 1300."],
+         "Kingittorsuaq runestone, National Museum of Denmark"),
+        ("SWEDEN", "The Rök stone",
+         ["Not graffiti but a monument (c. 800):", "the longest runic inscription", "in the world, still unsolved."],
+         "Rök runestone, Östergötland"),
+    ]
+    for k, (lab, title, body, src) in enumerate(slides, start=2):
+        img = base(51 + k); label(img, lab)
+        nr.draw_lines(img, [T(title, 72, GOLD)], 330, 1.0)
+        nr.draw_lines(img, [B(x, 48, LIGHT) for x in body], 520, 1.0, gap=16)
+        nr.draw_lines(img, [B("Source: " + src, 32)], 900, 1.0)
+        footer(img, k, total); save(img, f"graffiti_viking-graffiti_{k}.jpg")
+    img = base(59); label(img, "MYTH VS HISTORY")
+    nr.draw_lines(img, [T("Where would you", 82, LIGHT), T("leave your mark?", 80, GOLD)], 420, 1.0, gap=12)
+    nr.draw_lines(img, [B("Tell us in the comments.", 48, LIGHT)], 780, 1.0)
+    footer(img, total, total); save(img, "graffiti_viking-graffiti_7.jpg")
+
 if __name__ == "__main__":
     if sys.argv[1] == "tattoo":
         tattoo(sys.argv[2])
@@ -226,5 +261,7 @@ if __name__ == "__main__":
         tattooed()
     elif sys.argv[1] == "vinland":
         vinland()
+    elif sys.argv[1] == "graffiti":
+        graffiti()
     else:
         myths()

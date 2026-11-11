@@ -18,3 +18,4 @@
 | doepler_thor_serpent_1905.jpg | Thor and the Midgard Serpent | Emil Doepler (1855–1922) | c. 1905 | Wikimedia Commons |
 | smith_thor_bride_1902.jpg | "Ah, what a lovely maid it is!" (Thor as the bride) | Elmer Boyd Smith (1860–1943) | 1902 | Wikimedia Commons |
 | smith_skrymir_1902.jpg | "I am the giant Skrymir" | Elmer Boyd Smith (1860–1943) | 1902 | Wikimedia Commons |
+| odin_suttungr_gunnlod.jpg | Gotland picture stone detail, often read as Odin, Suttungr and Gunnlöð (old photograph, low resolution) | unknown (Viking Age stone) | 8th–9th c. | Wikimedia Commons |
