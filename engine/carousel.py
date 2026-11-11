@@ -184,10 +184,47 @@ def tattooed():
     nr.draw_lines(img, [T("Would you get one?", 60, GOLD), B("Yes, no, or already have one?", 44)], 900, 1.0, gap=16)
     footer(img, 7, total); save(img, "tattoos_were-vikings-tattooed_7.jpg")
 
+# ---------------------------------------------------------------- Vikings in America
+def vinland():
+    total = 7
+    img = base(41); label(img, "MYTH VS HISTORY")
+    nr.draw_lines(img, [T("Vikings reached", 84, LIGHT), T("America.", 96, GOLD)], 400, 1.0, gap=14)
+    nr.draw_lines(img, [B("Almost 500 years before Columbus.", 50, LIGHT), B("The proof, and the hoax.", 46)], 680, 1.0, gap=14)
+    swipe(img); footer(img, 1, total); save(img, "vinland_vikings-in-america_1.jpg")
+    slides = [
+        ("THE SAGAS", "Vinland",
+         ["Two Icelandic sagas tell how", "Leif Eriksson sailed west", "around the year 1000."],
+         "Grænlendinga saga; Eiríks saga rauða"),
+        ("THE SITE", "L'Anse aux Meadows",
+         ["Newfoundland, found in 1960", "by Helge and Anne Stine Ingstad:", "Norse turf halls, iron rivets, a bronze pin."],
+         "Parks Canada; UNESCO World Heritage (1978)"),
+        ("THE DATE", "Exactly 1021",
+         ["Wood cut with iron blades.", "Its tree rings carry the mark", "of a solar storm from 993."],
+         "Kuitems et al., Nature (2021)"),
+        ("THE CLUE", "Butternuts",
+         ["Nuts found at the site", "don't grow that far north.", "The Norse went further south."],
+         "Excavation finds, L'Anse aux Meadows"),
+        ("THE HOAX", "Kensington Runestone",
+         ["Found in Minnesota in 1898.", "Its runes and words are too modern:", "most scholars call it a fake."],
+         "Runological studies of the stone"),
+    ]
+    for k, (lab, title, body, src) in enumerate(slides, start=2):
+        img = base(41 + k); label(img, lab)
+        nr.draw_lines(img, [T(title, 72, GOLD)], 330, 1.0)
+        nr.draw_lines(img, [B(x, 50, LIGHT) for x in body], 520, 1.0, gap=16)
+        nr.draw_lines(img, [B("Source: " + src, 32)], 900, 1.0)
+        footer(img, k, total); save(img, f"vinland_vikings-in-america_{k}.jpg")
+    img = base(49); label(img, "MYTH VS HISTORY")
+    nr.draw_lines(img, [T("Would you have", 80, LIGHT), T("sailed west with Leif?", 70, GOLD)], 420, 1.0, gap=12)
+    nr.draw_lines(img, [B("Yes or no, in the comments.", 48, LIGHT)], 720, 1.0)
+    footer(img, total, total); save(img, "vinland_vikings-in-america_7.jpg")
+
 if __name__ == "__main__":
     if sys.argv[1] == "tattoo":
         tattoo(sys.argv[2])
     elif sys.argv[1] == "tattooed":
         tattooed()
+    elif sys.argv[1] == "vinland":
+        vinland()
     else:
         myths()
