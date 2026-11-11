@@ -31,7 +31,7 @@ La cuenta cuenta una historia, no curiosidades sueltas. La columna es **The Nors
 | Lunes | `RUNE` · `n / 24` | Siguiente runa del Futhark |
 
 **Carruseles (desde el 13 nov, 2 por semana, Instagram + TikTok, 12:00 entre semana / 10:00 en fin de semana, sin YouTube):**
-- **Miércoles · Myth vs History**: 5 mitos o datos de una lista con su fuente (`python3 carousel.py myths` como ejemplo; añade una función nueva por tema). Temas usados: «5 things Vikings never did», «Were Vikings tattooed?» (`python3 carousel.py tattooed`), «Vikings in America» (`python3 carousel.py vinland`). Textos de tatuaje ya preparados en `TATTOO` para los Ep. 2–7, y los carruseles de los Ep. 6 y 7 ya generados en `2026-11/carousels/` (solo hay que programarlos).
+- **Miércoles · Myth vs History**: 5 mitos o datos de una lista con su fuente (`python3 carousel.py myths` como ejemplo; añade una función nueva por tema). Temas usados: «5 things Vikings never did», «Were Vikings tattooed?» (`python3 carousel.py tattooed`), «Vikings in America» (`python3 carousel.py vinland`), «Viking graffiti» (`NR_MONTH=2026-12 python3 carousel.py graffiti`). La carpeta de salida se elige con `NR_MONTH`. Textos de tatuaje ya preparados en `TATTOO` para los Ep. 2–7, y los carruseles de los Ep. 6 y 7 ya generados en `2026-11/carousels/` (solo hay que programarlos).
 - **Viernes · El tatuaje del capítulo**: el del episodio publicado esa semana (`python3 carousel.py tattoo <slug>`; añade su entrada en `TATTOO` con gancho y cita de la fuente, solo Bellows 1923 o Prose Edda). Genera antes el diseño (ver Tatuajes). La plantilla va en baja resolución y con marca de agua: el tamaño completo es el producto de pago.
 - Imágenes en `AAAA-MM/carousels/`, URL pública raw de GitHub. En Metricool: `instagramData.type = POST`, `tiktokData.autoAddMusic = true` y `title`. Máx. 5 hashtags.
 
@@ -53,8 +53,8 @@ Fuente principal: Snorri Sturluson, Prose Edda (Gylfaginning, Skáldskaparmál) 
 | 5 | La guerra entre Æsir y Vanir | — | ✔ 2026-11-21 |
 | 6 | Odín, nueve noches colgado de Yggdrasil: el origen de las runas | Nine Days Below | ✔ 2026-11-25 |
 | 7 | Odín entrega su ojo en el pozo de Mímir (y los cuervos Huginn y Muninn) | Odin's Sacrifice | ✔ 2026-11-28 |
-| 8 | Kvasir y el hidromiel de la poesía | — | |
-| 9 | La muralla de Asgard y el nacimiento de Sleipnir | Inside the Lie | |
+| 8 | Kvasir y el hidromiel de la poesía | — | ✔ 2026-12-02 |
+| 9 | La muralla de Asgard y el nacimiento de Sleipnir | Inside the Lie | ✔ 2026-12-05 |
 | 10 | Los hijos de Loki: Fenrir, Hel, Jörmungandr | Born in the Dark | |
 | 11 | La atadura de Fenrir y la mano de Týr (enlaza con el prólogo) | Born in the Dark | |
 | 12 | El pelo de Sif y la forja de Mjölnir | Forge of Svartalfheim | |
@@ -222,12 +222,12 @@ La imagen debe cambiar cada 3–4 segundos y siempre haber movimiento (empuje le
 
 ## Pendientes
 
-- **Programado hasta el lunes 30 nov (producido el 11 nov, a petición de Alfonso).** Domingo 15 y domingo 22 nov: **solo informe de métricas**, no producir nada. Domingo 29 nov: producir la semana del 1 al 7 dic (martes 1 nombre + carrusel de noticias del mes a las 12:00; miércoles 2 Ep. 8 «El hidromiel de la poesía», con voz; jueves 3 palabras; viernes 4 MYTH vs HISTORY; sábado 5 Ep. 9 «La muralla de Asgard», con voz e instrumental de Inside the Lie; domingo 6 Hávamál con voz; lunes 7 runa 5/24 Raidho, ya anunciada). Carruseles de esa semana: miércoles 2 Myth vs History (12:00) y viernes 4 el tatuaje del Ep. 7 (ya generado: `tattoo_ep07_ravens_1-5.jpg`). Ep. 8 no tiene canción: fondo generado. Alfonso usa Claude casi a diario: si en una sesión con él ya se ha producido esa semana, la tarea del domingo solo verifica.
+- **Programado hasta el lunes 7 dic (producido el 11 nov, a petición de Alfonso).** Domingos 15 y 22 nov: **solo informe de métricas**. Domingo 29 nov: informe de métricas + **carrusel de noticias del mes para el martes 1 dic a las 12:00** (ver abajo; es lo único que falta de esa semana). Domingo 6 dic: métricas, fijar las horas definitivas y producir la semana del 8 al 14 dic (martes 8 nombre; miércoles 9 Ep. 10 «Los hijos de Loki», con voz y la instrumental de Born in the Dark si ya existe, si no fondo generado y avisar; jueves 10 palabras; viernes 11 REAL VIKINGS; sábado 12 Ep. 11 «La atadura de Fenrir», con voz; domingo 13 Hávamál con voz; lunes 14 runa 6/24 Kaunan, ya anunciada) y sus 2 carruseles (miércoles Myth vs History, viernes tatuaje del Ep. 8). Alfonso usa Claude casi a diario: si en una sesión con él ya se ha producido esa semana, la tarea del domingo solo verifica. Ojo: la prueba de Metricool Starter acaba hacia el 10 dic; si la API da error de límite, avisar a Alfonso.
 - **Metricool Starter:** Alfonso lo contrata el 10 nov. Si `createScheduledPost` da error de límite, el plan aún no está activo: avísale. Con Starter activo, añadir como competidores (desde la web de Metricool, Analytics → Competidores) runar.hall y thevikingchronicles.
 - **Resumen mensual de noticias vikingas (aprobado 10 nov):** la tarea del domingo 29 nov produce un carrusel extra para el **martes 1 dic, 12:00** (IG + TikTok): 4–5 novedades del mes (arqueología, hallazgos, estudios) con fuente y fecha en cada diapositiva, buscadas con WebSearch; solo fuentes fiables (museos, universidades, revistas científicas, prensa seria). Repetir el primer martes de cada mes.
 - **Reel semanal con audio oficial de Instagram:** la cuenta es de Empresa y sus canciones SÍ salen en la app, pero no en la API de Metricool. Una vez por semana (el vídeo sin voz que mejor encaje), prográmalo solo para Instagram con `autoPublish = false` y una versión del MP4 sin música (`*_nomusic.mp4`): Metricool avisa a Alfonso en el móvil y él lo publica eligiendo la canción en la app. TikTok y YouTube de ese día, con el audio incrustado como siempre.
 - **Antes de producir, mira `getScheduledPosts` y produce solo los días que falten.**
-- Temas ya usados (no repetir): días de la semana, palabras nórdicas en inglés, enanos de Tolkien, Týr = «dios», «rune» = secreto (rún, raunen), cascos con cuernos, vikingos y el baño (laugardagr), vikingos en América (carrusel), ¿se tatuaban? (carrusel), Birka Bj 581 (Real Vikings), Hávamál 76, 55 y 47, nombres ASTRID, ERIK, SIGRID y FREYA.
+- Temas ya usados (no repetir): días de la semana, palabras nórdicas en inglés, enanos de Tolkien, Týr = «dios», «rune» = secreto (rún, raunen), cascos con cuernos, vikingos y el baño (laugardagr), vikingos en América (carrusel), ¿se tatuaban? (carrusel), Birka Bj 581 (Real Vikings), grafitis vikingos (carrusel), nombre de Odín = furia, berserkers y setas, Hávamál 76, 55, 47 y 1, nombres ASTRID, ERIK, SIGRID, FREYA e INGRID.
 - **Mejoras de calidad (pedido por Alfonso, 11 nov):** cada vez que el motor mejore (efectos nuevos, mejores pinturas o montaje, voz, música, plantillas), avísale en el resumen con un ejemplo y propón aplicarlo a las series que ya existen; no cambies las series ya programadas sin su OK.
 - Imagen pendiente de descargar: `Arbo-Valkyrien_1864.jpg` (Peter Nicolai Arbo, valquiria; Wikimedia dio 429 el 6 nov). Úsala para un vídeo de palabras sobre «valkyrja» = «la que elige a los caídos».
 
@@ -278,6 +278,16 @@ La imagen debe cambiar cada 3–4 segundos y siempre haber movimiento (empuje le
 | 2026-11-28 | The Norse Saga · Ep. 7 | El ojo y los cuervos (voz, Odin's Sacrifice) | 2026-11/2026-11-28_saga_ep07_ravens_voz.mp4 |
 | 2026-11-29 | Hávamál | Estrofa 47 («man is man's delight», voz) | 2026-11/2026-11-29_havamal_47_voz.mp4 |
 | 2026-11-30 | Rune 4/24 | Ansuz | 2026-11/2026-11-30_rune04_ansuz_m.mp4 |
+| 2026-12-01 | Your name in runes | INGRID (IG con audio oficial, aviso al móvil) | 2026-12/2026-12-01_name_ingrid_m.mp4 (IG: _nomusic) |
+| 2026-12-01 12:00 | Carrusel · noticias del mes | **pendiente (tarea del 29 nov)** | 2026-12/carousels/ |
+| 2026-12-02 | The Norse Saga · Ep. 8 | El hidromiel de la poesía (voz, fondo generado) | 2026-12/2026-12-02_saga_ep08_mead_voz.mp4 |
+| 2026-12-02 12:00 | Carrusel · Myth vs History | Viking graffiti (Hagia Sophia, Pireo, Maeshowe, Groenlandia, Rök) | 2026-12/carousels/graffiti_viking-graffiti_1-7.jpg |
+| 2026-12-03 | Words from the North | Óðinn = furia (óðr, Wut, Adam de Bremen) | 2026-12/2026-12-03_words_odin-name_m.mp4 |
+| 2026-12-04 | Myth vs History | Berserkers y setas (Ödmann 1784) | 2026-12/2026-12-04_myth-vs-history_berserkers_m.mp4 |
+| 2026-12-04 12:00 | Carrusel · tatuaje | Huginn y Muninn (Ep. 7) | 2026-11/carousels/tattoo_ep07_ravens_1-5.jpg |
+| 2026-12-05 | The Norse Saga · Ep. 9 | La muralla de Asgard y Sleipnir (voz, Inside the Lie) | 2026-12/2026-12-05_saga_ep09_wall_voz.mp4 |
+| 2026-12-06 | Hávamál | Estrofa 1 («check the doors», voz) | 2026-12/2026-12-06_havamal_01_voz.mp4 |
+| 2026-12-07 | Rune 5/24 | Raidho | 2026-12/2026-12-07_rune05_raidho_m.mp4 |
 
 Desde el 10 nov, los vídeos sin voz del 12 al 23 nov se sustituyeron por versiones con canción (`*_m.mp4`): 12 Forge of Svartalfheim, 13 Thunder of the Gods, 16 Hall of Illusions, 17 The Bride in Thunder, 19 Born in the Dark, 20 Inside the Lie, 23 Before the End Begins.
 
