@@ -10,9 +10,11 @@
 | hamiltonsmith_aurochs_1827.jpg | Aurochs (after a 16th-century painting, the "Augsburg aurochs") | published by Charles Hamilton Smith (1776–1859) | 1827 | Wikimedia Commons |
 | froelich_ask_embla_1895.jpg | Odin, Lóðurr and Hœnir create Ask and Embla | Lorenz Frølich (1820–1908) | 1895 | Wikimedia Commons |
 | froelich_aesir_vanir_war_1895.jpg | Odin throws his spear over the Vanir (Æsir–Vanir war) | Lorenz Frølich (1820–1908) | 1895 | Wikimedia Commons |
-- `engels_odin_mimir_well_1903.jpg` — Robert Engels, *Odin am Brunnen der Weisheit* (1903). Public domain. Wikimedia Commons: Odin_am_Brunnen_der_Weisheit.jpg. Used: Ep. 7, Hávamál 47.
-- `froelich_odin_ravens_1895.jpg` — Lorenz Frølich, Odin with Sleipnir, Geri, Freki, Huginn and Muninn (1895). Public domain. Commons: Odin,_Sleipnir,_Geri,_Freki,_Huginn_and_Muninn_by_Frølich.jpg. Used: Ep. 7 (low resolution, small crops only).
-- `stolpe_birka_bj581_1889.jpg` — Hjalmar Stolpe, plan of Birka grave Bj 581 (published 1889). Public domain. Commons: Birka,_Sweden_Viking_grave_Bj_581_by_Hjalmar_Stolpe_in_1889.jpg. Used: Real Vikings (27 nov).
-- `winge_thor_giants_1872.jpg` — Mårten Eskil Winge, *Tor's Fight with the Giants* (1872). Public domain. Commons (Google Art Project). For lyric videos.
-- `doepler_ragnarok_1905.jpg`, `doepler_thor_serpent_1905.jpg` — Emil Doepler, Ragnarök; Thor and the Midgard Serpent (c. 1905). Public domain. Commons: Ragnarök_by_Doepler.jpg; Thor_und_die_Midgardsschlange.jpg. For lyric videos.
-- `smith_thor_bride_1902.jpg`, `smith_skrymir_1902.jpg` — Elmer Boyd Smith, *Ah, what a lovely maid it is!*; *I am the giant Skrymir* (1902). Public domain. For lyric videos.
+| engels_odin_mimir_well_1903.jpg | Odin am Brunnen der Weisheit (Odin and Mímir at the well) | Robert Engels (1858–1926) | 1903 | Wikimedia Commons |
+| froelich_odin_ravens_1895.jpg | Odin with Sleipnir, Geri, Freki, Huginn and Muninn (low resolution, small crops only) | Lorenz Frølich (1820–1908) | 1895 | Wikimedia Commons |
+| stolpe_birka_bj581_1889.jpg | Plan of Birka grave Bj 581 | Hjalmar Stolpe (1841–1905) | 1889 | Wikimedia Commons |
+| winge_thor_giants_1872.jpg | Tor's Fight with the Giants | Mårten Eskil Winge (1825–1896) | 1872 | Wikimedia Commons (Google Art Project) |
+| doepler_ragnarok_1905.jpg | Ragnarök | Emil Doepler (1855–1922) | c. 1905 | Wikimedia Commons |
+| doepler_thor_serpent_1905.jpg | Thor and the Midgard Serpent | Emil Doepler (1855–1922) | c. 1905 | Wikimedia Commons |
+| smith_thor_bride_1902.jpg | "Ah, what a lovely maid it is!" (Thor as the bride) | Elmer Boyd Smith (1860–1943) | 1902 | Wikimedia Commons |
+| smith_skrymir_1902.jpg | "I am the giant Skrymir" | Elmer Boyd Smith (1860–1943) | 1902 | Wikimedia Commons |

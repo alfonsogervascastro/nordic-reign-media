@@ -31,7 +31,7 @@ La cuenta cuenta una historia, no curiosidades sueltas. La columna es **The Nors
 | Lunes | `RUNE` · `n / 24` | Siguiente runa del Futhark |
 
 **Carruseles (desde el 13 nov, 2 por semana, Instagram + TikTok, 12:00 entre semana / 10:00 en fin de semana, sin YouTube):**
-- **Miércoles · Myth vs History**: 5 mitos o datos de una lista con su fuente (`python3 carousel.py myths` como ejemplo; añade una función nueva por tema). Temas usados: «5 things Vikings never did», «Were Vikings tattooed?» (`python3 carousel.py tattooed`). Textos de tatuaje ya preparados en `TATTOO` para los Ep. 2–7, y los carruseles de los Ep. 6 y 7 ya generados en `2026-11/carousels/` (solo hay que programarlos).
+- **Miércoles · Myth vs History**: 5 mitos o datos de una lista con su fuente (`python3 carousel.py myths` como ejemplo; añade una función nueva por tema). Temas usados: «5 things Vikings never did», «Were Vikings tattooed?» (`python3 carousel.py tattooed`), «Vikings in America» (`python3 carousel.py vinland`). Textos de tatuaje ya preparados en `TATTOO` para los Ep. 2–7, y los carruseles de los Ep. 6 y 7 ya generados en `2026-11/carousels/` (solo hay que programarlos).
 - **Viernes · El tatuaje del capítulo**: el del episodio publicado esa semana (`python3 carousel.py tattoo <slug>`; añade su entrada en `TATTOO` con gancho y cita de la fuente, solo Bellows 1923 o Prose Edda). Genera antes el diseño (ver Tatuajes). La plantilla va en baja resolución y con marca de agua: el tamaño completo es el producto de pago.
 - Imágenes en `AAAA-MM/carousels/`, URL pública raw de GitHub. En Metricool: `instagramData.type = POST`, `tiktokData.autoAddMusic = true` y `title`. Máx. 5 hashtags.
 
@@ -51,8 +51,8 @@ Fuente principal: Snorri Sturluson, Prose Edda (Gylfaginning, Skáldskaparmál) 
 | 3 | Yggdrasil y los nueve mundos | — | ✔ 2026-11-14 |
 | 4 | Ask y Embla, los primeros humanos | — | ✔ 2026-11-18 |
 | 5 | La guerra entre Æsir y Vanir | — | ✔ 2026-11-21 |
-| 6 | Odín, nueve noches colgado de Yggdrasil: el origen de las runas | Nine Days Below | |
-| 7 | Odín entrega su ojo en el pozo de Mímir | Odin's Sacrifice | |
+| 6 | Odín, nueve noches colgado de Yggdrasil: el origen de las runas | Nine Days Below | ✔ 2026-11-25 |
+| 7 | Odín entrega su ojo en el pozo de Mímir (y los cuervos Huginn y Muninn) | Odin's Sacrifice | ✔ 2026-11-28 |
 | 8 | Kvasir y el hidromiel de la poesía | — | |
 | 9 | La muralla de Asgard y el nacimiento de Sleipnir | Inside the Lie | |
 | 10 | Los hijos de Loki: Fenrir, Hel, Jörmungandr | Born in the Dark | |
@@ -212,7 +212,7 @@ La imagen debe cambiar cada 3–4 segundos y siempre haber movimiento (empuje le
 
 **Words from the North:** Midgard → Middle-earth · Bluetooth (Harald Bluetooth, iniciales en Younger Futhark) · *husband* (húsbóndi) · *law* (lagu) · *ugly* (uggligr) · *ransack* · *skull*, *skin*, *knife* · *Hel* y *hell* (cognados, no préstamo).
 
-**Real Vikings (personas y tumbas reales, siempre con fuente y separando lo probado de lo supuesto):** la guerrera de Birka (tumba Bj 581; ADN publicado en 2017, interpretación debatida) · las dos mujeres del barco de Oseberg (834) · Harald Bluetooth y las piedras de Jelling · el hombre de Gokstad · la fosa de Ridgeway Hill (Dorset, unos 50 escandinavos ejecutados) · Guðríðr Þorbjarnardóttir, la viajera de Vinland · el funeral del jefe rus que describe Ibn Fadlan (922) · la piedra de Glavendrup (Ragnhildr) · los guerreros de los barcos de Salme (Estonia, c. 750).
+**Real Vikings (personas y tumbas reales, siempre con fuente y separando lo probado de lo supuesto):** ~~la guerrera de Birka (Bj 581)~~ ✔ 27 nov · las dos mujeres del barco de Oseberg (834) · Harald Bluetooth y las piedras de Jelling · el hombre de Gokstad · la fosa de Ridgeway Hill (Dorset, unos 50 escandinavos ejecutados) · Guðríðr Þorbjarnardóttir, la viajera de Vinland · el funeral del jefe rus que describe Ibn Fadlan (922) · la piedra de Glavendrup (Ragnhildr) · los guerreros de los barcos de Salme (Estonia, c. 750).
 
 **Myth vs History:** cascos con cuernos (✔ programado 13 nov) · los vikingos se lavaban (laugardagur, "día de baño") · no bebían en cráneos (error de Ole Worm, 1636) · "vikingo" era una actividad, no un pueblo · L'Anse aux Meadows · el nombre "Valknut" es moderno · el Vegvísir es del siglo XIX.
 
@@ -222,12 +222,13 @@ La imagen debe cambiar cada 3–4 segundos y siempre haber movimiento (empuje le
 
 ## Pendientes
 
-- **Programado hasta el lunes 23 nov (incluido el martes 10).** Domingo 8 nov: solo informe de métricas (`metrics/2026-11-08.md`), no producir nada. Domingo 15 nov: solo métricas. Domingo 22 nov: producir la semana del 24 al 30 (martes 24 nombre; miércoles 25 Ep. 6 «Nine Nights», con voz; jueves 26 palabras; viernes 27 REAL VIKINGS (primera; ver banco de temas); sábado 28 Ep. 7 «Huginn y Muninn», con voz; domingo 29 Hávamál con voz; lunes 30 runa 4/24 Ansuz, ya anunciada). Además, los 2 carruseles de esa semana: miércoles 25 Myth vs History (12:00) y viernes 27 el tatuaje del Ep. 6 «Nine Nights» (12:00); vídeos con las horas por plataforma (16:00 YouTube, 18:00 IG + TikTok). Ep. 6 con la instrumental de Nine Days Below y Ep. 7 con la de Odin's Sacrifice. Las series sin voz, con canción.
+- **Programado hasta el lunes 30 nov (producido el 11 nov, a petición de Alfonso).** Domingo 15 y domingo 22 nov: **solo informe de métricas**, no producir nada. Domingo 29 nov: producir la semana del 1 al 7 dic (martes 1 nombre + carrusel de noticias del mes a las 12:00; miércoles 2 Ep. 8 «El hidromiel de la poesía», con voz; jueves 3 palabras; viernes 4 MYTH vs HISTORY; sábado 5 Ep. 9 «La muralla de Asgard», con voz e instrumental de Inside the Lie; domingo 6 Hávamál con voz; lunes 7 runa 5/24 Raidho, ya anunciada). Carruseles de esa semana: miércoles 2 Myth vs History (12:00) y viernes 4 el tatuaje del Ep. 7 (ya generado: `tattoo_ep07_ravens_1-5.jpg`). Ep. 8 no tiene canción: fondo generado. Alfonso usa Claude casi a diario: si en una sesión con él ya se ha producido esa semana, la tarea del domingo solo verifica.
 - **Metricool Starter:** Alfonso lo contrata el 10 nov. Si `createScheduledPost` da error de límite, el plan aún no está activo: avísale. Con Starter activo, añadir como competidores (desde la web de Metricool, Analytics → Competidores) runar.hall y thevikingchronicles.
 - **Resumen mensual de noticias vikingas (aprobado 10 nov):** la tarea del domingo 29 nov produce un carrusel extra para el **martes 1 dic, 12:00** (IG + TikTok): 4–5 novedades del mes (arqueología, hallazgos, estudios) con fuente y fecha en cada diapositiva, buscadas con WebSearch; solo fuentes fiables (museos, universidades, revistas científicas, prensa seria). Repetir el primer martes de cada mes.
 - **Reel semanal con audio oficial de Instagram:** la cuenta es de Empresa y sus canciones SÍ salen en la app, pero no en la API de Metricool. Una vez por semana (el vídeo sin voz que mejor encaje), prográmalo solo para Instagram con `autoPublish = false` y una versión del MP4 sin música (`*_nomusic.mp4`): Metricool avisa a Alfonso en el móvil y él lo publica eligiendo la canción en la app. TikTok y YouTube de ese día, con el audio incrustado como siempre.
 - **Antes de producir, mira `getScheduledPosts` y produce solo los días que falten.**
-- Temas ya usados (no repetir): días de la semana, palabras nórdicas en inglés, enanos de Tolkien, Týr = «dios», cascos con cuernos, vikingos y el baño (laugardagr), Hávamál 76 y 55, nombres ASTRID, ERIK y SIGRID.
+- Temas ya usados (no repetir): días de la semana, palabras nórdicas en inglés, enanos de Tolkien, Týr = «dios», «rune» = secreto (rún, raunen), cascos con cuernos, vikingos y el baño (laugardagr), vikingos en América (carrusel), ¿se tatuaban? (carrusel), Birka Bj 581 (Real Vikings), Hávamál 76, 55 y 47, nombres ASTRID, ERIK, SIGRID y FREYA.
+- **Mejoras de calidad (pedido por Alfonso, 11 nov):** cada vez que el motor mejore (efectos nuevos, mejores pinturas o montaje, voz, música, plantillas), avísale en el resumen con un ejemplo y propón aplicarlo a las series que ya existen; no cambies las series ya programadas sin su OK.
 - Imagen pendiente de descargar: `Arbo-Valkyrien_1864.jpg` (Peter Nicolai Arbo, valquiria; Wikimedia dio 429 el 6 nov). Úsala para un vídeo de palabras sobre «valkyrja» = «la que elige a los caídos».
 
 ## Cómo producir y programar
@@ -268,7 +269,16 @@ La imagen debe cambiar cada 3–4 segundos y siempre haber movimiento (empuje le
 | 2026-11-15 10:00 | Extra | Pause to find your rune (24 runas) | 2026-11/2026-11-15_extra_find-your-rune.mp4 |
 | 2026-11-18 12:00 | Carrusel · Myth vs History | 5 things Vikings never did | 2026-11/carousels/myths_vikings-never_1-7.jpg |
 | 2026-11-21 10:00 | Carrusel · Myth vs History (hacia el pack) | Were Vikings tattooed? (Ibn Fadlan 922; posible, no probado) | 2026-11/carousels/tattoos_were-vikings-tattooed_1-7.jpg |
+| 2026-11-24 | Your name in runes | FREYA (IG con audio oficial, aviso al móvil) | 2026-11/2026-11-24_name_freya_m.mp4 (IG: _nomusic) |
+| 2026-11-25 | The Norse Saga · Ep. 6 | Nine Nights (voz, Nine Days Below) | 2026-11/2026-11-25_saga_ep06_nine-nights_voz.mp4 |
+| 2026-11-25 12:00 | Carrusel · Myth vs History | Vikings in America (Vinland, 1021, Kensington) | 2026-11/carousels/vinland_vikings-in-america_1-7.jpg |
+| 2026-11-26 | Words from the North | «Rune» = secreto | 2026-11/2026-11-26_words_rune_m.mp4 |
+| 2026-11-27 | Real Vikings | Birka Bj 581 | 2026-11/2026-11-27_real-vikings_birka_m.mp4 |
+| 2026-11-27 12:00 | Carrusel · tatuaje | Nine Nights (Ep. 6) | 2026-11/carousels/tattoo_ep06_nine_nights_1-5.jpg |
+| 2026-11-28 | The Norse Saga · Ep. 7 | El ojo y los cuervos (voz, Odin's Sacrifice) | 2026-11/2026-11-28_saga_ep07_ravens_voz.mp4 |
+| 2026-11-29 | Hávamál | Estrofa 47 («man is man's delight», voz) | 2026-11/2026-11-29_havamal_47_voz.mp4 |
+| 2026-11-30 | Rune 4/24 | Ansuz | 2026-11/2026-11-30_rune04_ansuz_m.mp4 |
 
 Desde el 10 nov, los vídeos sin voz del 12 al 23 nov se sustituyeron por versiones con canción (`*_m.mp4`): 12 Forge of Svartalfheim, 13 Thunder of the Gods, 16 Hall of Illusions, 17 The Bride in Thunder, 19 Born in the Dark, 20 Inside the Lie, 23 Before the End Begins.
 
-**Lyric videos (YouTube, formato largo):** `engine/lyric_nine_days_below.py` (16:9, letra sincronizada con los tiempos por palabra de Suno, `aligned_lyrics`). El MP4 lleva la canción entera: **nunca al repo**; está en `C:\Nordic Reign\videos\` y lo sube Alfonso a mano. Tras subir el primero, pedir el Canal Oficial de Artista en DistroKid (`distrokid.com/YouTubeOfficialArtistChannels/`).
+**Lyric videos (YouTube, formato largo):** para canciones nuevas usa `engine/lyric_video.py lyrics/<slug>.json <canción> <salida.mp4>` (config JSON con tiempos de Suno, pinturas y tarjetas; ver docstring). Ejemplos anteriores: `engine/lyric_nine_days_below.py` (16:9, letra sincronizada con los tiempos por palabra de Suno, `aligned_lyrics`). El MP4 lleva la canción entera: **nunca al repo**; está en `C:\Nordic Reign\videos\` y lo sube Alfonso a mano. Tras subir el primero, pedir el Canal Oficial de Artista en DistroKid (`distrokid.com/YouTubeOfficialArtistChannels/`).
