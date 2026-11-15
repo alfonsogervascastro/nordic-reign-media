@@ -1,4 +1,4 @@
-# Nordic Reign · estado y traspaso (10 nov 2026)
+# Nordic Reign · estado y traspaso (15 nov 2026)
 
 Léelo entero antes de trabajar. La fuente de verdad del día a día es `PLAYBOOK.md` del repositorio.
 
@@ -65,3 +65,11 @@ Léelo entero antes de trabajar. La fuente de verdad del día a día es `PLAYBOO
 - Resumen mensual de noticias vikingas, el primero el 1 de dic.
 - Más adelante: colaboraciones (a partir de 1–2 mil seguidores), página de enlaces de Metricool en la bio, destacados (Tatuajes, Saga, Música), categoría «Artista», newsletter.
 - Cuando Starter esté activo: añadir como competidores en Metricool runar.hall, thevikingchronicles y las que pase Alfonso.
+
+## 15 nov (tarea del domingo, solo métricas)
+- Informe en `metrics/2026-11-15.md`. Seguidores: IG 56, TikTok 2, YouTube 1 (las tres por debajo del escenario pesimista del mes 1; IG cerca). Vistas 8–14 nov: IG 577, TikTok 1.502, YouTube 1.417 (YouTube solo hasta el 12; Metricool va con retraso).
+- Mejores: Words «window, sky, egg» (YouTube 625), Saga Ep. 2 (IG 149), Tolkien (IG 123). Peores: carrusel tatuaje Ep. 2 (IG 8, TikTok 1), Fehu en TikTok (2), cuernos en IG (11).
+- **Problema:** TikTok da ~250 vistas a cada vídeo y no empuja más (7 de 8 vídeos entre 235 y 275); Fehu y el Prólogo no se distribuyeron. Pedir a Alfonso que mire la retención en la app de TikTok.
+- Línea base de horas (11–14 nov a las 19:00): mediana IG 106, TikTok 248; YouTube pendiente de datos. `getBestTimeToPostByNetwork` sin cambios (TikTok 10/12/18 h, YouTube 16 h, IG sin datos).
+- Verificado con `getScheduledPosts`: 16–22 nov completo (cada día YouTube 16:00 + IG/TikTok 18:00; carruseles 18 nov 12:00 y 21 nov 10:00; nada en Facebook). Extra «Pause to find your rune» publicado hoy a las 10:00 en las tres redes; Hávamál 76 pendiente a las 19:00.
+- Siguiente: 22 nov solo métricas (comparar horas); 29 nov métricas + carrusel de noticias del 1 dic; 6 dic fijar horas y producir 8–14 dic.
