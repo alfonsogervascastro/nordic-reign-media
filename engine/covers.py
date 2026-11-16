@@ -41,8 +41,10 @@ COVERS = [
 
 def art(img, a):
     if isinstance(a, str):
-        foc = (0.0, 0.2) if "bauer_tyr" in a else (0.5, 0.4)
-        P = nr.Painting(a, 1000, 960, cy=860, zoom=0.04, feather=0.10, focus=foc)
+        if "bauer_tyr" in a:  # mostly empty sky: crop to the wolf and Tyr, as in v01
+            P = nr.Painting(a, 1000, 590, cy=880, zoom=0.0, feather=0.10, crop=(40, 395, 733, 800))
+        else:
+            P = nr.Painting(a, 1000, 960, cy=860, zoom=0.04, feather=0.10, focus=(0.5, 0.4))
         P.draw(img, 2.0, 0.0, 1.0, dur=4.0)
         return
     kind, val = a
