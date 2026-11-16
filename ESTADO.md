@@ -1,4 +1,4 @@
-# Nordic Reign · estado y traspaso (15 nov 2026)
+# Nordic Reign · estado y traspaso (16 nov 2026)
 
 Léelo entero antes de trabajar. La fuente de verdad del día a día es `PLAYBOOK.md` del repositorio.
 
@@ -8,7 +8,7 @@ Léelo entero antes de trabajar. La fuente de verdad del día a día es `PLAYBOO
 - `engine/`: motor (nr.py, narrate.py = voz Kokoro, scenes.py) y un script por vídeo (v01…v18). `tattoos/`: motor de nudos, designs.py, designs_saga.py, make_pack.py.
 - `metrics/`: informes (último: 2026-11-10.md).
 - Tarea programada `trig_017Znei3Nj9dwixTMzMs9WhE`: domingos 10:56 (Madrid), sigue el PLAYBOOK. 8 y 15 nov: solo métricas. 22 nov: produce la semana 24–30.
-- Metricool: brand id 7741806, zona Europe/Madrid. TikTok exige `tiktokData.title`. Máx. 5 hashtags. Portada con `videoCoverMilliseconds`.
+- Metricool: brand id 7741806, zona Europe/Madrid. TikTok exige `tiktokData.title`. Máx. 5 hashtags. Portada propia con `videoThumbnailUrl` (`engine/covers.py`), primer comentario con `firstCommentText`, historia diaria de IG a las 18:30 (ver PLAYBOOK, «Cómo producir y programar», pasos 7–9).
 
 ## Cosas que NO están en el repo (a propósito o por tamaño)
 - `tattoos/out/` y `tattoos/pack/` (el producto de pago; repo público). Se regeneran: `python3 tattoos/designs.py …`, `designs_saga.py epNN`, `make_pack.py`.
@@ -73,3 +73,14 @@ Léelo entero antes de trabajar. La fuente de verdad del día a día es `PLAYBOO
 - Línea base de horas (11–14 nov a las 19:00): mediana IG 106, TikTok 248; YouTube pendiente de datos. `getBestTimeToPostByNetwork` sin cambios (TikTok 10/12/18 h, YouTube 16 h, IG sin datos).
 - Verificado con `getScheduledPosts`: 16–22 nov completo (cada día YouTube 16:00 + IG/TikTok 18:00; carruseles 18 nov 12:00 y 21 nov 10:00; nada en Facebook). Extra «Pause to find your rune» publicado hoy a las 10:00 en las tres redes; Hávamál 76 pendiente a las 19:00.
 - Siguiente: 22 nov solo métricas (comparar horas); 29 nov métricas + carrusel de noticias del 1 dic; 6 dic fijar horas y producir 8–14 dic.
+
+## 16 nov (Alfonso vuelve de vacaciones)
+- **Revisión de resultados:** vistas totales IG ≈1.060, TikTok ≈3.800 (atascado en ~250 por vídeo), YouTube ≈1.580. Seguidores: IG 56, TikTok 2, YouTube 1. Tasa de salto en IG 53–71 %. Mejor serie: Words from the North (media ≈940). El carrusel fracasó (9 vistas). Prólogo y Fehu: 0–2 vistas en TikTok (Alfonso lo confirma con capturas; no hay aviso de infracción).
+- **Competidores nuevos** (IA, misma idea): ancient.chapters (16 seguidores, sigue el mismo orden de la saga con imágenes de IA) y whispers.of.yggdrasil (60, frases motivacionales). Alfonso: «Me parece bien» añadirlos en Metricool → pendiente, necesita Chrome.
+- **Herramientas evaluadas:** Lemo Opuscar sí, para piezas especiales (necesita ffmpeg 7; el contenedor tiene 6.1, instalar binario estático). SkillSpector útil; Ponytail menor; FreeLLMAPI y Agent Reach no.
+- **Mejoras aprobadas («Ponte a ello pues», puntos 1, 2 y 5) — HECHAS el 16 nov:**
+  1. Portadas propias para todos los reels IG + TikTok del 16 nov al 7 dic (`engine/covers.py`, `AAAA-MM/covers/`), subidas con `videoThumbnailUrl`.
+  2. Historia diaria de Instagram a las 18:30 del 16 nov al 7 dic (22 historias, imagen `<fecha>_story.jpg` con «NEW TODAY / Watch it on our profile»).
+  5. Primer comentario automático en todas las publicaciones IG + TikTok del 16 nov al 7 dic (plantillas en el PLAYBOOK).
+- Los demás puntos propuestos quedan para Alfonso o para cuando haya ordenador: fijar 3 publicaciones en IG y TikTok; nueva bio (propuesta: «Norse myths & Viking history, from the original sources. / Real 19th-century art. Our own Viking metal. / The Norse Saga starts here ↓»); SmartLink en las bios; responder comentarios en la primera hora; listas de reproducción de YouTube (The Norse Saga, Runes, Words from the North) y recopilatorio «Episodes 1–5» (necesitan Chrome); posible colaboración con whispers.of.yggdrasil.
+- **Pendiente con ordenador encendido:** los 7 lyric videos restantes (WAV en `C:\Nordic Reign`, letras alineadas de Suno vía Chrome, `engine/lyric_video.py` + `engine/lyrics/<slug>.json`), competidores en Metricool, comprobar el Canal Oficial de Artista en DistroKid.
