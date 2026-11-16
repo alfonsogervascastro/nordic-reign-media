@@ -10,8 +10,9 @@ FIX = {
 }
 ADD = [
     "Deep@98.0 below@98.72 the@100.24 weight@100.4 of@100.64 stone,@101.2 hatred@103.04 grows@104.64 inside@105.84 the@106.8 bones.@107.44",
-    "Deep@163.68 below@164.64 the@165.2 stone@165.6 I@166.1 wait.@166.5",
-    "Time@171.28 will@172.0 break@172.8 what@173.6 gods@174.4 create.@175.2",
+    "Deep@163.68 below@164.08 the@164.56 stone@164.88 I@167.52 wait.@167.92",
+    "Time@170.2 will@171.6 break…@173.0",
+    "what@180.96 gods@181.44 create.@183.52",
 ]
 DROP = []
 ART = [

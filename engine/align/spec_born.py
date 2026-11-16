@@ -8,7 +8,7 @@ FIX = {
     67.14: "No@66.9 control@67.44 and@68.6 no@69.12 command,@70.0 something@72.16 slips@73.04 beyond@74.0 the@75.2 plan@75.76",
     89.34: "Breath@88.0 runs@88.6 cold,@89.2 the@90.24 silence@90.56 grows,@91.68 something@93.6 no@94.64 one@95.2 dares@95.84 to@96.96 know@97.28",
     141.60: "Not@141.6 one@142.08 shape@142.48 and@143.76 not@144.08 one@144.64 form…@145.28 something@146.88 new@148.0 is@148.64 being@149.28 born@150.48",
-    184.80: "What@184.8 is@185.28 born@185.6 can't@187.52 be@188.16 outrun@188.64",
+    184.80: "What@184.8 is@185.28 made@185.6 can't@187.52 be@188.16 outrun@188.64",
     264.72: "You@264.72 can@265.2 feel@265.6 it@266.1 growing@268.72 strong@269.2",
 }
 DROP = [144.78]
