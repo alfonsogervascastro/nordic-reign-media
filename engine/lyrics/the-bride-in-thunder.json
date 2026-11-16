@@ -1,0 +1,184 @@
+{
+ "title": "The Bride in Thunder",
+ "dur": 200.8,
+ "end_clear": 189.6,
+ "credit": "Art: Elmer Boyd Smith, “Ah, what a lovely maid it is!” (1902); Mårten Eskil Winge, Tor's Fight with the Giants (1872)",
+ "words": "Silk@22.56 and@23.04 gold,@23.2 a@23.84 hidden@24.0 rage,@24.56¶\nevery@25.6 eye@26.0 is@26.48 on@26.88 my@27.2 face.@27.52¶\nHold@28.4 it@28.72 in,@28.88 don't@29.36 lose@29.68 control,@30.08¶\nevery@31.2 second@31.68 takes@32.4 its@32.96 toll.@33.28¶\nDrink@39.36 too@39.92 much,@40.16 they@40.72 start@41.04 to@41.36 stare,@41.68¶\nLoki@42.32 laughs@42.96 and@43.52 fills@43.76 the@44.24 air.@44.4¶\nCareful@45.28 now,@45.76 don't@46.24 break@46.64 the@46.96 role,@47.12¶\nfire@48.0 burning@48.56 in@49.44 my@49.68 soul.@50.0¶\nSomething's@50.96 wrong,@51.52 I@52.0 feel@52.24 their@54.24 eyes.@54.54¶\nSomething@53.76 here@54.24 won't@54.64 stay@55.04 disguised.@55.52¶\nThis@56.48 won't@56.72 hold@57.04 —@57.04 I@57.68 feel@57.92 it@58.32 break.@58.48¶\nOne@59.36 more@59.6 move@60.0 is@60.48 all@60.88 it@61.2 takes.@61.68¶\nGive@63.6 it@64.0 back@64.16 —@64.16 what's@65.28 mine@65.68 to@66.0 claim.@66.32¶\nCall@67.12 the@67.52 storm,@67.6 release@68.24 the@68.88 flame.@69.04¶\nNo@70.0 more@70.28 lies,@70.56 don't@70.96 need@71.36 to@71.6 hide.@71.84¶\nThunder@72.8 strikes@73.28 before@73.92 their@74.72 eyes.@75.02¶\nThen@86.8 it@87.2 falls@87.44 into@88.16 my@88.48 hand,@88.72¶\nlightning@89.52 answers@90.32 my@90.88 command.@91.44¶\nBreak@92.56 the@92.88 hall,@93.04 tear@93.68 it@94.08 apart,@94.32¶\nthunder@95.28 speaks@95.76 from@96.4 who@96.72 we@97.02 are.@97.32¶\nSomething's@98.24 wrong,@98.8 I@99.36 feel@99.52 their@99.92 eyes.@100.24¶\nSomething@101.04 here@101.6 won't@102.0 stay@102.32 disguised.@102.88¶\nThis@103.76 won't@103.92 hold@104.48 —@104.48 I@105.04 feel@105.28 it@105.6 break.@105.84¶\nOne@106.56 more@106.88 move@107.2 is@107.76 all@108.08 it@108.56 takes.@108.8¶\nGive@110.88 it@111.2 back@111.44 —@111.44 what's@112.56 mine@112.96 to@113.28 claim.@113.44¶\nCall@114.4 the@114.8 storm,@114.96 release@115.44 the@115.88 flame.@116.32¶\nNo@117.28 more@117.48 lies,@117.68 don't@118.11 need@118.53 to@118.96 hide.@119.28¶\nThunder@120.08 strikes@120.64 before@121.6 their@122.16 eyes.@122.46¶\nGive@163.04 it@163.44 back@163.76 —@163.76 what's@164.8 mine@165.12 to@165.6 claim.@165.9¶\nCall@166.4 the@166.8 storm,@167.2 release@167.76 the@168.4 flame.@168.56¶\nNo@169.44 more@169.76 lies,@169.92 don't@170.4 need@170.88 to@171.2 hide.@171.36¶\nThunder@172.32 strikes@172.8 before@173.44 their@174.4 eyes.@175.2¶\nThunder@183.52 strikes@184.08 before@184.8 their@185.6 eyes.@186.4¶",
+ "art": [
+  [
+   "smith_thor_bride_1902.jpg",
+   -1,
+   80,
+   0.5,
+   0.35,
+   0.5
+  ],
+  [
+   "winge_thor_giants_1872.jpg",
+   76,
+   134,
+   0.5,
+   0.3
+  ],
+  [
+   "smith_thor_bride_1902.jpg",
+   130,
+   170,
+   0.5,
+   0.65,
+   0.5
+  ],
+  [
+   "winge_thor_giants_1872.jpg",
+   166,
+   202,
+   0.5,
+   0.55
+  ]
+ ],
+ "cards": [
+  [
+   0.6,
+   9.0,
+   360,
+   [
+    [
+     "T",
+     "NORDIC REIGN",
+     40,
+     "gold"
+    ],
+    [
+     "T",
+     "THE BRIDE IN THUNDER",
+     100,
+     "light"
+    ]
+   ]
+  ],
+  [
+   10.0,
+   21.4,
+   380,
+   [
+    [
+     "T",
+     "THE NORSE SAGA",
+     40,
+     "gold"
+    ],
+    [
+     "B",
+     "Thor woke up and his hammer was gone.",
+     50,
+     "light"
+    ],
+    [
+     "B",
+     "The giant Thrym would only give it back",
+     50,
+     "light"
+    ],
+    [
+     "B",
+     "for the goddess Freyja as his bride.",
+     50,
+     "gold"
+    ]
+   ]
+  ],
+  [
+   133.5,
+   147.4,
+   400,
+   [
+    [
+     "B",
+     "Freyja refused. So Thor put on the bridal veil,",
+     46,
+     "light"
+    ],
+    [
+     "B",
+     "with Loki as his bridesmaid.",
+     46,
+     "light"
+    ],
+    [
+     "B",
+     "At the feast he ate a whole ox and eight salmon,",
+     46,
+     "gold"
+    ],
+    [
+     "B",
+     "and drank three casks of mead.",
+     46,
+     "gold"
+    ]
+   ]
+  ],
+  [
+   148.5,
+   162.3,
+   400,
+   [
+    [
+     "B",
+     "Loki explained that the bride had not eaten",
+     46,
+     "light"
+    ],
+    [
+     "B",
+     "for eight nights, so eager was she to come.",
+     46,
+     "light"
+    ],
+    [
+     "B",
+     "Then they laid the hammer in the bride's lap.",
+     46,
+     "gold"
+    ],
+    [
+     "B",
+     "Þrymskviða, Poetic Edda",
+     30,
+     "mist"
+    ]
+   ]
+  ],
+  [
+   190.2,
+   202,
+   330,
+   [
+    [
+     "T",
+     "THE BRIDE IN THUNDER",
+     76,
+     "light"
+    ],
+    [
+     "B",
+     "Nordic Reign · from the album Before the End Begins",
+     38,
+     "mist"
+    ],
+    [
+     "B",
+     "Listen on all platforms: link in the description",
+     40,
+     "light"
+    ],
+    [
+     "B",
+     "The full story: The Norse Saga, episode 13 · @nordicreignofficial",
+     36,
+     "gold"
+    ]
+   ]
+  ]
+ ]
+}

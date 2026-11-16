@@ -19,3 +19,10 @@
 | smith_thor_bride_1902.jpg | "Ah, what a lovely maid it is!" (Thor as the bride) | Elmer Boyd Smith (1860–1943) | 1902 | Wikimedia Commons |
 | smith_skrymir_1902.jpg | "I am the giant Skrymir" | Elmer Boyd Smith (1860–1943) | 1902 | Wikimedia Commons |
 | odin_suttungr_gunnlod.jpg | Gotland picture stone detail, often read as Odin, Suttungr and Gunnlöð (old photograph, low resolution) | unknown (Viking Age stone) | 8th–9th c. | Wikimedia Commons |
+| winge_loki_sigyn_1863.jpg | Loke och Sigyn (Loki and Sigyn) | Mårten Eskil Winge (1825–1896) | 1863 | Wikimedia Commons (Nationalmuseum, Stockholm) |
+| rackham_buzzing_fly_1901.jpg | "Once again the buzzing fly came in at the window" (dwarves at the forge) | Arthur Rackham (1867–1939) | 1901 | Wikimedia Commons |
+| froelich_thor_elli.jpg | Thor wrestles Elli (old age), cropped | Lorenz Frølich (1820–1908) | 19th c. | Wikimedia Commons |
+| rackham_mighty_swing_1901.jpg | "He raised his hammer with a mighty swing" | Arthur Rackham (1867–1939) | 1901 | Wikimedia Commons |
+| pogany_children_of_loki_1920.jpg | The Children of Loki (from *The Children of Odin*, low resolution) | Willy Pogány (1882–1955) | 1920 | Wikimedia Commons |
+| huard_skrymir_thor.jpg | Giant Skrymir and Thor (caption cropped) | Louis Huard (1813–1874) | 19th c. | Wikimedia Commons |
+| smith_third_gift_hammer_1902.jpg | "The third gift — an enormous hammer" | Elmer Boyd Smith (1860–1943) | 1902 | Wikimedia Commons |

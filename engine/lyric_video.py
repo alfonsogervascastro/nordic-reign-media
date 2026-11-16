@@ -7,7 +7,8 @@ Config keys:
   title, dur, end_clear (last second lyrics may show), credit (art line at the bottom),
   words: "Word@start Word@start ...¶\\n..." one sung line per row (Suno aligned_lyrics, released master);
          empty for an instrumental (then only cards and art),
-  art:   [[image file in ../images, start, end, focus_x, focus_y], ...]  (crossfaded, slow push),
+  art:   [[image file in ../images, start, end, focus_x, focus_y, (opacity, default 0.85)], ...]  (crossfaded, slow push);
+         use ~0.5 for light line art on white paper so the text stays readable,
   cards: [[a, b, y, [["T"|"B", text, size, "gold"|"light"|"mist"], ...]], ...]
 The first card should be the title card and the last one the outro (album + link + episode).
 """
@@ -34,8 +35,8 @@ def load(path):
         nxt = lines[i + 1]["starts"][0] if i + 1 < len(lines) else 1e9
         L["a"] = L["starts"][0] - 0.7
         L["b"] = min(nxt - 0.35, L["ends"][-1] + 3.0, cfg.get("end_clear", cfg["dur"]))
-    art = [(nr.Painting("../images/" + f, 1500, 1080, cx=W / 2, cy=H / 2, focus=(fx, fy), zoom=0.12, feather=0.14), a, b)
-           for f, a, b, fx, fy in cfg["art"]]
+    art = [(nr.Painting("../images/" + e[0], 1500, 1080, cx=W / 2, cy=H / 2, focus=(e[3], e[4]), zoom=0.12, feather=0.14),
+            e[1], e[2], e[5] if len(e) > 5 else 0.85) for e in cfg["art"]]
     cards = [nr.Card(a, b, y, [((nr.T if k == "T" else nr.B)(txt, size, COL[c])) for k, txt, size, c in ls], gap=20)
              for a, b, y, ls in cfg["cards"]]
     return cfg, lines, art, cards
@@ -44,10 +45,10 @@ SHADE = Image.new("RGBA", (W, H), (10, 12, 16, 120))
 
 def make_frame(cfg, lines, art, cards):
     def frame(img, t):
-        for P, a, b in art:
+        for P, a, b, dim in art:
             op = nr.window(t, a, b, 1.6)
             if op > 0:
-                P.draw(img, t, a, op * 0.85, dur=b - a)
+                P.draw(img, t, a, op * dim, dur=b - a)
         img.alpha_composite(SHADE)
         for i, L in enumerate(lines):
             op = nr.window(t, L["a"], L["b"], 0.35)
