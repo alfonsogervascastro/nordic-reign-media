@@ -247,7 +247,8 @@ La imagen debe cambiar cada 3–4 segundos y siempre haber movimiento (empuje le
    - Hávamál: "Hávamál has 164 stanzas. Which one should we do next?"
    - Palabras, runas, Myth vs History, Real Vikings: "🎧 The music is ours: Nordic Reign, from the album Before the End Begins. Link in bio."
 9. **Historia diaria de Instagram (desde el 16 nov):** cada día a las **18:30**, publicación solo Instagram con `instagramData.type = STORY`, `media` = `<fecha>_story.jpg`, **sin texto** y `firstCommentText` vacío. Los días del reel de nombre con audio oficial (Instagram manual), la historia sale igual: Alfonso publica el reel antes de las 18:30.
-10. Comprobar con `getScheduledPosts` y actualizar el registro y la tabla de episodios.
+10. **Listas de YouTube:** cada domingo, con Chrome, añadir los Shorts publicados en la semana a su lista (The Norse Saga / Runes / Words from the North); Metricool no lo hace.
+11. Comprobar con `getScheduledPosts` y actualizar el registro y la tabla de episodios.
 
 ## Registro de publicaciones
 
