@@ -99,3 +99,9 @@ Léelo entero antes de trabajar. La fuente de verdad del día a día es `PLAYBOO
 - Los 7 lyric videos nuevos aún no están subidos (los sube Alfonso). Cuando estén, añadirlos a la lista «Nordic Reign».
 
 - Canal Oficial de Artista de YouTube: según Alfonso (17 nov), todavía NO está activo.
+
+## 17 nov
+- **TikToks a cero:** Prólogo (0), Fehu (2), carrusel de tatuaje del 13 nov (1), «Pause the video» del 15 nov (1); el resto ronda 235–275 (y 857–916 los dos primeros). En TikTok Studio web no aparece ningún aviso (las estadísticas solo dicen que se marcharon en el segundo 2). Hay que mirarlo en la app del móvil (vídeo → ··· → Estadísticas): si pone «no apto para el feed Para ti», pedir revisión. Pedido a Alfonso.
+- **Recopilatorio YouTube** (16:9, `engine/compilation.py`): «The Norse Saga: Prologue and Episodes 1–5», 3:55 con capítulos, programado en Metricool para el **domingo 22 nov a las 12:00** (solo YouTube, vídeo normal). Archivo: `2026-11/2026-11-22_saga_compilation_prologue-ep05.mp4`. Añadirlo a la lista «The Norse Saga» cuando se publique.
+- **Instrumentales HECHAS** de las 6 canciones con voz (separando la voz): `audio/<slug>_inst.mp3` (fragmentos) y `C:\Nordic Reign\mp3\instrumental\` (enteras). El recordatorio del 9 dic queda como opcional (stems oficiales de Suno).
+- Alfonso pagará Metricool cuando acabe la prueba (no hace falta comparar opciones).
