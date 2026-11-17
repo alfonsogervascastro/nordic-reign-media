@@ -98,7 +98,7 @@ Léelo entero antes de trabajar. La fuente de verdad del día a día es `PLAYBOO
 - Metricool no permite elegir lista al programar: los Shorts nuevos hay que añadirlos a mano (YouTube Studio → Contenido → Shorts → marcar → «Añadir a lista»). Hacerlo cada domingo con Chrome.
 - Los 7 lyric videos nuevos aún no están subidos (los sube Alfonso). Cuando estén, añadirlos a la lista «Nordic Reign».
 
-- Canal Oficial de Artista de YouTube: según Alfonso (17 nov), todavía NO está activo.
+- Canal Oficial de Artista de YouTube: **solicitado el 17 nov** vía DistroKid (artista Nordic Reign → canal @nordic-reign). DistroKid confirma «submitted to YouTube»; YouTube avisará por correo (de unos días a 6 semanas). Unirá el canal «Nordic Reign - Topic» (creado solo por la distribución) con @nordic-reign. Es irreversible.
 
 ## 17 nov
 - **TikToks a cero:** Prólogo (0), Fehu (2), carrusel de tatuaje del 13 nov (1), «Pause the video» del 15 nov (1); el resto ronda 235–275 (y 857–916 los dos primeros). En TikTok Studio web no aparece ningún aviso (las estadísticas solo dicen que se marcharon en el segundo 2). Hay que mirarlo en la app del móvil (vídeo → ··· → Estadísticas): si pone «no apto para el feed Para ti», pedir revisión. Pedido a Alfonso.
