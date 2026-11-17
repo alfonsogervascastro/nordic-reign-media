@@ -11,7 +11,7 @@ if sys.argv[1] == "--chunk":
     cfg = so.OfflineSourceSeparationConfig(model=so.OfflineSourceSeparationModelConfig(
         uvr=so.OfflineSourceSeparationUvrModelConfig(model=M + "UVR_MDXNET_Main.onnx"), num_threads=2))
     res = so.OfflineSourceSeparation(cfg).process(sample_rate=sr, samples=np.ascontiguousarray(x.T))
-    np.save(dst, np.array(res.stems[0].data, dtype=np.float32))  # stem 0 = vocals
+    np.save(dst, np.array(res.stems[int(os.environ.get("STEM", "0"))].data, dtype=np.float32))  # 0 = vocals, 1 = instrumental
     sys.exit(0)
 
 song, out = sys.argv[1], sys.argv[2]
@@ -26,5 +26,5 @@ for i in range(0, total, CH):
                    stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     parts.append(np.load(dst))
 voc = np.concatenate(parts, axis=1)
-sf.write(out + "_vocals.wav", voc.T, sr)
+sf.write(out + os.environ.get("SUFFIX", "_vocals.wav"), voc.T, sr)
 os.remove(dst)
