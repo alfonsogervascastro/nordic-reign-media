@@ -106,3 +106,8 @@ Léelo entero antes de trabajar. La fuente de verdad del día a día es `PLAYBOO
 - **Instrumentales HECHAS** de las 6 canciones con voz (separando la voz): `audio/<slug>_inst.mp3` (fragmentos) y `C:\Nordic Reign\mp3\instrumental\` (enteras). El recordatorio del 9 dic queda como opcional (stems oficiales de Suno).
 - Alfonso pagará Metricool cuando acabe la prueba (no hace falta comparar opciones).
 - **Lyric videos en YouTube (17 nov):** Alfonso subió y programó los 9 que faltaban (16:00): Odin's Sacrifice 27 nov, Inside the Lie 4 dic, Born in the Dark 8 dic, Forge 15 dic, Bride 18 dic, Hall 22 dic, Thunder 25 dic, Chains 5 ene, Before the End Begins (Visualizer) 8 ene. Lista «Nordic Reign». Uso de IA = «Sí» (YouTube ahora pide declararlo cuando la música hecha con IA es lo principal del vídeo). Remezcla de Shorts: solo audio.
+
+## 20 nov
+- Týr («This god's name just means god», Words from the North) = mejor reel de IG: 457 vistas en 1 día, 17 me gusta. IG 64 seguidores (+7 en la semana).
+- Ep. 4 en IG: 3 espectadores en 2 días (en YouTube 151, en TikTok 228). Estado de la cuenta de IG limpio (sin límites de recomendación). Causa desconocida; por precaución, **evitar cuadros con desnudos en Instagram** (anotado en el PLAYBOOK).
+- Publicaciones fijadas por Alfonso. Carruseles: se dejan también en TikTok de momento. Nada más que cambiar hasta revisar la semana del 24 al 30.
