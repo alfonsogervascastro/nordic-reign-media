@@ -24,7 +24,8 @@ La cuenta cuenta una historia, no curiosidades sueltas. La columna es **The Nors
 - **Mezcla de series desde el 8 dic:** 2–3 «Words from the North» por semana (la mejor serie) y menos nombres en runas (la peor). Lo concreta la producción del 6 dic.
 - **Carruseles:** no se producen más; se publican los ya programados (hasta el 4 dic).
 - **Duración:** fuera de la saga, máximo 30 s, con final que enlace con el principio.
-- **Correcciones:** si un comentario señala un error con fuente, se agradece y se hace un vídeo de corrección (primero: 24 nov, `engine/v34_correction.py`).
+- **Correcciones:** NO se hacen vídeos de corrección (Alfonso, 21 nov: con tan pocos comentarios queda mal destacarlo). Si alguien señala un error con fuente, Alfonso le responde y se corrige en la regla de rigor para lo siguiente. El vídeo hecho (`engine/v34_correction.py`) queda en borrador en Metricool, sin publicar.
+- **Composición:** cuando una escena es solo texto, el bloque de texto va centrado en vertical; nada de texto arriba con media pantalla vacía.
 
 ## Series y semana tipo (de martes a lunes)
 
