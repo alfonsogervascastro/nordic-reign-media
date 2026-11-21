@@ -18,6 +18,14 @@ La cuenta cuenta una historia, no curiosidades sueltas. La columna es **The Nors
   - Por qué: `getBestTimeToPostByNetwork` (10 nov) da en TikTok el pico de tarde a las 18 h (un 30 % más que las 19 h, todos los días) y en mediodía a las 12 h (las 13 h caen en un bajón); en fin de semana el pico es a las 10 h. En YouTube, el pico es a las 16 h todos los días (las 19 h tienen un 40 % menos). En Instagram aún no hay datos. Parecen datos generales de la plataforma, no de nuestro público, así que se mide.
   - Línea base: 11–15 nov a las 19:00 con las tres redes juntas. Cada domingo, en el informe de métricas, comparar visualizaciones a 48 h por plataforma antes y después del cambio, y volver a pedir `getBestTimeToPostByNetwork` de las tres redes para la semana que se va a producir. Si Instagram empieza a dar datos y su mejor hora se separa 2 h o más de la de TikTok, publicar Instagram aparte también. Tras 3 semanas (domingo 6 dic), fijar las horas que ganen y anotarlas aquí.
 
+## Cambios del 21 nov (Alfonso: «tira con todo»)
+- **Gancho nuevo en todos los vídeos** (`engine/hook.py`): los 2 primeros segundos son un primer plano a pantalla completa del cuadro (cara, ojo, arma o la runa), en movimiento desde el fotograma 0, con la frase gancho en grande; luego sigue el vídeo normal con su audio. Uso: `python3 hook.py <vídeo> <salida> <imagen> x0,y0,x1,y1 "<línea blanca>|<línea dorada>"` (recorte en píxeles del cuadro ORIGINAL; para runas, un fotograma del propio vídeo). Nada de desnudos en el primer plano. La etiqueta de serie entra en el segundo 2. Aplicado ya del 22 al 30 nov (`*_hA.mp4`).
+- **Reels de prueba de Instagram** (A/B de gancho): cada reel de IG lleva una variante B con el gancho en forma de pregunta (`*_hB.mp4`) como `TRIAL_REEL` a las 21:00 del mismo día (solo se enseña a no seguidores; Metricool no la comparte sola). Cada domingo comparar A (reel normal) y B (prueba): vistas, tasa de salto y tiempo medio. Si una fórmula gana 3 semanas seguidas, pasa a ser la estándar.
+- **Mezcla de series desde el 8 dic:** 2–3 «Words from the North» por semana (la mejor serie) y menos nombres en runas (la peor). Lo concreta la producción del 6 dic.
+- **Carruseles:** no se producen más; se publican los ya programados (hasta el 4 dic).
+- **Duración:** fuera de la saga, máximo 30 s, con final que enlace con el principio.
+- **Correcciones:** si un comentario señala un error con fuente, se agradece y se hace un vídeo de corrección (primero: 24 nov, `engine/v34_correction.py`).
+
 ## Series y semana tipo (de martes a lunes)
 
 | Día | Serie (etiqueta `nr.Label`) | Contenido |
