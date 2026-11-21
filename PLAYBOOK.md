@@ -207,6 +207,7 @@ La imagen debe cambiar cada 3–4 segundos y siempre haber movimiento (empuje le
 - Algiz y Othala: presentarlas con su contexto histórico. Nunca dibujar Othala con alas, Sowilo doble ni Wolfsangel.
 - Hávamál: solo la traducción de dominio público de Bellows (1923).
 - Nada de tatuajes de otras personas.
+- No suavizar una fuente para que quede simpática (lección del 21 nov: en el vídeo del baño, «stole the local women's hearts» suavizaba a John of Wallingford, que habla de asediar la virtud de las casadas y hacer concubinas a las hijas de nobles; un comentario lo señaló). Parafrasear con el tono real y decir quién lo escribió y cuándo.
 
 ## Banco de temas para las series satélite
 
