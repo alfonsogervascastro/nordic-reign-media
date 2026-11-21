@@ -111,3 +111,9 @@ Léelo entero antes de trabajar. La fuente de verdad del día a día es `PLAYBOO
 - Týr («This god's name just means god», Words from the North) = mejor reel de IG: 457 vistas en 1 día, 17 me gusta. IG 64 seguidores (+7 en la semana).
 - Ep. 4 en IG: 3 espectadores en 2 días (en YouTube 151, en TikTok 228). Estado de la cuenta de IG limpio (sin límites de recomendación). Causa desconocida; por precaución, **evitar cuadros con desnudos en Instagram** (anotado en el PLAYBOOK).
 - Publicaciones fijadas por Alfonso. Carruseles: se dejan también en TikTok de momento. Nada más que cambiar hasta revisar la semana del 24 al 30.
+
+## 21 nov
+- Reescalados con Real-ESRGAN los 16 cuadros de menos de 1.500 px (originales en images/original/).
+- Voz de la cuenta: nunca «we/our/us». Cambiado en todo lo programado hasta el 7 dic (textos, primeros comentarios, 17 historias, 4 carruseles, vídeo de Birka), en las descripciones de YouTube (4 Shorts publicados y 10 vídeos con letra) y en 4 pies de foto de IG. No se puede cambiar: pies de TikTok ya publicados y primeros comentarios ya publicados.
+- Comentario de @fakehistoryhunter en el vídeo del baño: respuesta propuesta y regla de rigor nueva (no suavizar fuentes).
+- 3D (NR_PARALLAX): con x1 no se nota; enviado test x3 (Týr y Thor). Pendiente que Alfonso decida.
