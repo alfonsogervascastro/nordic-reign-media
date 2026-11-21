@@ -49,7 +49,7 @@ SONGS = [
          tags="#norsemythology #vikingmetal #loki", keys="chains beneath the mountain, loki, sigyn, loki bound, earthquake",
          when="martes 5 ene (el Ep. 18 sale, si se mantiene el ritmo, el miércoles 6)"),
     dict(slug="before-the-end-begins", title="Before the End Begins", sub="Ragnarök (Instrumental)",
-         intro="Fimbulwinter, the wolves that swallow the sun and the moon, Fenrir unchained, Odin's last battle and a new world rising from the sea. \"Before the End Begins\" is the instrumental title track of our album: the march to Ragnarök.",
+         intro="Fimbulwinter, the wolves that swallow the sun and the moon, Fenrir unchained, Odin's last battle and a new world rising from the sea. \"Before the End Begins\" is the instrumental title track of the album: the march to Ragnarök.",
          ep="episodes 19 and 20", sources="Völuspá (Poetic Edda), translation by H. A. Bellows (1923); Prose Edda, Gylfaginning 51–53, translation by A. G. Brodeur (1916).",
          art="Emil Doepler, Ragnarök and Thor and the Midgard Serpent (c. 1905); John Bauer, Tyr and Fenrir (1911); Oluf O. Bagge, Yggdrasil (1847).",
          tags="#norsemythology #vikingmetal #ragnarok", keys="before the end begins, ragnarok, fimbulwinter, fenrir, odin, instrumental",
@@ -68,7 +68,7 @@ DESCRIPCIÓN
 Listen on all platforms: {HYPER}
 Spotify: {SPOT}
 
-The full story is {s['ep']} of The Norse Saga, our series that retells the Norse myths in order, from the first giant to Ragnarök. Shorts on this channel, Instagram and TikTok: @nordicreignofficial
+The full story is {s['ep']} of The Norse Saga, the series that retells the Norse myths in order, from the first giant to Ragnarök. Shorts on this channel, Instagram and TikTok: @nordicreignofficial
 
 Sources: {s['sources']}
 Art (public domain): {s['art']}

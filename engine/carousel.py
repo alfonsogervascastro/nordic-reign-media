@@ -105,7 +105,7 @@ def tattoo(slug):
     img = base(17); label(img, cfg["title"])
     nr.draw_lines(img, [T("Which chapter", 66, LIGHT), T("would you wear?", 66, GOLD)], 420, 1.0, gap=10)
     nr.draw_lines(img, [B("Save this for your next tattoo.", 46, LIGHT),
-                        B(f"Episode {cfg['ep']} is on our profile.", 42)], 700, 1.0, gap=16)
+                        B(f"Episode {cfg['ep']} is on the profile.", 42)], 700, 1.0, gap=16)
     footer(img, 5, total); save(img, f"tattoo_{slug}_5.jpg")
 
 # ---------------------------------------------------------------- myth vs history
@@ -178,7 +178,7 @@ def tattooed():
     for i, sl in enumerate(picks):
         g = gold_png(f"{designs}/{sl}/{sl}_gold.png", 300)
         img.alpha_composite(g, (int(W / 2 - 480 + i * 330 - g.width / 2 + 150), 230))
-    nr.draw_lines(img, [T("Ours are modern too.", 64, LIGHT)], 600, 1.0)
+    nr.draw_lines(img, [T("These are modern too.", 64, LIGHT)], 600, 1.0)
     nr.draw_lines(img, [B("Every chapter of The Norse Saga", 48, LIGHT), B("ends with its own knotwork design.", 48, LIGHT)],
                   700, 1.0, gap=14)
     nr.draw_lines(img, [T("Would you get one?", 60, GOLD), B("Yes, no, or already have one?", 44)], 900, 1.0, gap=16)
@@ -251,7 +251,7 @@ def graffiti():
         footer(img, k, total); save(img, f"graffiti_viking-graffiti_{k}.jpg")
     img = base(59); label(img, "MYTH VS HISTORY")
     nr.draw_lines(img, [T("Where would you", 82, LIGHT), T("leave your mark?", 80, GOLD)], 420, 1.0, gap=12)
-    nr.draw_lines(img, [B("Tell us in the comments.", 48, LIGHT)], 780, 1.0)
+    nr.draw_lines(img, [B("Tell me in the comments.", 48, LIGHT)], 780, 1.0)
     footer(img, total, total); save(img, "graffiti_viking-graffiti_7.jpg")
 
 if __name__ == "__main__":

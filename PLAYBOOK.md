@@ -37,7 +37,7 @@ La cuenta cuenta una historia, no curiosidades sueltas. La columna es **The Nors
 
 **Música en las series sin voz** (nombres, palabras, mito vs. historia, runas): llevan una canción de `audio/` de fondo (aquí la voz cantada sí vale) y en el texto "Soundtrack: <canción> by Nordic Reign." antes de los hashtags. Elige la que encaje con el tema (enanos → Forge of Svartalfheim; Týr/Fenrir → Born in the Dark) y no repitas canción en días seguidos. Normaliza el audio a −14 LUFS.
 
-Cada vídeo lleva su etiqueta de serie arriba durante todo el vídeo. Cada episodio de la saga termina con "Episode n+1: <día>  ·  @nordicreignofficial", y su texto de publicación dice "The Norse Saga, episode n. Start from the prologue on our profile."
+Cada vídeo lleva su etiqueta de serie arriba durante todo el vídeo. Cada episodio de la saga termina con "Episode n+1: <día>  ·  @nordicreignofficial", y su texto de publicación dice "The Norse Saga, episode n. Start from the prologue on the profile."
 
 ## Episodios de The Norse Saga
 
@@ -157,6 +157,8 @@ Para cada episodio nuevo: crea su diseño en `designs.py` antes de producir el v
 - Tipografía: Cinzel (títulos), EB Garamond (texto). Las runas se dibujan con `nr.draw_rune`, nunca con una fuente.
 - Etiqueta de serie en y=196; contenido entre y=290 y y=1520. Un mensaje por pantalla, máx. ~8 palabras por línea.
 - Gancho en los primeros 2 segundos.
+- Voz de la cuenta (decidido 21 nov): nunca «we / our / us». Nordic Reign es una persona: primera del singular («I carve a new one», «Tell me») o neutro («on the profile», «Original music: …»). Vale para textos, primeros comentarios, carruseles, portadas, descripciones y respuestas.
+- Imágenes: las de menos de 1.500 px están reescaladas con Real-ESRGAN (`engine/upscale.py`, x4plus para cuadros, x4plus-anime para grabados); el original queda en `images/original/`. Cuadros nuevos pequeños: reescalarlos antes de usarlos. Efecto 3D opcional: `NR_PARALLAX=1` (pendiente de decidir).
 
 ## Voz en off (decidido 5 nov: voz 6)
 
@@ -243,10 +245,10 @@ La imagen debe cambiar cada 3–4 segundos y siempre haber movimiento (empuje le
 6. **Máximo 5 hashtags** por publicación (límite de Instagram desde finales de 2025).
 7. **Portada propia (desde el 16 nov):** añadir la entrada del día a `COVERS` en `engine/covers.py` (fecha, etiqueta de serie, título en dos líneas, cuadro o `("runes", [...])` / `("name", "Nombre")`) y `python3 covers.py` → `AAAA-MM/covers/<fecha>_cover.jpg` y `<fecha>_story.jpg`. Push y pasar la portada en `videoThumbnailUrl` (URL raw de GitHub) en la publicación de **Instagram + TikTok** (no en la de YouTube; YouTube solo la muestra en canales verificados). Con `videoThumbnailUrl` **no** se envía `videoCoverMilliseconds`. Todo lo importante dentro del 3:4 central (y 240–1680), que es lo que enseña la cuadrícula de Instagram.
 8. **Primer comentario (desde el 16 nov)** en `firstCommentText` de la publicación IG + TikTok, según la serie:
-   - Nombres: "Drop your name below 👇 We carve a new one every week."
-   - Saga: "Missed the start? The whole Norse Saga is on our profile, from the prologue." (si suena una canción del álbum: "🎧 The music is ours: <canción>, by Nordic Reign. Missed the start? The whole Norse Saga is on our profile.")
-   - Hávamál: "Hávamál has 164 stanzas. Which one should we do next?"
-   - Palabras, runas, Myth vs History, Real Vikings: "🎧 The music is ours: Nordic Reign, from the album Before the End Begins. Link in bio."
+   - Nombres: "Drop your name below 👇 I carve a new one every week."
+   - Saga: "Missed the start? The whole Norse Saga is on the profile, from the prologue." (si suena una canción del álbum: "🎧 Original music: <canción>, by Nordic Reign. Missed the start? The whole Norse Saga is on the profile.")
+   - Hávamál: "Hávamál has 164 stanzas. Which one should I do next?"
+   - Palabras, runas, Myth vs History, Real Vikings: "🎧 Original music: Nordic Reign, from the album Before the End Begins. Link in bio."
 9. **Historia diaria de Instagram (desde el 16 nov):** cada día a las **18:30**, publicación solo Instagram con `instagramData.type = STORY`, `media` = `<fecha>_story.jpg`, **sin texto** y `firstCommentText` vacío. Los días del reel de nombre con audio oficial (Instagram manual), la historia sale igual: Alfonso publica el reel antes de las 18:30.
 10. **Sin desnudos en los cuadros** (ni grabados): desde el 20 nov, por precaución con Instagram (el Ep. 4, con Ask y Embla desnudos de Frølich, apenas se repartió allí).
 11. **Listas de YouTube:** cada domingo, con Chrome, añadir los Shorts publicados en la semana a su lista (The Norse Saga / Runes / Words from the North); Metricool no lo hace.

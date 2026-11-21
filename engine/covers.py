@@ -80,7 +80,7 @@ def cover(date, label, title, a, story=False):
     nr.draw_lines(img, [T(label, 54, GOLD)], 280, 1.0)
     nr.draw_lines(img, [T(title[0], 104, LIGHT), T(title[1], 92, GOLD)], 1250, 1.0, gap=18)
     if story:
-        nr.draw_lines(img, [T("NEW TODAY", 60, GOLD), B("Watch it on our profile", 44, LIGHT)], 1640, 1.0, gap=14)
+        nr.draw_lines(img, [T("NEW TODAY", 60, GOLD), B("Watch it on the profile", 44, LIGHT)], 1640, 1.0, gap=14)
     else:
         nr.draw_lines(img, [B(nr.HANDLE, 34)], 1600, 1.0)
     return img.convert("RGB")
