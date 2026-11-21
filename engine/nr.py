@@ -141,6 +141,11 @@ class Painting:
     def __init__(self, path, w, h, cx=W / 2, cy=980, focus=(0.5, 0.4), zoom=0.10, feather=0.16, crop=None):
         src = Image.open(path).convert("RGB")
         if crop:
+            # crops are written in the pixel coordinates of the original file; upscaled copies keep it in images/original/
+            orig = os.path.join(os.path.dirname(path), "original", os.path.basename(path))
+            if os.path.exists(orig):
+                r = src.width / Image.open(orig).width
+                crop = tuple(round(c * r) for c in crop)
             src = src.crop(crop)
         sw, sh = src.size
         tw, th = int(w * (1 + zoom)), int(h * (1 + zoom))
@@ -421,3 +426,7 @@ def still(path, t, draw_frame, seed=3):
     img = Background(seed).render(t)
     draw_frame(img, t)
     img.convert("RGB").save(path)
+
+# 2.5D parallax paintings (engine/parallax.py): NR_PARALLAX=1 swaps every Painting for the depth-based version.
+if os.environ.get("NR_PARALLAX"):
+    from parallax import ParallaxPainting as Painting  # noqa: E402,F811
