@@ -23,7 +23,7 @@ cards = [
     Card(20.8, 24.6, 330, [B("But was she a warrior?", 58, LIGHT), B("Critics: weapons in a grave", 50), B("don't prove she fought.", 50)]),
     Card(24.8, 28.0, 330, [B("She was buried with", 54, LIGHT), T("a war-game board", 66, GOLD), B("which some read as a commander's sign.", 44, LIGHT)]),
     Card(25.2, 28.0, 1600, [B("Hedenstierna-Jonson et al. 2017; Price et al., Antiquity 2019", 28)]),
-    Card(28.2, 31.0, 330, [T("Warrior or not?", 76), B("Tell us what you think.", 52, GOLD)]),
+    Card(28.2, 31.0, 330, [T("Warrior or not?", 76), B("Tell me what you think.", 52, GOLD)]),
     Card(28.8, 31.0, 1600, [B(nr.HANDLE, 40)]),
 ]
 
