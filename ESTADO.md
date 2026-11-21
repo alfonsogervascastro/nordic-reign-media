@@ -116,4 +116,4 @@ Léelo entero antes de trabajar. La fuente de verdad del día a día es `PLAYBOO
 - Reescalados con Real-ESRGAN los 16 cuadros de menos de 1.500 px (originales en images/original/).
 - Voz de la cuenta: nunca «we/our/us». Cambiado en todo lo programado hasta el 7 dic (textos, primeros comentarios, 17 historias, 4 carruseles, vídeo de Birka), en las descripciones de YouTube (4 Shorts publicados y 10 vídeos con letra) y en 4 pies de foto de IG. No se puede cambiar: pies de TikTok ya publicados y primeros comentarios ya publicados.
 - Comentario de @fakehistoryhunter en el vídeo del baño: respuesta propuesta y regla de rigor nueva (no suavizar fuentes).
-- 3D (NR_PARALLAX): con x1 no se nota; enviado test x3 (Týr y Thor). Pendiente que Alfonso decida.
+- 3D (NR_PARALLAX): DESCARTADO. Alfonso vio el test x3: en Thor se nota poco y en Týr no aporta. El código se queda en el repo sin usar.

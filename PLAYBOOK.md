@@ -158,7 +158,7 @@ Para cada episodio nuevo: crea su diseño en `designs.py` antes de producir el v
 - Etiqueta de serie en y=196; contenido entre y=290 y y=1520. Un mensaje por pantalla, máx. ~8 palabras por línea.
 - Gancho en los primeros 2 segundos.
 - Voz de la cuenta (decidido 21 nov): nunca «we / our / us». Nordic Reign es una persona: primera del singular («I carve a new one», «Tell me») o neutro («on the profile», «Original music: …»). Vale para textos, primeros comentarios, carruseles, portadas, descripciones y respuestas.
-- Imágenes: las de menos de 1.500 px están reescaladas con Real-ESRGAN (`engine/upscale.py`, x4plus para cuadros, x4plus-anime para grabados); el original queda en `images/original/`. Cuadros nuevos pequeños: reescalarlos antes de usarlos. Efecto 3D opcional: `NR_PARALLAX=1` (pendiente de decidir).
+- Imágenes: las de menos de 1.500 px están reescaladas con Real-ESRGAN (`engine/upscale.py`, x4plus para cuadros, x4plus-anime para grabados); el original queda en `images/original/`. Cuadros nuevos pequeños: reescalarlos antes de usarlos. Efecto 3D (`NR_PARALLAX`, engine/parallax.py): DESCARTADO el 21 nov; con estas pinturas apenas se nota y no compensa. No usarlo.
 
 ## Voz en off (decidido 5 nov: voz 6)
 
