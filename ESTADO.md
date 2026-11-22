@@ -118,3 +118,11 @@ Léelo entero antes de trabajar. La fuente de verdad del día a día es `PLAYBOO
 - Comentario de @fakehistoryhunter en el vídeo del baño: respuesta propuesta y regla de rigor nueva (no suavizar fuentes).
 - 3D (NR_PARALLAX): DESCARTADO. Alfonso vio el test x3: en Thor se nota poco y en Týr no aporta. El código se queda en el repo sin usar.
 - Tarde del 21 nov («tira con todo»): gancho nuevo (`engine/hook.py`) en los 8 vídeos del 22 al 30 nov (todo menos FREYA), sustituido en IG/TikTok y YouTube; 8 reels de prueba de IG con gancho-pregunta a las 21:00 (22–30 nov); vídeo de corrección del baño: descartado por Alfonso (queda en borrador en Metricool, no se publica; él ya respondió el comentario). Reglas nuevas en el PLAYBOOK («Cambios del 21 nov»). Comparar A/B el domingo 29.
+
+## 22 nov (tarea del domingo, solo métricas)
+- Informe en `metrics/2026-11-22.md`. Seguidores: IG 66 (+10), TikTok 3, YouTube 5 (+4). Vistas de la cuenta en IG 1.114 (+84 % sobre la semana anterior). Týr = mejor reel de la cuenta (IG 470, salto 45 %, +5 seguidores ese día; YouTube 485).
+- Horas (vs. línea base 11–15 nov): TikTok igual (~240, la hora no es el problema); YouTube 16:00 con señal positiva en la saga (Ep. 4 201 vs Ep. 2–3 59–76); Instagram sin conclusión (manda la serie). Base de YouTube completada (mediana 365, inflada por Tolkien y cuernos). `getBestTimeToPostByNetwork` sin cambios. Se decide el 6 dic.
+- Portadas / primer comentario / historias: salto medio en IG 65 % → 58 %, pero se explica por los temas (Týr, Ep. 5). El «1 comentario» por reel es casi seguro el nuestro. Visitas al perfil: Metricool ya no las da. Historias: Metricool solo registra la del 16 (5 de alcance); las demás con 0 y **la del 20 nov no aparece** → que Alfonso lo mire en la app.
+- Nuevos fallos en TikTok: SIGRID (2 vistas) y las 24 runas (1) tampoco se distribuyeron; los dos carruseles, 10 y 24.
+- Verificado 22–30 nov con `getScheduledPosts`: completo y nada en Facebook (detalle en el informe).
+- Siguiente: domingo 29 nov, métricas + comparación A/B de ganchos + carrusel de noticias del 1 dic 12:00.
