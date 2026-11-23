@@ -126,3 +126,7 @@ Léelo entero antes de trabajar. La fuente de verdad del día a día es `PLAYBOO
 - Nuevos fallos en TikTok: SIGRID (2 vistas) y las 24 runas (1) tampoco se distribuyeron; los dos carruseles, 10 y 24.
 - Verificado 22–30 nov con `getScheduledPosts`: completo y nada en Facebook (detalle en el informe).
 - Siguiente: domingo 29 nov, métricas + comparación A/B de ganchos + carrusel de noticias del 1 dic 12:00.
+
+## 23 nov
+- Historias diarias: se mantienen (Alfonso: «que siga») aunque tengan 1–2 vistas.
+- Destacados: hechos portadas e historias de presentación para 6 destacados (SAGA, RUNES, WORDS, HISTORY, HÁVAMÁL, MUSIC) en `highlights/` (`engine/highlights.py`). Los monta Alfonso desde el móvil; ver PLAYBOOK paso 9b.
