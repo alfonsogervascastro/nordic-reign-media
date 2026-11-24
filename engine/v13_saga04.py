@@ -87,4 +87,4 @@ if __name__ == "__main__":
             nr.still(f"stills/v13_{s}.png", s, frame, seed=41)
     else:
         import narrate
-        print("duration", round(narrate.render_voiced("out/v13v_saga04.mp4", DUR, frame, SEGMENTS, seed=41, bpm=60), 2))
+        print("duration", round(narrate.render_voiced("out/v13v_saga04.mp4", DUR, frame, SEGMENTS, seed=41, bpm=60, cards=cards), 2))

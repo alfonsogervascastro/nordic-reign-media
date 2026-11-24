@@ -99,5 +99,5 @@ if __name__ == "__main__":
     else:
         import narrate
         d = narrate.render_voiced("out/v28v_saga09.mp4", DUR, frame, SEGMENTS, seed=97, bpm=60,
-                                  music="../audio/inside-the-lie.mp3", music_start=0.0)
+                                  music="../audio/inside-the-lie.mp3", music_start=0.0, cards=cards)
         print("duration", round(d, 2))

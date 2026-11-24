@@ -108,14 +108,65 @@ def draw_lines(img, lines, y, op, rise=0.0, gap=20):
     img.alpha_composite(layer)
     return cy
 
+def card_words(lines):
+    """The words of a card, in reading order (used to match them to the narrator's words)."""
+    return [w for line in lines for text, _, _, _ in _segments(line) for w in text.split()]
+
+DIM = 0.30          # karaoke: words not yet spoken
+HL_FADE = 0.10
+
+def _hl(col):
+    """Highlight colour of the word being spoken: gold, or a warm white on gold lines."""
+    return (255, 238, 205) if tuple(col) == GOLD else GOLD
+
+def draw_lines_karaoke(img, lines, y, op, rise, gap, t, reveal):
+    """Like draw_lines, but each word lights up when the narrator says it (reveal = start time of each word)."""
+    if op <= 0:
+        return y
+    layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    d = ImageDraw.Draw(layer)
+    cy = y + rise
+    k = 0
+    for line in lines:
+        lw, lh = line_size(d, line)
+        x = (W - lw) / 2
+        for text, kind, size, col in _segments(line):
+            f = font(kind, size)
+            bb0 = d.textbbox((0, 0), text, font=f)[0]
+            pos = 0
+            for w in text.split(" "):
+                if not w:
+                    pos += 1
+                    continue
+                wx = x + d.textlength(text[:pos], font=f)
+                r = reveal[k]
+                nxt = reveal[k + 1] if k + 1 < len(reveal) else r + 0.7
+                on = ease((t - r) / 0.14)
+                a = op * (DIM + (1 - DIM) * on)
+                h = ease((t - r) / HL_FADE) * ease((min(nxt, r + 0.9) - t) / HL_FADE) if r <= t <= min(nxt, r + 0.9) else 0.0
+                c = tuple(int(col[i] * (1 - h) + _hl(col)[i] * h) for i in range(3))
+                lift = 4 * h
+                d.text((wx + 2, cy + 3 - lift), w, font=f, fill=(0, 0, 0, int(170 * a)))
+                d.text((wx, cy - lift), w, font=f, fill=c + (int(255 * a),))
+                pos += len(w) + 1
+                k += 1
+            x += d.textbbox((0, 0), text, font=f)[2] - bb0
+        cy += lh + gap
+    img.alpha_composite(layer)
+    return cy
+
 class Card:
     def __init__(self, a, b, y, lines, gap=20):
         self.a, self.b, self.y, self.lines, self.gap = a, b, y, lines, gap
+        self.reveal = None      # set by narrate.render_voiced(..., cards=...) for word-by-word captions
     def draw(self, img, t):
         op = window(t, self.a, self.b)
         if op > 0:
             rise = (1 - ease((t - self.a) / 0.55)) * 22
-            draw_lines(img, self.lines, self.y, op, rise, self.gap)
+            if self.reveal:
+                draw_lines_karaoke(img, self.lines, self.y, op, rise, self.gap, t, self.reveal)
+            else:
+                draw_lines(img, self.lines, self.y, op, rise, self.gap)
 
 class Label:
     """Fixed series label at the top: e.g. Label("THE NORSE SAGA", "EP. 1")."""

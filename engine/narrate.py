@@ -59,10 +59,88 @@ def plan(segments, dur, lead=0.35, tail=0.45, voice=None):
         track[i:i + len(c)] += c[: len(track) - i]
     ko, kn = np.array(knots_o), np.array(knots_n)
     warp = lambda t: float(np.interp(t, kn, ko))
+    global _last
+    _last = (starts, clips, warp)
     return new_dur, warp, track[: int(new_dur * SR)]
 
-def render_voiced(out, dur, frame, segments, seed=3, bpm=60, music=None, music_start=0.0, voice=None, music_gain=0.45):
+# ---------------- word-by-word captions (decided 24 Nov 2026) ----------------
+# The narrated cards light up word by word as the narrator speaks. Word times come from running the
+# Parakeet ASR model (sherpa-onnx, /home/claude/models) on each Kokoro clip; card words are matched to the
+# recognised words, and words that do not match (phonetic spellings, numbers) are interpolated.
+_last = None
+_rec = None
+ASR_DIR = os.environ.get("NR_ASR", "/home/claude/models/sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8/")
+
+def asr_words(clip):
+    """[(word, start_s)] for a 24 kHz Kokoro clip."""
+    global _rec
+    if _rec is None:
+        import sherpa_onnx as so
+        P = ASR_DIR
+        _rec = so.OfflineRecognizer.from_transducer(encoder=P + "encoder.int8.onnx", decoder=P + "decoder.int8.onnx",
+                                                    joiner=P + "joiner.int8.onnx", tokens=P + "tokens.txt",
+                                                    model_type="nemo_transducer", num_threads=2)
+    from scipy.signal import resample_poly
+    a = resample_poly(clip, 2, 3).astype(np.float32)
+    a = np.concatenate([np.zeros(4000, np.float32), a, np.zeros(8000, np.float32)])   # 0.25 s pad
+    st = _rec.create_stream(); st.accept_waveform(16000, a); _rec.decode_stream(st)
+    words, cur = [], None
+    for tok, ts in zip(st.result.tokens, st.result.timestamps):
+        if tok.startswith(" ") or tok.startswith("▁") or cur is None:
+            if cur:
+                words.append(cur)
+            cur = [tok.strip(" ▁"), max(0.0, ts - 0.25)]
+        else:
+            cur[0] += tok
+    if cur:
+        words.append(cur)
+    return [(w, t) for w, t in words if w]
+
+def _norm(w):
+    import re
+    return re.sub(r"[^\w]", "", w.lower())
+
+def attach_captions(cards):
+    """Give every narrated card its word reveal times (on the script's original timeline)."""
+    import difflib
+    starts, clips, warp = _last
+    spoken = []                                    # (normalised word, time on the original timeline)
+    for s, c in zip(starts, clips):
+        if len(c):
+            spoken += [(_norm(w), warp(s + t)) for w, t in asr_words(c)]
+    for card in cards:
+        cw = [_norm(w) for w in nr.card_words(card.lines)]
+        cand = [(w, t) for w, t in spoken if card.a - 0.4 <= t <= card.b + 0.4]
+        if not cw or not cand:
+            continue
+        sm = difflib.SequenceMatcher(None, cw, [w for w, _ in cand], autojunk=False)
+        times = [None] * len(cw)
+        for blk in sm.get_matching_blocks():
+            for k in range(blk.size):
+                times[blk.a + k] = cand[blk.b + k][1]
+        known = [i for i, x in enumerate(times) if x is not None]
+        if len(known) < max(1, 0.5 * len(cw)):
+            continue                               # not a narrated card (credits, source, Old Norse...)
+        for i in range(len(cw)):                   # fill the gaps
+            if times[i] is None:
+                lo = max([j for j in known if j < i], default=None)
+                hi = min([j for j in known if j > i], default=None)
+                if lo is not None and hi is not None:
+                    times[i] = times[lo] + (times[hi] - times[lo]) * (i - lo) / (hi - lo)
+                elif lo is not None:
+                    times[i] = times[lo] + 0.3 * (i - lo)
+                else:
+                    times[i] = times[hi] - 0.3 * (hi - i)
+        for i in range(1, len(times)):
+            times[i] = max(times[i], times[i - 1])
+        card.reveal = times
+
+def render_voiced(out, dur, frame, segments, seed=3, bpm=60, music=None, music_start=0.0, voice=None, music_gain=0.45,
+                  cards=None):
+    """cards: the script's Card list, to light the narrated ones up word by word (captions)."""
     new_dur, warp, track = plan(segments, dur, voice=voice)
+    if cards:
+        attach_captions(cards)
     base = os.path.splitext(out)[0]
     silent = base + ".music.mp4"
     nr.render(silent, new_dur, lambda img, t: frame(img, warp(t)), seed=seed, bpm=bpm, music=music, music_start=music_start)

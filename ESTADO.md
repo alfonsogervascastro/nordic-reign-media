@@ -135,4 +135,9 @@ Léelo entero antes de trabajar. La fuente de verdad del día a día es `PLAYBOO
 - Primeros datos del gancho nuevo en IG (misma serie, semana anterior): Hávamál 111→138 vistas, salto 65→55 %, 6,4→8,5 s, 4 comentarios; runas 30→117 vistas, salto 68→61 %. TikTok sigue en ~190–240. IG 69 seguidores (+12 en 7 días).
 - Reels de prueba: requieren 200 seguidores; en pausa (borradores 25–30 nov).
 - FREYA en IG (publicación manual por aviso) no llegó a salir: republicado a las 20:52 en automático. INGRID (1 dic) pasado a automático. Ya no se usan avisos al móvil.
-- Competidores de IG añadidos en Metricool (24 nov): einarrs_journey, deonildo_p_brito, norsedream, dyrs_hjarta_art (Gloria Notarangelo), gelmirproject. Total 13. Análisis en `metrics/competidores-2026-11-24.md`; 5 propuestas pendientes de OK.
+- Competidores de IG añadidos en Metricool (24 nov): einarrs_journey, deonildo_p_brito, norsedream, dyrs_hjarta_art (Gloria Notarangelo), gelmirproject. Total 13. Análisis en `metrics/competidores-2026-11-24.md`.
+- Alfonso aprobó 4 de las 5 propuestas (no las colaboraciones). Hecho el mismo día:
+  - Subtítulos palabra a palabra en los vídeos con voz (`narrate.render_voiced(..., cards=cards)`, tiempos con Parakeet). Rehechos con subtítulos los vídeos con voz ya programados: saga 6, 7, 8 y 9, Hávamál 47 y 1 (`*_voz_cap.mp4`; los de 25–29 nov con el gancho de `hook.py`).
+  - TikTok separado de Instagram en todo lo programado del 25 nov al 7 dic: 16 publicaciones nuevas solo TikTok con 10 hashtags; las de Instagram se quedan con 5.
+  - Serie SHOW vs SAGAS desde el martes 8 dic (sustituye a los nombres en runas), con banco de temas en el PLAYBOOK.
+  - Clip musical semanal: Alfonso no quiere cuadros de fondo; pendiente de que elija el visual entre las opciones propuestas.
