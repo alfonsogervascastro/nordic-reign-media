@@ -130,3 +130,8 @@ Léelo entero antes de trabajar. La fuente de verdad del día a día es `PLAYBOO
 ## 23 nov
 - Historias diarias: se mantienen (Alfonso: «que siga») aunque tengan 1–2 vistas.
 - Destacados: hechos portadas e historias de presentación para 6 destacados (SAGA, RUNES, WORDS, HISTORY, HÁVAMÁL, MUSIC) en `highlights/` (`engine/highlights.py`). Los monta Alfonso desde el móvil; ver PLAYBOOK paso 9b.
+
+## 24 nov
+- Primeros datos del gancho nuevo en IG (misma serie, semana anterior): Hávamál 111→138 vistas, salto 65→55 %, 6,4→8,5 s, 4 comentarios; runas 30→117 vistas, salto 68→61 %. TikTok sigue en ~190–240. IG 69 seguidores (+12 en 7 días).
+- Reels de prueba: requieren 200 seguidores; en pausa (borradores 25–30 nov).
+- FREYA en IG (publicación manual por aviso) no llegó a salir: republicado a las 20:52 en automático. INGRID (1 dic) pasado a automático. Ya no se usan avisos al móvil.
