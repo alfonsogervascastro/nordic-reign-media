@@ -135,7 +135,43 @@ def attach_captions(cards):
             times[i] = max(times[i], times[i - 1])
         card.reveal = times
 
-def render_voiced(out, dur, frame, segments, seed=3, bpm=60, music=None, music_start=0.0, voice=None, music_gain=0.45,
+# Voice/music balance (25 Nov 2026: Alfonso found the music too loud under the narration in Ep. 6).
+# Music 0.18 (was 0.45), a dip around 1-4 kHz so it does not mask the voice, harder ducking while the voice speaks.
+MUSIC_GAIN = 0.18
+
+def mix_voice(src, track, out, music_gain=MUSIC_GAIN, stems=None):
+    """Mix the voice track over the audio of `src` (music or soundscape) and mux it with src's video into `out`."""
+    vw = os.path.splitext(out)[0] + ".voice.wav"
+    peak = np.abs(track).max() or 1.0
+    wavfile.write(vw, SR, (track / peak * 0.9 * 32767).astype(np.int16))
+    fc = (f"[1:a]aresample=44100,aformat=channel_layouts=stereo,aecho=0.8:0.5:40:0.12,volume=1.0,asplit=2[v][vk];"
+          f"[0:a]volume={music_gain},equalizer=f=2500:width_type=o:width=1.5:g=-6[m];"
+          f"[m][vk]sidechaincompress=threshold=0.02:ratio=10:attack=15:release=500:makeup=1[md];"
+          f"[md][v]amix=inputs=2:duration=first:normalize=0,loudnorm=I=-14:TP=-1.5:LRA=11,aresample=44100[a]")
+    subprocess.run(["ffmpeg", "-nostdin", "-y", "-loglevel", "error", "-i", src, "-i", vw, "-filter_complex", fc,
+                    "-map", "0:v", "-map", "[a]", "-c:v", "copy", "-c:a", "aac", "-b:a", "160k",
+                    "-movflags", "+faststart", out], check=True)
+    os.remove(vw)
+
+def remix(video, out, dur, segments, seed=3, bpm=60, music=None, music_start=0.0, voice=None, music_gain=MUSIC_GAIN):
+    """New voice/music balance for an already rendered voiced video (its frames, hook included, are kept)."""
+    new_dur, warp, track = plan(segments, dur, voice=voice)
+    base = os.path.splitext(out)[0]
+    wav = base + ".bed.wav"
+    if music:
+        subprocess.run(["ffmpeg", "-nostdin", "-y", "-loglevel", "error", "-ss", str(music_start), "-t", str(new_dur),
+                        "-i", music, "-af", f"afade=t=in:d=0.8,afade=t=out:st={new_dur - 1.5}:d=1.5",
+                        "-ar", "44100", "-ac", "2", wav], check=True)
+    else:
+        nr.make_audio(wav, new_dur, bpm=bpm, seed=seed)
+    tmp = base + ".bed.mp4"
+    subprocess.run(["ffmpeg", "-nostdin", "-y", "-loglevel", "error", "-i", video, "-i", wav, "-map", "0:v", "-map", "1:a",
+                    "-c:v", "copy", "-c:a", "pcm_s16le", "-shortest", tmp.replace(".mp4", ".mov")], check=True)
+    mix_voice(tmp.replace(".mp4", ".mov"), track, out, music_gain)
+    os.remove(wav); os.remove(tmp.replace(".mp4", ".mov"))
+    return new_dur
+
+def render_voiced(out, dur, frame, segments, seed=3, bpm=60, music=None, music_start=0.0, voice=None, music_gain=MUSIC_GAIN,
                   cards=None):
     """cards: the script's Card list, to light the narrated ones up word by word (captions)."""
     new_dur, warp, track = plan(segments, dur, voice=voice)
@@ -144,16 +180,6 @@ def render_voiced(out, dur, frame, segments, seed=3, bpm=60, music=None, music_s
     base = os.path.splitext(out)[0]
     silent = base + ".music.mp4"
     nr.render(silent, new_dur, lambda img, t: frame(img, warp(t)), seed=seed, bpm=bpm, music=music, music_start=music_start)
-    vw = base + ".voice.wav"
-    peak = np.abs(track).max() or 1.0
-    wavfile.write(vw, SR, (track / peak * 0.9 * 32767).astype(np.int16))
-    # music ducked under the voice (sidechain), voice slightly warmed with a short room reverb
-    fc = (f"[1:a]aresample=44100,aformat=channel_layouts=stereo,aecho=0.8:0.5:40:0.12,volume=1.0,asplit=2[v][vk];"
-          f"[0:a]volume={music_gain}[m];"
-          f"[m][vk]sidechaincompress=threshold=0.04:ratio=6:attack=20:release=400[md];"
-          f"[md][v]amix=inputs=2:duration=first:normalize=0,loudnorm=I=-14:TP=-1.5:LRA=11,aresample=44100[a]")
-    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", silent, "-i", vw, "-filter_complex", fc,
-                    "-map", "0:v", "-map", "[a]", "-c:v", "copy", "-c:a", "aac", "-b:a", "160k",
-                    "-movflags", "+faststart", out], check=True)
-    os.remove(silent); os.remove(vw)
+    mix_voice(silent, track, out, music_gain)
+    os.remove(silent)
     return new_dur
