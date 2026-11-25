@@ -141,3 +141,4 @@ Léelo entero antes de trabajar. La fuente de verdad del día a día es `PLAYBOO
   - TikTok separado de Instagram en todo lo programado del 25 nov al 7 dic: 16 publicaciones nuevas solo TikTok con 10 hashtags; las de Instagram se quedan con 5.
   - Serie SHOW vs SAGAS desde el martes 8 dic (sustituye a los nombres en runas), con banco de temas en el PLAYBOOK.
   - Clip musical semanal: Alfonso no quiere cuadros de fondo; pendiente de que elija el visual entre las opciones propuestas.
+  - Verificado con `getScheduledPosts` (25 nov, 8:00): del 25 nov al 7 dic, cada vídeo tiene YouTube 16:00, Instagram 18:00 y TikTok 18:00 por separado (TikTok con 10 hashtags); los vídeos con voz llevan la versión con subtítulos; nada en Facebook. Los vídeos con voz del 1–7 dic llevan subtítulos pero no el gancho nuevo de `hook.py`.
