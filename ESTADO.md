@@ -142,3 +142,8 @@ Léelo entero antes de trabajar. La fuente de verdad del día a día es `PLAYBOO
   - Serie SHOW vs SAGAS desde el martes 8 dic (sustituye a los nombres en runas), con banco de temas en el PLAYBOOK.
   - Clip musical semanal: Alfonso no quiere cuadros de fondo; pendiente de que elija el visual entre las opciones propuestas.
   - Verificado con `getScheduledPosts` (25 nov, 8:00): del 25 nov al 7 dic, cada vídeo tiene YouTube 16:00, Instagram 18:00 y TikTok 18:00 por separado (TikTok con 10 hashtags); los vídeos con voz llevan la versión con subtítulos; nada en Facebook. Los vídeos con voz del 1–7 dic llevan subtítulos pero no el gancho nuevo de `hook.py`.
+
+## 25 nov
+- Gancho nuevo (`hook.py`) puesto también en los 7 vídeos del 1 al 7 dic (`2026-12/*_hA.mp4`) y cambiados en Instagram, TikTok y YouTube (21 publicaciones). Ganchos: INGRID y Raidho con su propia tarjeta de runas; Ep. 8 con el fotograma de Odín y las gotas de hidromiel; Odín = furia y Hávamál 1 con von Rosen; berserkers con el Thor de Winge (sin desnudos); Ep. 9 con Bagge.
+- Clip de estribillo: Alfonso elige historia + vídeo real (ideas 4 y 5). Prueba hecha con The Bride in Thunder (`engine/chorus_bride.py`, 23 s, vídeo de tormentas de Wikimedia Commons en `C:\Nordic Reign\stock\`). Pendiente de su OK para fijar día y hora semanal.
+
