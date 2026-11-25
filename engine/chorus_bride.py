@@ -25,33 +25,53 @@ T0 = 55.9                  # clip starts here (full-song seconds)
 DUR = 23.0
 CHORUS = 63.6 - T0         # 7.7 s
 
-# background footage: (file, source start, source dur, speed, crop centre x 0-1, clip start)
+# background footage: (file, source start, source dur, speed, crop centre x 0-1, clip start, stabilise)
+# The Black Sea clip is handheld: use its calmest stretches (measured with vidstabdetect) and smooth the shake out,
+# keeping a slow drift (Alfonso, 25 Nov: "not fixed, but not so many camera moves").
 SEGS = [
-    ("lightning_colorado_CC0.ogg", 14.0, 10.4, 1.35, 0.64, 0.0),
-    ("storm_black_sea_CCBY3.webm", 4.0, 8.6, 1.0, 0.16, 7.7 - 0.4),
-    ("lightning_muurame_finland_CCBY3_MrNousia.webm", 0.9, 4.7, 1.0, 0.5, 15.45),   # big flash on "Thunder" (17.8 s)
+    ("lightning_colorado_CC0.ogg", 14.0, 10.4, 1.35, 0.64, 0.0, False),
+    ("storm_black_sea_CCBY3.webm", 2.2, 8.6, 1.0, 0.16, 7.7 - 0.4, True),
+    ("lightning_muurame_finland_CCBY3_MrNousia.webm", 0.9, 4.7, 1.0, 0.5, 15.45, False),   # big flash on "Thunder" (17.8 s)
+    ("storm_black_sea_CCBY3.webm", 23.1, 3.8, 1.0, 0.16, 15.45 + 4.7 - 0.4, True),       # the video runs to the end
 ]
-BG_END = 20.6
+BG_END = DUR + 1.0
 XF = 0.4
 
+def prep(stock, seg, out):
+    """One segment as a 1080x1920 clip; handheld ones stabilised with a slow, smooth drift."""
+    f, ss, sd, sp, cx, _, stab = seg
+    pre = (f"setpts=PTS/{sp},fps={FPS},scale=-2:{H},"
+           f"crop='min(iw,{int(W * 1.3)})':{H}:'min(max(iw*{cx}-{int(W * 1.3)}/2,0),iw-min(iw,{int(W * 1.3)}))':0")
+    post = f"crop={W}:{H},setsar=1,format=yuv420p"
+    src = ["-ss", str(ss), "-t", str(sd), "-i", os.path.join(stock, f)]
+    if stab:
+        trf = out + ".trf"
+        subprocess.run(["ffmpeg", "-nostdin", "-y", "-v", "error"] + src +
+                       ["-vf", pre + f",vidstabdetect=shakiness=8:accuracy=15:result={trf}", "-f", "null", "-"], check=True)
+        pre += f",vidstabtransform=input={trf}:smoothing=60:optzoom=1:zoomspeed=0.1:interpol=bicubic"
+    subprocess.run(["ffmpeg", "-nostdin", "-y", "-v", "error"] + src + ["-vf", pre + "," + post, "-an",
+                    "-c:v", "libx264", "-crf", "15", "-preset", "veryfast", out], check=True)
+    return sd / sp
+
 def build_bg(stock, out):
-    """One 1080x1920 background video from the three clips, crossfaded."""
-    ins, parts = [], []
-    for i, (f, ss, sd, sp, cx, _) in enumerate(SEGS):
-        ins += ["-ss", str(ss), "-t", str(sd), "-i", os.path.join(stock, f)]
-        parts.append(
-            f"[{i}:v]setpts=PTS/{sp},fps={FPS},scale=-2:{H},"
-            f"crop={W}:{H}:'min(max(iw*{cx}-{W}/2,0),iw-{W})':0,setsar=1,format=yuv420p[v{i}]")
-    d0 = SEGS[0][2] / SEGS[0][3]
-    d1 = SEGS[1][2] / SEGS[1][3]
-    o1 = SEGS[1][5]
-    o2 = SEGS[2][5] - o1
-    fc = ";".join(parts) + (
-        f";[v0][v1]xfade=transition=fade:duration={XF}:offset={o1}[a]"
-        f";[a][v2]xfade=transition=fade:duration={XF}:offset={SEGS[2][5]}[v]")
-    assert d0 >= o1 + XF and d1 >= o2 + XF, (d0, d1)
-    subprocess.run(["ffmpeg", "-nostdin", "-y", "-v", "error"] + ins + ["-filter_complex", fc, "-map", "[v]",
+    """One background video from the segments, crossfaded."""
+    files, durs = [], []
+    for i, seg in enumerate(SEGS):
+        p = f"{out}.seg{i}.mp4"
+        durs.append(prep(stock, seg, p)); files.append(p)
+    ins = sum((["-i", p] for p in files), [])
+    fc, last = [], "[0:v]"
+    for i in range(1, len(SEGS)):
+        off = SEGS[i][5]
+        assert SEGS[i - 1][5] + durs[i - 1] >= off + XF, (i, SEGS[i - 1][5] + durs[i - 1], off + XF)
+        fc.append(f"{last}[{i}:v]xfade=transition=fade:duration={XF}:offset={off}[x{i}]")
+        last = f"[x{i}]"
+    subprocess.run(["ffmpeg", "-nostdin", "-y", "-v", "error"] + ins + ["-filter_complex", ";".join(fc), "-map", last,
                     "-an", "-c:v", "libx264", "-crf", "16", "-preset", "veryfast", out], check=True)
+    for p in files:
+        os.remove(p)
+        if os.path.exists(p + ".trf"):
+            os.remove(p + ".trf")
 
 class BG:
     """Reads the background video frame by frame (frames are asked for in order)."""
