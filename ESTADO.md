@@ -145,5 +145,4 @@ Léelo entero antes de trabajar. La fuente de verdad del día a día es `PLAYBOO
 
 ## 25 nov
 - Gancho nuevo (`hook.py`) puesto también en los 7 vídeos del 1 al 7 dic (`2026-12/*_hA.mp4`) y cambiados en Instagram, TikTok y YouTube (21 publicaciones). Ganchos: INGRID y Raidho con su propia tarjeta de runas; Ep. 8 con el fotograma de Odín y las gotas de hidromiel; Odín = furia y Hávamál 1 con von Rosen; berserkers con el Thor de Winge (sin desnudos); Ep. 9 con Bagge.
-- Clip de estribillo: Alfonso elige historia + vídeo real (ideas 4 y 5). Prueba hecha con The Bride in Thunder (`engine/chorus_bride.py`, 23 s, vídeo de tormentas de Wikimedia Commons en `C:\Nordic Reign\stock\`). Pendiente de su OK para fijar día y hora semanal.
-
+- Clip de estribillo: Alfonso elige historia + vídeo real (ideas 4 y 5). Prueba hecha con The Bride in Thunder (`engine/chorus_bride.py`, 23 s, vídeo de tormentas de Wikimedia Commons en `C:\Nordic Reign\stock\`). Aprobado tras dos cambios (vídeo de fondo hasta el final; nada de tomas grabadas a mano: tomas firmes en 4K de las Lofoten). Programado el jueves 26 nov 12:00 en IG y TikTok (publicaciones separadas). Desde ahí, uno cada jueves 12:00 con el estribillo de otra canción y vídeo relacionado con la letra; plan en el PLAYBOOK. Siguiente: Inside the Lie, 3 dic (enseñárselo a Alfonso antes de programar).
