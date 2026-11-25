@@ -7,7 +7,7 @@ Song fragment: audio/the-bride-in-thunder.mp3 = full song 0:08-1:23; word times 
 
 Footage (Wikimedia Commons; downloaded 25 Nov 2026 to C:\\Nordic Reign\\stock\\, not in the public repo):
   - "Lightning storm over Colorado, USA" (CC0)
-  - "Шторм на Черном море / Storm on the Black Sea" by Евгений (CC BY 3.0)
+  - "LOFOTEN ISLANDS - NORWAY - 4K FILM" by Danny Rest (CC BY 3.0)
   - "Lightning strikes in slow motion (240fps) in Muurame, Finland" by MrNousia (CC BY 3.0)
 Credit the two CC BY clips in the post text.
 
@@ -26,13 +26,13 @@ DUR = 23.0
 CHORUS = 63.6 - T0         # 7.7 s
 
 # background footage: (file, source start, source dur, speed, crop centre x 0-1, clip start, stabilise)
-# The Black Sea clip is handheld: use its calmest stretches (measured with vidstabdetect) and smooth the shake out,
-# keeping a slow drift (Alfonso, 25 Nov: "not fixed, but not so many camera moves").
+# Only steady shots (tripod, slider or timelapse): Alfonso, 25 Nov, found the handheld Black Sea clip dizzying and soft.
+# stabilise=True is still there for a handheld clip with no alternative.
 SEGS = [
-    ("lightning_colorado_CC0.ogg", 14.0, 10.4, 1.35, 0.64, 0.0, False),
-    ("storm_black_sea_CCBY3.webm", 2.2, 8.6, 1.0, 0.16, 7.7 - 0.4, True),
+    ("lightning_colorado_CC0.ogg", 16.1, 8.3, 1.0, 0.64, 0.0, False),            # after the camera bump at 15-16 s of the source
+    ("lofoten_4K_film_CCBY3.webm", 198.5, 8.6, 1.0, 0.6, 7.7 - 0.4, False),       # waves on the boulders, Lofoten (tripod/slider)
     ("lightning_muurame_finland_CCBY3_MrNousia.webm", 0.9, 4.7, 1.0, 0.5, 15.45, False),   # big flash on "Thunder" (17.8 s)
-    ("storm_black_sea_CCBY3.webm", 23.1, 3.8, 1.0, 0.16, 15.45 + 4.7 - 0.4, True),       # the video runs to the end
+    ("lofoten_4K_film_CCBY3.webm", 180.0, 3.8, 1.0, 0.36, 15.45 + 4.7 - 0.4, False),       # dusk beach to the end
 ]
 BG_END = DUR + 1.0
 XF = 0.4
