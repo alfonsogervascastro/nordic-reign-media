@@ -27,6 +27,12 @@ La cuenta cuenta una historia, no curiosidades sueltas. La columna es **The Nors
 - **Correcciones:** NO se hacen vídeos de corrección (Alfonso, 21 nov: con tan pocos comentarios queda mal destacarlo). Si alguien señala un error con fuente, Alfonso le responde y se corrige en la regla de rigor para lo siguiente. El vídeo hecho (`engine/v34_correction.py`) queda en borrador en Metricool, sin publicar.
 - **Composición:** cuando una escena es solo texto, el bloque de texto va centrado en vertical; nada de texto arriba con media pantalla vacía.
 
+## Prueba del segundo vídeo diario (26 nov: Alfonso lo pide para la semana del 30 nov)
+- Del 30 nov al 6 dic, un **segundo vídeo diario a las 21:00 solo en TikTok y YouTube Shorts** (Instagram sigue con 1 al día). Son cortes de 13–21 s de un solo dato de la saga (`engine/teaser.py`: tramo del episodio ya renderizado con subtítulos y mezcla nueva, gancho de `hook.py` en los 2 primeros segundos y «Full episode on the profile» en los 2 últimos). Archivos en `2026-12/teasers/`.
+- Por qué: Buffer (11,4 M de vídeos de TikTok) ve que las vistas medianas por vídeo apenas cambian con la frecuencia (~500) y que sube el techo (p90), así que más vídeos buenos = más vistas totales. Tres o cuatro al día se descartó por la revisión de Alfonso, el rigor y el material disponible.
+- **Cómo se decide (domingo 6 dic):** vistas por vídeo de TikTok y YouTube de los cortes frente a los vídeos principales de la misma semana y frente a la mediana de las dos semanas anteriores. Si los cortes aguantan ≥ 80 % de la mediana y los principales no caen más de un 10 %, seguir con 2 al día y probar 3 en TikTok; si no, volver a 1.
+- Cuidado: los cuadros con desnudos (Abildgaard, Frølich Ymir y Ask y Embla, el Odín de Frølich en la guerra de los Vanir) no van en ganchos; los Ep. 1, 2 y 4 se dejaron fuera de esta tanda por eso.
+
 ## Cambios del 25 nov (tarde)
 - **Volumen voz/música:** en el Ep. 6 la música tapaba la narración (en los silencios quedaba solo 1,7 dB por debajo de la voz). `narrate.py` ahora pone la música a 0,18 (antes 0,45), le quita 6 dB entre 1 y 4 kHz (la banda de la voz) y la baja más fuerte mientras se habla: la diferencia sube a 6 dB y el reconocimiento automático de la narración pasa del 89 % al 94 %. Lo aplica solo `render_voiced`; para un vídeo ya renderizado, `narrate.remix(...)` cambia solo el audio (mantiene imagen, gancho y subtítulos). Remezclados el 25 nov los vídeos con voz del 28 nov al 6 dic (`*_mix.mp4`).
 
