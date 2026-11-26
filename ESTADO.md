@@ -150,4 +150,5 @@ Léelo entero antes de trabajar. La fuente de verdad del día a día es `PLAYBOO
 
 ## 26 nov
 - Alfonso pregunta por subir 3–4 vídeos al día. Respuesta: no todavía; prueba de 2 al día en TikTok y YouTube. Él pide empezar ya la semana del 30 nov. Hecho: 7 cortes de la saga (`2026-12/teasers/`) programados del 30 nov al 6 dic a las 21:00 en TikTok y YouTube (14 publicaciones). Episodios 3 y 5 re-renderizados con subtítulos y mezcla nueva para poder cortarlos. Criterio de decisión en el PLAYBOOK; se mide el domingo 6 dic.
+- 27 nov (madrugada): Alfonso rechaza los cortes («no hay nada de calidad»: imagen que no va con la voz, texto sin leer entero). Rehechos los 7 como piezas propias (`engine/short.py`, `2026-12/shorts/`), con otros temas donde hacía falta (Gleipnir y Sleipnir en lugar de Gullveig y la hidromiel, por falta de imágenes que enseñen lo que se dice). Las 14 publicaciones de las 21:00 (30 nov–6 dic) están actualizadas con los vídeos nuevos pero en BORRADOR: no sale ninguna sin su OK.
 
