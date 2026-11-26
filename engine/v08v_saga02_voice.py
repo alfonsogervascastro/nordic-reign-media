@@ -18,5 +18,5 @@ SEGMENTS = [
 
 if __name__ == "__main__":
     voice = sys.argv[1] if len(sys.argv) > 1 else None
-    d = narrate.render_voiced("out/v08v_saga02.mp4", ep.DUR, ep.frame, SEGMENTS, seed=19, bpm=60, voice=voice)
+    d = narrate.render_voiced("out/v08v_saga02.mp4", ep.DUR, ep.frame, SEGMENTS, seed=19, bpm=60, voice=voice, cards=ep.cards)
     print("duration", round(d, 2))

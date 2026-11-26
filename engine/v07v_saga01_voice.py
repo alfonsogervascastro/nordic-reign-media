@@ -13,5 +13,5 @@ SEGMENTS = [
 ]
 
 if __name__ == "__main__":
-    d = narrate.render_voiced("out/v07v_saga01.mp4", ep.DUR, ep.frame, SEGMENTS, seed=17, bpm=58)
+    d = narrate.render_voiced("out/v07v_saga01.mp4", ep.DUR, ep.frame, SEGMENTS, seed=17, bpm=58, cards=ep.cards)
     print("duration", round(d, 2))
